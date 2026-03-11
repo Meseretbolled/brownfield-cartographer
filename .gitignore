@@ -1,0 +1,10 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.cartography/
+*.egg-info/
+dist/
+.DS_Store
+.python-version
