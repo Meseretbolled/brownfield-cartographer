@@ -6,7 +6,7 @@
       "schema_snapshot": null,
       "owner": null,
       "is_source_of_truth": false,
-      "source_file": "/tmp/jaffle_shop/models/orders.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/orders.sql",
       "description": null
     },
     "stg_orders": {
@@ -15,7 +15,7 @@
       "schema_snapshot": null,
       "owner": null,
       "is_source_of_truth": false,
-      "source_file": "/tmp/jaffle_shop/models/orders.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/orders.sql",
       "description": null
     },
     "orders": {
@@ -24,7 +24,7 @@
       "schema_snapshot": null,
       "owner": null,
       "is_source_of_truth": false,
-      "source_file": "/tmp/jaffle_shop/models/orders.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/orders.sql",
       "description": null
     },
     "stg_customers": {
@@ -33,7 +33,7 @@
       "schema_snapshot": null,
       "owner": null,
       "is_source_of_truth": false,
-      "source_file": "/tmp/jaffle_shop/models/customers.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/customers.sql",
       "description": null
     },
     "customers": {
@@ -42,7 +42,7 @@
       "schema_snapshot": null,
       "owner": null,
       "is_source_of_truth": false,
-      "source_file": "/tmp/jaffle_shop/models/customers.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/customers.sql",
       "description": null
     },
     "raw_payments": {
@@ -51,7 +51,7 @@
       "schema_snapshot": null,
       "owner": null,
       "is_source_of_truth": false,
-      "source_file": "/tmp/jaffle_shop/models/staging/stg_payments.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_payments.sql",
       "description": null
     },
     "raw_orders": {
@@ -60,7 +60,7 @@
       "schema_snapshot": null,
       "owner": null,
       "is_source_of_truth": false,
-      "source_file": "/tmp/jaffle_shop/models/staging/stg_orders.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_orders.sql",
       "description": null
     },
     "raw_customers": {
@@ -69,7 +69,7 @@
       "schema_snapshot": null,
       "owner": null,
       "is_source_of_truth": false,
-      "source_file": "/tmp/jaffle_shop/models/staging/stg_customers.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_customers.sql",
       "description": null
     },
     "jaffle_shop": {
@@ -78,13 +78,13 @@
       "schema_snapshot": null,
       "owner": null,
       "is_source_of_truth": false,
-      "source_file": "/tmp/jaffle_shop/dbt_project.yml",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/dbt_project.yml",
       "description": "dbt project: jaffle_shop"
     }
   },
   "transformation_nodes": {
-    "/tmp/jaffle_shop/models/orders.sql": {
-      "id": "/tmp/jaffle_shop/models/orders.sql",
+    "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/orders.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/orders.sql",
       "source_datasets": [
         "stg_payments",
         "stg_orders"
@@ -93,33 +93,33 @@
         "orders"
       ],
       "transformation_type": "dbt_model",
-      "source_file": "/tmp/jaffle_shop/models/orders.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/orders.sql",
       "line_range": [
         1,
         56
       ],
       "sql_query": "{% set payment_methods = ['credit_card', 'coupon', 'bank_transfer', 'gift_card'] %}\n\nwith orders as (\n\n    select * from {{ ref('stg_orders') }}\n\n),\n\npayments as (\n\n    select * from {{ ref('stg_payments') }}\n\n),\n\norder_payments as (\n\n    select\n        order_id,\n\n        {% for payment_method in payment_methods -%}\n        sum(case when payment_method = '{{ payment_method }}' then amount else 0 end) as {{ payment_method }}_amount,\n        {% endfor -%}\n\n        sum(amount) as total_amount\n\n    "
     },
-    "/tmp/jaffle_shop/models/customers.sql": {
-      "id": "/tmp/jaffle_shop/models/customers.sql",
+    "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/customers.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/customers.sql",
       "source_datasets": [
-        "stg_customers",
         "stg_payments",
-        "stg_orders"
+        "stg_orders",
+        "stg_customers"
       ],
       "target_datasets": [
         "customers"
       ],
       "transformation_type": "dbt_model",
-      "source_file": "/tmp/jaffle_shop/models/customers.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/customers.sql",
       "line_range": [
         1,
         69
       ],
       "sql_query": "with customers as (\n\n    select * from {{ ref('stg_customers') }}\n\n),\n\norders as (\n\n    select * from {{ ref('stg_orders') }}\n\n),\n\npayments as (\n\n    select * from {{ ref('stg_payments') }}\n\n),\n\ncustomer_orders as (\n\n        select\n        customer_id,\n\n        min(order_date) as first_order,\n        max(order_date) as most_recent_order,\n        count(order_id) as number_of_orders\n    from orders\n\n    group by customer_id\n\n),\n\ncustomer_payments as (\n\n    select\n        orders.customer_id,\n      "
     },
-    "/tmp/jaffle_shop/models/staging/stg_payments.sql": {
-      "id": "/tmp/jaffle_shop/models/staging/stg_payments.sql",
+    "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_payments.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_payments.sql",
       "source_datasets": [
         "raw_payments"
       ],
@@ -127,15 +127,15 @@
         "stg_payments"
       ],
       "transformation_type": "dbt_model",
-      "source_file": "/tmp/jaffle_shop/models/staging/stg_payments.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_payments.sql",
       "line_range": [
         1,
         25
       ],
       "sql_query": "with source as (\n    \n    {#-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    #}\n    select * from {{ ref('raw_payments') }}\n\n),\n\nrenamed as (\n\n    select\n        id as payment_id,\n        order_id,\n        payment_method,\n\n        -- `amount` is currently stored in cents, so we convert it to dollars\n        amount / 100 as amount\n\n    from source\n\n)\n\nselect * from renamed\n"
     },
-    "/tmp/jaffle_shop/models/staging/stg_orders.sql": {
-      "id": "/tmp/jaffle_shop/models/staging/stg_orders.sql",
+    "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_orders.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_orders.sql",
       "source_datasets": [
         "raw_orders"
       ],
@@ -143,15 +143,15 @@
         "stg_orders"
       ],
       "transformation_type": "dbt_model",
-      "source_file": "/tmp/jaffle_shop/models/staging/stg_orders.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_orders.sql",
       "line_range": [
         1,
         23
       ],
       "sql_query": "with source as (\n\n    {#-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    #}\n    select * from {{ ref('raw_orders') }}\n\n),\n\nrenamed as (\n\n    select\n        id as order_id,\n        user_id as customer_id,\n        order_date,\n        status\n\n    from source\n\n)\n\nselect * from renamed\n"
     },
-    "/tmp/jaffle_shop/models/staging/stg_customers.sql": {
-      "id": "/tmp/jaffle_shop/models/staging/stg_customers.sql",
+    "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_customers.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_customers.sql",
       "source_datasets": [
         "raw_customers"
       ],
@@ -159,7 +159,7 @@
         "stg_customers"
       ],
       "transformation_type": "dbt_model",
-      "source_file": "/tmp/jaffle_shop/models/staging/stg_customers.sql",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_customers.sql",
       "line_range": [
         1,
         22
@@ -170,90 +170,90 @@
   "edges": [
     {
       "source": "stg_payments",
-      "target": "/tmp/jaffle_shop/models/orders.sql",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/orders.sql",
       "edge_type": "CONSUMES",
       "weight": 1.0,
       "metadata": {}
     },
     {
       "source": "stg_payments",
-      "target": "/tmp/jaffle_shop/models/customers.sql",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/customers.sql",
       "edge_type": "CONSUMES",
       "weight": 1.0,
       "metadata": {}
     },
     {
       "source": "stg_orders",
-      "target": "/tmp/jaffle_shop/models/orders.sql",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/orders.sql",
       "edge_type": "CONSUMES",
       "weight": 1.0,
       "metadata": {}
     },
     {
       "source": "stg_orders",
-      "target": "/tmp/jaffle_shop/models/customers.sql",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/customers.sql",
       "edge_type": "CONSUMES",
       "weight": 1.0,
       "metadata": {}
     },
     {
       "source": "stg_customers",
-      "target": "/tmp/jaffle_shop/models/customers.sql",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/customers.sql",
       "edge_type": "CONSUMES",
       "weight": 1.0,
       "metadata": {}
     },
     {
       "source": "raw_payments",
-      "target": "/tmp/jaffle_shop/models/staging/stg_payments.sql",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_payments.sql",
       "edge_type": "CONSUMES",
       "weight": 1.0,
       "metadata": {}
     },
     {
       "source": "raw_orders",
-      "target": "/tmp/jaffle_shop/models/staging/stg_orders.sql",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_orders.sql",
       "edge_type": "CONSUMES",
       "weight": 1.0,
       "metadata": {}
     },
     {
       "source": "raw_customers",
-      "target": "/tmp/jaffle_shop/models/staging/stg_customers.sql",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_customers.sql",
       "edge_type": "CONSUMES",
       "weight": 1.0,
       "metadata": {}
     },
     {
-      "source": "/tmp/jaffle_shop/models/orders.sql",
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/orders.sql",
       "target": "orders",
       "edge_type": "PRODUCES",
       "weight": 1.0,
       "metadata": {}
     },
     {
-      "source": "/tmp/jaffle_shop/models/customers.sql",
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/customers.sql",
       "target": "customers",
       "edge_type": "PRODUCES",
       "weight": 1.0,
       "metadata": {}
     },
     {
-      "source": "/tmp/jaffle_shop/models/staging/stg_payments.sql",
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_payments.sql",
       "target": "stg_payments",
       "edge_type": "PRODUCES",
       "weight": 1.0,
       "metadata": {}
     },
     {
-      "source": "/tmp/jaffle_shop/models/staging/stg_orders.sql",
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_orders.sql",
       "target": "stg_orders",
       "edge_type": "PRODUCES",
       "weight": 1.0,
       "metadata": {}
     },
     {
-      "source": "/tmp/jaffle_shop/models/staging/stg_customers.sql",
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop/models/staging/stg_customers.sql",
       "target": "stg_customers",
       "edge_type": "PRODUCES",
       "weight": 1.0,
@@ -271,6 +271,6 @@
     "customers",
     "jaffle_shop"
   ],
-  "generated_at": "2026-03-11T16:57:33.594226",
-  "target_repo": "/tmp/jaffle_shop"
+  "generated_at": "2026-03-13T18:03:37.006874",
+  "target_repo": "/home/meseret/Documents/week-4/brownfield-cartographer/jaffle_shop"
 }

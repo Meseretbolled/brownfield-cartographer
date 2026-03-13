@@ -1,0 +1,897 @@
+{
+  "dataset_nodes": {
+    "bigquery": {
+      "name": "bigquery",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql_big_query.py",
+      "description": null
+    },
+    "stg_green_tripdata": {
+      "name": "stg_green_tripdata",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_green_tripdata.sql",
+      "description": null
+    },
+    "stg_yellow_tripdata": {
+      "name": "stg_yellow_tripdata",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_yellow_tripdata.sql",
+      "description": null
+    },
+    "int_trips": {
+      "name": "int_trips",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/fct_trips.sql",
+      "description": null
+    },
+    "dim_zones": {
+      "name": "dim_zones",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/fct_trips.sql",
+      "description": null
+    },
+    "fct_trips": {
+      "name": "fct_trips",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/fct_trips.sql",
+      "description": null
+    },
+    "taxi_zone_lookup": {
+      "name": "taxi_zone_lookup",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_zones.sql",
+      "description": null
+    },
+    "dim_vendors": {
+      "name": "dim_vendors",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_vendors.sql",
+      "description": null
+    },
+    "fct_monthly_zone_revenue": {
+      "name": "fct_monthly_zone_revenue",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/reporting/fct_monthly_zone_revenue.sql",
+      "description": null
+    },
+    "payment_type_lookup": {
+      "name": "payment_type_lookup",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips.sql",
+      "description": null
+    },
+    "int_trips_unioned": {
+      "name": "int_trips_unioned",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips.sql",
+      "description": null
+    },
+    "taxi_rides_ny": {
+      "name": "taxi_rides_ny",
+      "storage_type": "unknown",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/dbt_project.yml",
+      "description": "dbt project: taxi_rides_ny"
+    },
+    "green_tripdata": {
+      "name": "green_tripdata",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": "raw",
+      "is_source_of_truth": true,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/sources.yml",
+      "description": "Raw green taxi trip records"
+    },
+    "yellow_tripdata": {
+      "name": "yellow_tripdata",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": "raw",
+      "is_source_of_truth": true,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/sources.yml",
+      "description": "Raw yellow taxi trip records"
+    },
+    "data/pq/green/*/*": {
+      "name": "data/pq/green/*/*",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/08_rdds.ipynb",
+      "description": null
+    },
+    "tmp/green-revenue": {
+      "name": "tmp/green-revenue",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/08_rdds.ipynb",
+      "description": null
+    },
+    "data/pq/yellow/*/*": {
+      "name": "data/pq/yellow/*/*",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "description": null
+    },
+    "data/report/revenue/green": {
+      "name": "data/report/revenue/green",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "description": null
+    },
+    "data/report/revenue/yellow": {
+      "name": "data/report/revenue/yellow",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "description": null
+    },
+    "data/report/revenue/total": {
+      "name": "data/report/revenue/total",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "description": null
+    },
+    "zones/": {
+      "name": "zones/",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "description": null
+    },
+    "tmp/revenue-zones": {
+      "name": "tmp/revenue-zones",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "description": null
+    },
+    "gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/green/*/*": {
+      "name": "gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/green/*/*",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/09_spark_gcs.ipynb",
+      "description": null
+    },
+    "data/pq/fhvhv/2021/02/": {
+      "name": "data/pq/fhvhv/2021/02/",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/homework.ipynb",
+      "description": null
+    },
+    "zones": {
+      "name": "zones",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/homework.ipynb",
+      "description": null
+    },
+    "head.csv": {
+      "name": "head.csv",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/04_pyspark.ipynb",
+      "description": null
+    },
+    "fhvhv/2021/01/": {
+      "name": "fhvhv/2021/01/",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/04_pyspark.ipynb",
+      "description": null
+    },
+    "data/report/revenue/": {
+      "name": "data/report/revenue/",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql.ipynb",
+      "description": null
+    },
+    "green_tripdata_2019-10.csv.gz": {
+      "name": "green_tripdata_2019-10.csv.gz",
+      "storage_type": "file",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/cohorts/2025/06-streaming/homework/homework.ipynb",
+      "description": null
+    }
+  },
+  "transformation_nodes": {
+    "py::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql_big_query.py": {
+      "id": "py::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql_big_query.py",
+      "source_datasets": [],
+      "target_datasets": [
+        "bigquery"
+      ],
+      "transformation_type": "pyspark_write",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql_big_query.py",
+      "line_range": [
+        1,
+        114
+      ],
+      "sql_query": null
+    },
+    "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_green_tripdata.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_green_tripdata.sql",
+      "source_datasets": [],
+      "target_datasets": [
+        "stg_green_tripdata"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_green_tripdata.sql",
+      "line_range": [
+        1,
+        43
+      ],
+      "sql_query": "with source as (\n    select * from {{ source('raw', 'green_tripdata') }}\n),\n\nrenamed as (\n    select\n        -- identifiers\n        cast(vendorid as integer) as vendor_id,\n        {{ safe_cast('ratecodeid', 'integer') }} as rate_code_id,\n        cast(pulocationid as integer) as pickup_location_id,\n        cast(dolocationid as integer) as dropoff_location_id,\n\n        -- timestamps\n        cast(lpep_pickup_datetime as timestamp) as pickup_datetime,  -- lpep = Licensed Passenger Enhancement Progra"
+    },
+    "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_yellow_tripdata.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_yellow_tripdata.sql",
+      "source_datasets": [],
+      "target_datasets": [
+        "stg_yellow_tripdata"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_yellow_tripdata.sql",
+      "line_range": [
+        1,
+        42
+      ],
+      "sql_query": "with source as (\n    select * from {{ source('raw', 'yellow_tripdata') }}\n),\n\nrenamed as (\n    select\n        -- identifiers (standardized naming for consistency across yellow/green)\n        cast(vendorid as integer) as vendor_id,\n        cast(ratecodeid as integer) as rate_code_id,\n        cast(pulocationid as integer) as pickup_location_id,\n        cast(dolocationid as integer) as dropoff_location_id,\n\n        -- timestamps (standardized naming)\n        cast(tpep_pickup_datetime as timestamp) "
+    },
+    "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/fct_trips.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/fct_trips.sql",
+      "source_datasets": [
+        "int_trips",
+        "dim_zones"
+      ],
+      "target_datasets": [
+        "fct_trips"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/fct_trips.sql",
+      "line_range": [
+        1,
+        61
+      ],
+      "sql_query": "{{\n  config(\n    materialized='incremental',\n    unique_key='trip_id',\n    incremental_strategy='merge',\n    on_schema_change='append_new_columns'  )\n}}\n\n-- Fact table containing all taxi trips enriched with zone information\n-- This is a classic star schema design: fact table (trips) joined to dimension table (zones)\n-- Materialized incrementally to handle large datasets efficiently\n\nselect\n    -- Trip identifiers\n    trips.trip_id,\n    trips.vendor_id,\n    trips.service_type,\n    trips.rate_cod"
+    },
+    "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_zones.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_zones.sql",
+      "source_datasets": [
+        "taxi_zone_lookup"
+      ],
+      "target_datasets": [
+        "dim_zones"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_zones.sql",
+      "line_range": [
+        1,
+        10
+      ],
+      "sql_query": "-- Dimension table for NYC taxi zones\n-- This is a simple pass-through from the seed file, but having it as a model\n-- allows for future enhancements (e.g., adding calculated fields, filtering)\n\nselect\n    locationid as location_id,\n    borough,\n    zone,\n    service_zone\nfrom {{ ref('taxi_zone_lookup') }}"
+    },
+    "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_vendors.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_vendors.sql",
+      "source_datasets": [
+        "fct_trips"
+      ],
+      "target_datasets": [
+        "dim_vendors"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_vendors.sql",
+      "line_range": [
+        1,
+        15
+      ],
+      "sql_query": "-- Dimension table for taxi technology vendors\n-- Small static dimension defining vendor codes and their company names\n\nwith trips as (\n    select * from {{ ref('fct_trips') }}\n),\n\nvendors as (\n    select distinct\n        vendor_id,\n        {{ get_vendor_data('vendor_id') }} as vendor_name\n    from trips\n)\n\nselect * from vendors\n"
+    },
+    "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/reporting/fct_monthly_zone_revenue.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/reporting/fct_monthly_zone_revenue.sql",
+      "source_datasets": [
+        "fct_trips"
+      ],
+      "target_datasets": [
+        "fct_monthly_zone_revenue"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/reporting/fct_monthly_zone_revenue.sql",
+      "line_range": [
+        1,
+        29
+      ],
+      "sql_query": "-- Data mart for monthly revenue analysis by pickup zone and service type\n-- This aggregation is optimized for business reporting and dashboards\n-- Enables analysis of revenue trends across different zones and taxi types\n\nselect\n    -- Grouping dimensions\n    coalesce(pickup_zone, 'Unknown Zone') as pickup_zone,\n    {% if target.type == 'bigquery' %}cast(date_trunc(pickup_datetime, month) as date)\n    {% elif target.type == 'duckdb' %}date_trunc('month', pickup_datetime)\n    {% endif %} as reven"
+    },
+    "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips.sql",
+      "source_datasets": [
+        "payment_type_lookup",
+        "int_trips_unioned"
+      ],
+      "target_datasets": [
+        "int_trips"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips.sql",
+      "line_range": [
+        1,
+        62
+      ],
+      "sql_query": "-- Enrich and deduplicate trip data\n-- Demonstrates enrichment and surrogate key generation\n-- Note: Data quality analysis available in analyses/trips_data_quality.sql\n\nwith unioned as (\n    select * from {{ ref('int_trips_unioned') }}\n),\n\npayment_types as (\n    select * from {{ ref('payment_type_lookup') }}\n),\n\ncleaned_and_enriched as (\n    select\n        -- Generate unique trip identifier (surrogate key pattern)\n        {{ dbt_utils.generate_surrogate_key(['u.vendor_id', 'u.pickup_datetime', '"
+    },
+    "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips_unioned.sql": {
+      "id": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips_unioned.sql",
+      "source_datasets": [
+        "stg_green_tripdata",
+        "stg_yellow_tripdata"
+      ],
+      "target_datasets": [
+        "int_trips_unioned"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips_unioned.sql",
+      "line_range": [
+        1,
+        56
+      ],
+      "sql_query": "-- Union green and yellow taxi data into a single dataset\n-- Demonstrates how to combine data from multiple sources with slightly different schemas\n\nwith green_trips as (\n    select\n        vendor_id,\n        rate_code_id,\n        pickup_location_id,\n        dropoff_location_id,\n        pickup_datetime,\n        dropoff_datetime,\n        store_and_fwd_flag,\n        passenger_count,\n        trip_distance,\n        trip_type,\n        fare_amount,\n        extra,\n        mta_tax,\n        tip_amount,\n "
+    },
+    "airflow::data_ingestion_gcs_dag": {
+      "id": "airflow::data_ingestion_gcs_dag",
+      "source_datasets": [],
+      "target_datasets": [],
+      "transformation_type": "airflow_operator",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/cohorts/2022/week_2_data_ingestion/airflow/dags/data_ingestion_gcs_dag.py",
+      "line_range": [
+        1,
+        110
+      ],
+      "sql_query": null
+    },
+    "airflow::gcs_2_bq_dag": {
+      "id": "airflow::gcs_2_bq_dag",
+      "source_datasets": [],
+      "target_datasets": [],
+      "transformation_type": "airflow_operator",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/cohorts/2022/week_3_data_warehouse/airflow/dags/gcs_to_bq_dag.py",
+      "line_range": [
+        1,
+        81
+      ],
+      "sql_query": null
+    },
+    "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/08_rdds.ipynb": {
+      "id": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/08_rdds.ipynb",
+      "source_datasets": [
+        "data/pq/green/*/*"
+      ],
+      "target_datasets": [
+        "tmp/green-revenue"
+      ],
+      "transformation_type": "pandas_read",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/08_rdds.ipynb",
+      "line_range": [
+        1,
+        1
+      ],
+      "sql_query": null
+    },
+    "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb": {
+      "id": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "source_datasets": [
+        "data/report/revenue/yellow",
+        "zones/",
+        "data/report/revenue/green",
+        "data/pq/yellow/*/*",
+        "data/pq/green/*/*",
+        "data/report/revenue/total"
+      ],
+      "target_datasets": [
+        "data/report/revenue/yellow",
+        "tmp/revenue-zones",
+        "data/report/revenue/total",
+        "data/report/revenue/green"
+      ],
+      "transformation_type": "pandas_read",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "line_range": [
+        1,
+        1
+      ],
+      "sql_query": null
+    },
+    "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/09_spark_gcs.ipynb": {
+      "id": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/09_spark_gcs.ipynb",
+      "source_datasets": [
+        "gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/green/*/*"
+      ],
+      "target_datasets": [],
+      "transformation_type": "pandas_read",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/09_spark_gcs.ipynb",
+      "line_range": [
+        1,
+        1
+      ],
+      "sql_query": null
+    },
+    "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/homework.ipynb": {
+      "id": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/homework.ipynb",
+      "source_datasets": [
+        "zones",
+        "data/pq/fhvhv/2021/02/"
+      ],
+      "target_datasets": [
+        "data/pq/fhvhv/2021/02/"
+      ],
+      "transformation_type": "pandas_read",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/homework.ipynb",
+      "line_range": [
+        1,
+        1
+      ],
+      "sql_query": null
+    },
+    "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/04_pyspark.ipynb": {
+      "id": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/04_pyspark.ipynb",
+      "source_datasets": [
+        "head.csv",
+        "fhvhv/2021/01/"
+      ],
+      "target_datasets": [
+        "fhvhv/2021/01/"
+      ],
+      "transformation_type": "pandas_read",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/04_pyspark.ipynb",
+      "line_range": [
+        1,
+        1
+      ],
+      "sql_query": null
+    },
+    "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql.ipynb": {
+      "id": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql.ipynb",
+      "source_datasets": [
+        "data/pq/yellow/*/*",
+        "data/pq/green/*/*"
+      ],
+      "target_datasets": [
+        "data/report/revenue/"
+      ],
+      "transformation_type": "pandas_read",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql.ipynb",
+      "line_range": [
+        1,
+        1
+      ],
+      "sql_query": null
+    },
+    "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/03_test.ipynb": {
+      "id": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/03_test.ipynb",
+      "source_datasets": [],
+      "target_datasets": [
+        "zones"
+      ],
+      "transformation_type": "pandas_read",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/03_test.ipynb",
+      "line_range": [
+        1,
+        1
+      ],
+      "sql_query": null
+    },
+    "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/cohorts/2025/06-streaming/homework/homework.ipynb": {
+      "id": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/cohorts/2025/06-streaming/homework/homework.ipynb",
+      "source_datasets": [
+        "green_tripdata_2019-10.csv.gz"
+      ],
+      "target_datasets": [],
+      "transformation_type": "pandas_read",
+      "source_file": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/cohorts/2025/06-streaming/homework/homework.ipynb",
+      "line_range": [
+        1,
+        1
+      ],
+      "sql_query": null
+    }
+  },
+  "edges": [
+    {
+      "source": "stg_green_tripdata",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips_unioned.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "stg_yellow_tripdata",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips_unioned.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "int_trips",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/fct_trips.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "dim_zones",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/fct_trips.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "fct_trips",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_vendors.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "fct_trips",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/reporting/fct_monthly_zone_revenue.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "taxi_zone_lookup",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_zones.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "payment_type_lookup",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "int_trips_unioned",
+      "target": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "data/pq/green/*/*",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/08_rdds.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "data/pq/green/*/*",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "data/pq/green/*/*",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "data/pq/yellow/*/*",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "data/pq/yellow/*/*",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "data/report/revenue/green",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "data/report/revenue/yellow",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "data/report/revenue/total",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "zones/",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/green/*/*",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/09_spark_gcs.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "data/pq/fhvhv/2021/02/",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/homework.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "zones",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/homework.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "head.csv",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/04_pyspark.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "fhvhv/2021/01/",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/04_pyspark.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "green_tripdata_2019-10.csv.gz",
+      "target": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/cohorts/2025/06-streaming/homework/homework.ipynb",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "py::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql_big_query.py",
+      "target": "bigquery",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_green_tripdata.sql",
+      "target": "stg_green_tripdata",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_yellow_tripdata.sql",
+      "target": "stg_yellow_tripdata",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/fct_trips.sql",
+      "target": "fct_trips",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_zones.sql",
+      "target": "dim_zones",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/dim_vendors.sql",
+      "target": "dim_vendors",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/marts/reporting/fct_monthly_zone_revenue.sql",
+      "target": "fct_monthly_zone_revenue",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips.sql",
+      "target": "int_trips",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips_unioned.sql",
+      "target": "int_trips_unioned",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/08_rdds.ipynb",
+      "target": "tmp/green-revenue",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "target": "data/report/revenue/yellow",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "target": "tmp/revenue-zones",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "target": "data/report/revenue/total",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/07_groupby_join.ipynb",
+      "target": "data/report/revenue/green",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/homework.ipynb",
+      "target": "data/pq/fhvhv/2021/02/",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/04_pyspark.ipynb",
+      "target": "fhvhv/2021/01/",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql.ipynb",
+      "target": "data/report/revenue/",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/03_test.ipynb",
+      "target": "zones",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    }
+  ],
+  "sources": [
+    "taxi_zone_lookup",
+    "payment_type_lookup",
+    "taxi_rides_ny",
+    "green_tripdata",
+    "yellow_tripdata",
+    "data/pq/green/*/*",
+    "data/pq/yellow/*/*",
+    "zones/",
+    "gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/green/*/*",
+    "head.csv",
+    "green_tripdata_2019-10.csv.gz",
+    "py::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/06_spark_sql_big_query.py",
+    "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_green_tripdata.sql",
+    "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/04-analytics-engineering/taxi_rides_ny/models/staging/stg_yellow_tripdata.sql",
+    "airflow::data_ingestion_gcs_dag",
+    "airflow::gcs_2_bq_dag",
+    "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/03_test.ipynb"
+  ],
+  "sinks": [
+    "bigquery",
+    "dim_vendors",
+    "fct_monthly_zone_revenue",
+    "taxi_rides_ny",
+    "green_tripdata",
+    "yellow_tripdata",
+    "tmp/green-revenue",
+    "tmp/revenue-zones",
+    "data/report/revenue/",
+    "airflow::data_ingestion_gcs_dag",
+    "airflow::gcs_2_bq_dag",
+    "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/06-batch/code/09_spark_gcs.ipynb",
+    "nb::/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp/cohorts/2025/06-streaming/homework/homework.ipynb"
+  ],
+  "generated_at": "2026-03-13T18:02:52.044157",
+  "target_repo": "/home/meseret/Documents/week-4/brownfield-cartographer/data-engineering-zoomcamp"
+}

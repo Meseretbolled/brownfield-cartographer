@@ -2,9 +2,15 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 import networkx as nx
+
 from src.models import (
-    DataLineageGraph, DatasetNode, Edge, EdgeType,
-    ModuleGraph, ModuleNode, TransformationNode,
+    DataLineageGraph,
+    DatasetNode,
+    Edge,
+    EdgeType,
+    ModuleGraph,
+    ModuleNode,
+    TransformationNode,
 )
 
 
@@ -89,7 +95,12 @@ class KnowledgeGraph:
 
     def to_lineage_graph_schema(self, target_repo: str = "") -> DataLineageGraph:
         edges = [
-            Edge(source=u, target=v, edge_type=d.get("edge_type", EdgeType.PRODUCES), weight=d.get("weight", 1.0))
+            Edge(
+                source=u,
+                target=v,
+                edge_type=d.get("edge_type", EdgeType.PRODUCES),
+                weight=d.get("weight", 1.0),
+            )
             for u, v, d in self.lineage_graph.edges(data=True)
         ]
         return DataLineageGraph(
@@ -105,11 +116,51 @@ class KnowledgeGraph:
         output_dir.mkdir(parents=True, exist_ok=True)
         module_graph = self.to_module_graph_schema(target_repo)
         lineage_graph = self.to_lineage_graph_schema(target_repo)
-        (output_dir / "module_graph.json").write_text(module_graph.model_dump_json(indent=2))
-        (output_dir / "lineage_graph.json").write_text(lineage_graph.model_dump_json(indent=2))
+        (output_dir / "module_graph.json").write_text(module_graph.model_dump_json(indent=2), encoding="utf-8")
+        (output_dir / "lineage_graph.json").write_text(lineage_graph.model_dump_json(indent=2), encoding="utf-8")
 
     def visualize_module_graph(self, output_path: Path) -> None:
+        """
+        Preferred output: PNG drawn with NetworkX + matplotlib.
+        Fallback: HTML via pyvis.
+        """
+        if len(self.module_graph.nodes) == 0:
+            return
+
+        try:
+            import matplotlib.pyplot as plt
+
+            fig_w = 14
+            fig_h = 10
+
+            pos = nx.spring_layout(self.module_graph, seed=42, k=1.2)
+            scores = nx.pagerank(self.module_graph, alpha=0.85) if self.module_graph.nodes else {}
+            node_sizes = [
+                500 + (scores.get(node, 0.0) * 12000)
+                for node in self.module_graph.nodes
+            ]
+            labels = {node: Path(node).name for node in self.module_graph.nodes}
+
+            plt.figure(figsize=(fig_w, fig_h))
+            nx.draw_networkx_nodes(self.module_graph, pos, node_size=node_sizes)
+            nx.draw_networkx_edges(self.module_graph, pos, arrows=True, alpha=0.5)
+            nx.draw_networkx_labels(self.module_graph, pos, labels=labels, font_size=8)
+
+            plt.title("Brownfield Cartographer - Module Import Graph")
+            plt.axis("off")
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            plt.tight_layout()
+            plt.savefig(output_path, dpi=200, bbox_inches="tight")
+            plt.close()
+            return
+        except Exception:
+            pass
+
+        if output_path.suffix.lower() != ".html":
+            output_path = output_path.with_suffix(".html")
+
         from pyvis.network import Network
+
         net = Network(height="750px", width="100%", directed=True)
         for node, data in self.module_graph.nodes(data=True):
             size = 10 + data.get("pagerank_score", 0) * 500

@@ -18,6 +18,7 @@ from pathlib import Path
 
 from src.analyzers.tree_sitter_analyzer import analyze_directory
 from src.graph.knowledge_graph import KnowledgeGraph
+from src.models import Language as Lang
 from src.models import ModuleGraph, ModuleNode
 
 logger = logging.getLogger(__name__)
@@ -32,9 +33,11 @@ def _git_change_counts(repo_path: Path, days: int = 30) -> dict[str, int]:
     counts: dict[str, int] = defaultdict(int)
     try:
         result = subprocess.run(
-            ["git", "log", f"--since={days} days ago",
-             "--name-only", "--pretty=format:"],
-            cwd=repo_path, capture_output=True, text=True, timeout=30,
+            ["git", "log", f"--since={days} days ago", "--name-only", "--pretty=format:"],
+            cwd=repo_path,
+            capture_output=True,
+            text=True,
+            timeout=30,
         )
         for line in result.stdout.splitlines():
             line = line.strip()
@@ -62,28 +65,25 @@ def _annotate_git_velocity(
 # Dead-code detection
 # ---------------------------------------------------------------------------
 
-def _detect_dead_code(nodes: list[ModuleNode]) -> list[ModuleNode]:
+def _detect_dead_code(nodes: list[ModuleNode], kg: KnowledgeGraph) -> list[ModuleNode]:
     """
-    Flag a module as dead-code candidate when it is never imported by any
-    other module AND it has exported symbols that could be referenced.
+    Flag a module as dead-code candidate when it has exported symbols but has
+    no inbound graph edges. This works better for mixed-language repos than
+    Python-only string matching.
     """
-    all_imports: set[str] = set()
-    for node in nodes:
-        for imp in node.imports:
-            all_imports.add(imp)
+    inbound_counts: dict[str, int] = {node.path: 0 for node in nodes}
+
+    for source, target in kg.module_graph.edges():
+        if target in inbound_counts:
+            inbound_counts[target] += 1
 
     for node in nodes:
-        module_path = Path(node.path)
-        parts = list(module_path.with_suffix("").parts)
-        dotted = ".".join(parts)
-        short = module_path.stem
-
-        referenced = any(
-            dotted in imp or short == imp or imp.endswith(f".{short}")
-            for imp in all_imports
-        )
-        if not referenced and node.exported_functions:
+        has_exports = bool(node.exported_functions or node.exported_classes)
+        if has_exports and inbound_counts.get(node.path, 0) == 0:
             node.is_dead_code_candidate = True
+        else:
+            node.is_dead_code_candidate = False
+
     return nodes
 
 
@@ -91,26 +91,62 @@ def _detect_dead_code(nodes: list[ModuleNode]) -> list[ModuleNode]:
 # Import graph construction
 # ---------------------------------------------------------------------------
 
-def _resolve_import_to_path(
+def _resolve_python_import_to_path(
     imp: str, repo_path: Path, all_paths: set[str]
 ) -> str | None:
     candidate = imp.replace(".", "/")
     for suffix in (".py", "/__init__.py"):
-        full = str(repo_path / (candidate + suffix))
+        full = str((repo_path / (candidate + suffix)).resolve())
         if full in all_paths:
             return full
     return None
 
 
+def _build_dbt_model_index(nodes: list[ModuleNode]) -> dict[str, str]:
+    """
+    Map exported dbt model names to the SQL file path that defines them.
+
+    Example:
+      "stg_orders" -> ".../models/staging/stg_orders.sql"
+    """
+    index: dict[str, str] = {}
+    for node in nodes:
+        if node.language != Lang.SQL:
+            continue
+        for exported in node.exported_functions:
+            if exported:
+                index[exported] = node.path
+    return index
+
+
 def _build_import_graph(
     nodes: list[ModuleNode], kg: KnowledgeGraph, repo_path: Path
 ) -> None:
-    all_paths = {n.path for n in nodes}
+    all_paths = {str(Path(n.path).resolve()) for n in nodes}
+    dbt_index = _build_dbt_model_index(nodes)
+
+    # Add all nodes first
     for node in nodes:
         kg.add_module(node)
+
+    # Add edges
     for node in nodes:
         for imp in node.imports:
-            target = _resolve_import_to_path(imp, repo_path, all_paths)
+            target: str | None = None
+
+            # Python dotted imports
+            if not imp.startswith("dbt_ref:") and not imp.startswith("dbt_source:"):
+                target = _resolve_python_import_to_path(imp, repo_path, all_paths)
+
+            # dbt refs -> SQL model file
+            elif imp.startswith("dbt_ref:"):
+                model_name = imp.split("dbt_ref:", 1)[1].strip()
+                target = dbt_index.get(model_name)
+
+            # dbt sources do not map to repo module files directly
+            elif imp.startswith("dbt_source:"):
+                target = None
+
             if target and target != node.path:
                 kg.add_module_edge(node.path, target)
 
@@ -126,7 +162,7 @@ class Surveyor:
     """
 
     def __init__(self, repo_path: Path, kg: KnowledgeGraph) -> None:
-        self.repo_path = repo_path
+        self.repo_path = repo_path.resolve()
         self.kg = kg
 
     def run(self, git_days: int = 30) -> ModuleGraph:
@@ -136,9 +172,10 @@ class Surveyor:
         logger.info(f"[Surveyor] Parsed {len(nodes)} module files")
 
         nodes = _annotate_git_velocity(nodes, self.repo_path, git_days)
-        nodes = _detect_dead_code(nodes)
 
         _build_import_graph(nodes, self.kg, self.repo_path)
+
+        nodes = _detect_dead_code(nodes, self.kg)
 
         if len(self.kg.module_graph) > 0:
             self.kg.compute_pagerank()
@@ -158,6 +195,7 @@ class Surveyor:
     def save(self, output_dir: Path, module_graph: ModuleGraph) -> None:
         output_dir.mkdir(parents=True, exist_ok=True)
         (output_dir / "module_graph.json").write_text(
-            module_graph.model_dump_json(indent=2), encoding="utf-8"
+            module_graph.model_dump_json(indent=2),
+            encoding="utf-8",
         )
         logger.info(f"[Surveyor] Saved module_graph.json → {output_dir}")
