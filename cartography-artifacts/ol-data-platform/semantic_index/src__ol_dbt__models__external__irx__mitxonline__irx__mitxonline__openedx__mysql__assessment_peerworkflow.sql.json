@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitxonline/irx__mitxonline__openedx__mysql__assessment_peerworkflow.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitxonline/irx__mitxonline__openedx__mysql__assessment_peerworkflow.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts peer workflow data including cancellation times, grading completion times, and course information to track peer assessment processes.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "irx__mitxonline__openedx__mysql__assessment_peerworkflow"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 1.0,
+  "change_velocity_30d": 0,
+  "loc": 6,
+  "is_dead_code_candidate": true
+}

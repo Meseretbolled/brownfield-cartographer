@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__ocw_courses_5e9078ef-d0a9-4db7-9635-75fb9a2321de.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__ocw_courses_5e9078ef-d0a9-4db7-9635-75fb9a2321de.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides access to OCW course data through a Trino database connection for data analysis and reporting purposes.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 247,
+  "is_dead_code_candidate": false
+}

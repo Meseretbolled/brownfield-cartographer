@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/zendesk/int__zendesk__ticket_comment.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/zendesk/int__zendesk__ticket_comment.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Capture detailed Zendesk ticket comment data including author, content, and metadata for conversation analysis",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__zendesk__ticket_comment"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 27,
+  "is_dead_code_candidate": true
+}

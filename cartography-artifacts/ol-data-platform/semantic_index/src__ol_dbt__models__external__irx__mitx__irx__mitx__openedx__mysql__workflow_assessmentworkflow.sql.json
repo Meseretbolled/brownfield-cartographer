@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__workflow_assessmentworkflow.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__workflow_assessmentworkflow.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maintains a deduplicated view of assessment workflow states to track the lifecycle and status of assessments across the platform.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "irx__mitx__openedx__mysql__workflow_assessmentworkflow"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 12,
+  "is_dead_code_candidate": true
+}

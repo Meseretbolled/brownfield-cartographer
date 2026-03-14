@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/edxorg/stg__edxorg__bigquery__mitx_user_info_combo.sql",
+  "relative_path": "src/ol_dbt/models/staging/edxorg/stg__edxorg__bigquery__mitx_user_info_combo.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Combines user profile, enrollment, and certificate information from multiple sources into a unified dataset for comprehensive learner analytics and course completion tracking.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__edxorg__bigquery__mitx_user_info_combo"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.00255,
+  "complexity_score": 7.0,
+  "change_velocity_30d": 1,
+  "loc": 56,
+  "is_dead_code_candidate": false
+}

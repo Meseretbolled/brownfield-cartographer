@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/learn-ai/stg__learn_ai__app__postgres__chatbots_djangocheckpoint.sql",
+  "relative_path": "src/ol_dbt/models/staging/learn-ai/stg__learn_ai__app__postgres__chatbots_djangocheckpoint.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw chatbot checkpoint data by extracting key fields including conversation steps and messages, then deduplicates to provide a clean dataset of chatbot conversation states.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__learn_ai__app__postgres__chatbots_djangocheckpoint"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.00084,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 1,
+  "loc": 25,
+  "is_dead_code_candidate": false
+}

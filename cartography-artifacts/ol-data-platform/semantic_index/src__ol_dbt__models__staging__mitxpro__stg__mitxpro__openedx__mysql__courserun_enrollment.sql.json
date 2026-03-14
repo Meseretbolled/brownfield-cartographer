@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__openedx__mysql__courserun_enrollment.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__openedx__mysql__courserun_enrollment.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Tracks course enrollment data from edX, capturing which users are enrolled in which courses and their enrollment status.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__openedx__mysql__courserun_enrollment"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000895,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 15,
+  "is_dead_code_candidate": false
+}

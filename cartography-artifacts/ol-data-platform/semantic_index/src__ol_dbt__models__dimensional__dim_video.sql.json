@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/dimensional/dim_video.sql",
+  "relative_path": "src/ol_dbt/models/dimensional/dim_video.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a unified dimension table for video content by combining metadata from multiple sources and joining with video duration data to support video analytics.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "dim_video"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000982,
+  "complexity_score": 10.0,
+  "change_velocity_30d": 1,
+  "loc": 102,
+  "is_dead_code_candidate": false
+}

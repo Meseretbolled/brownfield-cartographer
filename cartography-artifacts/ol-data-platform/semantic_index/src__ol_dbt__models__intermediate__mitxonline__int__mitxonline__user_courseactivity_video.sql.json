@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__user_courseactivity_video.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__user_courseactivity_video.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Tracks video-related user interactions in MITx Online courses including play, pause, speed changes, and transcript navigation, solving the need to understand student engagement patterns with video content for educational analytics.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__user_courseactivity_video"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001395,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 1,
+  "loc": 30,
+  "is_dead_code_candidate": false
+}

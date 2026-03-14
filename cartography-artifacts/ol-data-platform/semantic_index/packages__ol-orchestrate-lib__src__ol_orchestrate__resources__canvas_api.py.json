@@ -1,0 +1,26 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/resources/canvas_api.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/resources/canvas_api.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Manages Canvas LMS integration including course data retrieval and content export operations through API calls",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "get_course",
+    "export_course_content",
+    "check_course_export_status",
+    "download_course_export",
+    "get_all_items",
+    "get_course_files",
+    "get_course_folders",
+    "get_course_assignments",
+    "get_course_pages"
+  ],
+  "exported_classes": [
+    "CanvasApiClient"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 6.0,
+  "change_velocity_30d": 0,
+  "loc": 169,
+  "is_dead_code_candidate": true
+}

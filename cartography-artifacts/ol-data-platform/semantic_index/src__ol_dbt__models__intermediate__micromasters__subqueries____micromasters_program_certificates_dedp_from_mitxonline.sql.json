@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/micromasters/subqueries/__micromasters_program_certificates_dedp_from_mitxonline.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/micromasters/subqueries/__micromasters_program_certificates_dedp_from_mitxonline.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts DEDP program completion certificates from mitxonline, linking them to their corresponding MicroMasters programs and users.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "__micromasters_program_certificates_dedp_from_mitxonline"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001011,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 25,
+  "is_dead_code_candidate": false
+}

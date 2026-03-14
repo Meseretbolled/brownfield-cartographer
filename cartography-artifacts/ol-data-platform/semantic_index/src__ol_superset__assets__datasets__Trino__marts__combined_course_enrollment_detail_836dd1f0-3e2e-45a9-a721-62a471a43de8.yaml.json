@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__combined_course_enrollment_detail_836dd1f0-3e2e-45a9-a721-62a471a43de8.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__combined_course_enrollment_detail_836dd1f0-3e2e-45a9-a721-62a471a43de8.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "This dataset consolidates course enrollment details across platforms, tracking certificates, grades, and enrollment status for individual courses.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 475,
+  "is_dead_code_candidate": false
+}

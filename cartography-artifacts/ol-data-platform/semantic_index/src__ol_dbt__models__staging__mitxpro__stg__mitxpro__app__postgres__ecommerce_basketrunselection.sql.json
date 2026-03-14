@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__ecommerce_basketrunselection.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__ecommerce_basketrunselection.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw ecommerce basket run selection data from Postgres into a standardized staging format with ISO8601 timestamps for downstream analytics",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__app__postgres__ecommerce_basketrunselection"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000996,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 19,
+  "is_dead_code_candidate": false
+}

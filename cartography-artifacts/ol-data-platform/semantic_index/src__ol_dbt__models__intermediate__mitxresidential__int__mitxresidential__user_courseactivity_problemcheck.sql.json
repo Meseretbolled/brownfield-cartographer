@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__user_courseactivity_problemcheck.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__user_courseactivity_problemcheck.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Captures problem submission attempts with detailed grading information to analyze student performance",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxresidential__user_courseactivity_problemcheck"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000996,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 1,
+  "loc": 25,
+  "is_dead_code_candidate": false
+}

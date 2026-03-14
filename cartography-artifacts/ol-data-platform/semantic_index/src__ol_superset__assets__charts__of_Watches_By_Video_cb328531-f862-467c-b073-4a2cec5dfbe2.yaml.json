@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/of_Watches_By_Video_cb328531-f862-467c-b073-4a2cec5dfbe2.yaml",
+  "relative_path": "src/ol_superset/assets/charts/of_Watches_By_Video_cb328531-f862-467c-b073-4a2cec5dfbe2.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides a detailed breakdown of video watch activity by section, subsection, and block to understand content consumption patterns",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 86,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__combined_program_enrollment_detail_0983d23f-8182-482a-9f0f-b32d69984efc.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__combined_program_enrollment_detail_0983d23f-8182-482a-9f0f-b32d69984efc.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "This dataset provides detailed enrollment information for programs, including certificate status, enrollment dates, and completion tracking for program-level learning.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 353,
+  "is_dead_code_candidate": false
+}

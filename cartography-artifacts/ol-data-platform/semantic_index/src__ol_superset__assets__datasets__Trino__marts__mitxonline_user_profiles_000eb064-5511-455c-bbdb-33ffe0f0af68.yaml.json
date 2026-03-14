@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__mitxonline_user_profiles_000eb064-5511-455c-bbdb-33ffe0f0af68.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__mitxonline_user_profiles_000eb064-5511-455c-bbdb-33ffe0f0af68.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Stores user profile information from MITx Online including personal details, location, education level, and currency preferences for user segmentation and demographic analysis.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 163,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Learn_New_Users_5cba1239-2f4c-472b-82f6-788f18de0fd2.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Learn_New_Users_5cba1239-2f4c-472b-82f6-788f18de0fd2.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks new user signups on MIT Learn platform, showing weekly user count trends with time-based filtering",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 106,
+  "is_dead_code_candidate": false
+}

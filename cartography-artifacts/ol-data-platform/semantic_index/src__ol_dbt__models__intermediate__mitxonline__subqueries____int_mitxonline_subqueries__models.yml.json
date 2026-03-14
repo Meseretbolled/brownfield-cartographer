@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/subqueries/__int_mitxonline_subqueries__models.yml",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/subqueries/__int_mitxonline_subqueries__models.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Documents the business rules for 14.009x course application across DEDP program tracks, specifying that pre-Fall 2023 completions can apply to International Development track while post-Fall 2023 completions only count toward Public Policy track, preventing double-counting.",
+  "domain_cluster": "configuration",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 26,
+  "is_dead_code_candidate": false
+}

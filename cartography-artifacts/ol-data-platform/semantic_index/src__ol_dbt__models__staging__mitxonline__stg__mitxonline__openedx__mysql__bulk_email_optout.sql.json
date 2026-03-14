@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__openedx__mysql__bulk_email_optout.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__openedx__mysql__bulk_email_optout.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Cleans bulk email optout data from the MITx Online platform to track user preferences for email communications and course-related notifications.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__openedx__mysql__bulk_email_optout"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001065,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 15,
+  "is_dead_code_candidate": false
+}

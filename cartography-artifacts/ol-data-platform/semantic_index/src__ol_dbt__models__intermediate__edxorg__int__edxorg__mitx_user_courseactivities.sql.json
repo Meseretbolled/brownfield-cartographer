@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/edxorg/int__edxorg__mitx_user_courseactivities.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/edxorg/int__edxorg__mitx_user_courseactivities.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Aggregates and summarizes user course activity data including play video events, problem check attempts, and overall engagement metrics for analysis of learning behavior",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__edxorg__mitx_user_courseactivities"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 10.0,
+  "change_velocity_30d": 1,
+  "loc": 68,
+  "is_dead_code_candidate": true
+}

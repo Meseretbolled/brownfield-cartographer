@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Order_detail_c0ce9f7b-a8e8-49d3-909b-9c44718fae8a.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Order_detail_c0ce9f7b-a8e8-49d3-909b-9c44718fae8a.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Displays detailed order information with comprehensive product, payment, and receipt data for transaction analysis and reporting",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 1,
+  "loc": 114,
+  "is_dead_code_candidate": false
+}

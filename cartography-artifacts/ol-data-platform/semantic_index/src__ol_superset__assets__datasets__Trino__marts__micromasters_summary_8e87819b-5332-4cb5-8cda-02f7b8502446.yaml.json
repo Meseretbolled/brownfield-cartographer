@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__micromasters_summary_8e87819b-5332-4cb5-8cda-02f7b8502446.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__micromasters_summary_8e87819b-5332-4cb5-8cda-02f7b8502446.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides summary statistics for micromasters programs including certificate earners, verified users, and enrollment counts for program performance tracking.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 139,
+  "is_dead_code_candidate": false
+}

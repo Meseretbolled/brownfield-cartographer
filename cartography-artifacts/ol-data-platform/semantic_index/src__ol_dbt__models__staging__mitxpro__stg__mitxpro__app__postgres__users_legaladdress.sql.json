@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__users_legaladdress.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__users_legaladdress.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Standardizes user legal address information, consolidating address components and renaming fields for consistent user data management and compliance reporting.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__app__postgres__users_legaladdress"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001039,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 30,
+  "is_dead_code_candidate": false
+}

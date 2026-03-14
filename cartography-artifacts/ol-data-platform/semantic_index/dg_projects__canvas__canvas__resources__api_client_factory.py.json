@@ -1,0 +1,19 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/canvas/canvas/resources/api_client_factory.py",
+  "relative_path": "dg_projects/canvas/canvas/resources/api_client_factory.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Creates API clients for Canvas and related systems by securely retrieving credentials from Vault and instantiating the appropriate client class based on configuration.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [
+    "client",
+    "yield_for_execution"
+  ],
+  "exported_classes": [
+    "ApiClientFactory"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 79,
+  "is_dead_code_candidate": true
+}

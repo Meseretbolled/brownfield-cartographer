@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/ol_superset/commands/sync.py",
+  "relative_path": "src/ol_superset/ol_superset/commands/sync.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Ensures consistency between Superset environments by synchronizing assets from a source instance to a target instance, automatically handling database UUID mapping and optionally previewing changes before execution.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "sync"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 17.0,
+  "change_velocity_30d": 2,
+  "loc": 262,
+  "is_dead_code_candidate": true
+}

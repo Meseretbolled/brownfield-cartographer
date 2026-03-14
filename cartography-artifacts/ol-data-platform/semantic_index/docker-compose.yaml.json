@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/docker-compose.yaml",
+  "relative_path": "docker-compose.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides containerized orchestration for Dagster data pipeline infrastructure, enabling reproducible data processing workflows with PostgreSQL persistence and local development capabilities.",
+  "domain_cluster": "orchestration",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 6,
+  "loc": 356,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__cms_coursesinprogrampage.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__cms_coursesinprogrampage.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms course-in-program page data from MITxPro's CMS, enabling structured representation of program-level course listings and their associated course page relationships.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__app__postgres__cms_coursesinprogrampage"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000873,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 15,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/canvas/canvas/lib/canvas.py",
+  "relative_path": "dg_projects/canvas/canvas/lib/canvas.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Library to fetch Canvas course IDs from a Google Sheet using Google Sheets API",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "fetch_canvas_course_ids_from_google_sheet"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 54,
+  "is_dead_code_candidate": true
+}

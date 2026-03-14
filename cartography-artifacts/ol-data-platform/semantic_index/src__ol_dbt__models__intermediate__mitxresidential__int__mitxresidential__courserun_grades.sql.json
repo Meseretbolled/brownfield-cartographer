@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__courserun_grades.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__courserun_grades.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides a unified view of course grades by combining student grade data with course and user information to enable comprehensive academic performance analysis.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxresidential__courserun_grades"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000781,
+  "complexity_score": 8.0,
+  "change_velocity_30d": 0,
+  "loc": 30,
+  "is_dead_code_candidate": false
+}

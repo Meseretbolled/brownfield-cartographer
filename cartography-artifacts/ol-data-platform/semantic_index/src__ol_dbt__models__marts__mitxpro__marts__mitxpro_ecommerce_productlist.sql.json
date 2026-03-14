@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/marts/mitxpro/marts__mitxpro_ecommerce_productlist.sql",
+  "relative_path": "src/ol_dbt/models/marts/mitxpro/marts__mitxpro_ecommerce_productlist.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a unified product catalog with enriched metadata from multiple sources, supporting product discovery and catalog management across different platforms.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "marts__mitxpro_ecommerce_productlist"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 23.0,
+  "change_velocity_30d": 1,
+  "loc": 141,
+  "is_dead_code_candidate": true
+}

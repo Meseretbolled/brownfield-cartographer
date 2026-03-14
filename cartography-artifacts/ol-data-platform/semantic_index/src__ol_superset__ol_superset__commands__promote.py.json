@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/ol_superset/commands/promote.py",
+  "relative_path": "src/ol_superset/ol_superset/commands/promote.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Promotes Superset assets from QA to production with extensive safety checks including validation, git status verification, and manual confirmation to prevent accidental deployments.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "promote"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 29.0,
+  "change_velocity_30d": 2,
+  "loc": 287,
+  "is_dead_code_candidate": true
+}

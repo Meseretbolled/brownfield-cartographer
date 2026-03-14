@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/zendesk/stg__zendesk__group.sql",
+  "relative_path": "src/ol_dbt/models/staging/zendesk/stg__zendesk__group.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transform and clean raw Zendesk group data for analysis in the data warehouse",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__zendesk__group"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000798,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 20,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__assessment_aitrainingworkflow.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__assessment_aitrainingworkflow.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "This module handles AI training workflows for assessments, managing the process of training machine learning models to evaluate student submissions and provide automated feedback.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "irx__mitx__openedx__mysql__assessment_aitrainingworkflow"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 1.0,
+  "change_velocity_30d": 0,
+  "loc": 6,
+  "is_dead_code_candidate": true
+}

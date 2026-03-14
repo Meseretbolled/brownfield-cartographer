@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/lib/dagster_types/__init__.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/lib/dagster_types/__init__.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Serves as a namespace package for Dagster type definitions in the orchestration library",
+  "domain_cluster": "configuration",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 0,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/micromasters/int__micromasters__programs.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/micromasters/int__micromasters__programs.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides a clean view of MicroMasters program metadata including titles, descriptions, and enrollment requirements for reporting and analysis.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__micromasters__programs"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.003031,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 13,
+  "is_dead_code_candidate": false
+}

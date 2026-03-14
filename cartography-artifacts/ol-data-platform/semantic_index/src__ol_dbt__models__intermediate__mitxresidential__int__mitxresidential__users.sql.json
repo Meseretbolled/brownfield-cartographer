@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__users.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__users.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Consolidates user profile data from authentication and profile tables to provide a comprehensive view of residential MITx users.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxresidential__users"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001064,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 25,
+  "is_dead_code_candidate": false
+}

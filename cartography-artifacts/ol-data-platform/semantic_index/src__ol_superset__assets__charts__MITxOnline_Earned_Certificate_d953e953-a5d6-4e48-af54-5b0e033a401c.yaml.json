@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/MITxOnline_Earned_Certificate_d953e953-a5d6-4e48-af54-5b0e033a401c.yaml",
+  "relative_path": "src/ol_superset/assets/charts/MITxOnline_Earned_Certificate_d953e953-a5d6-4e48-af54-5b0e033a401c.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Visualizes the daily trend of earned certificates over time, enabling analysis of certificate issuance patterns and completion rates across the platform.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 85,
+  "is_dead_code_candidate": false
+}

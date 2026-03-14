@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__cms_signatorypage.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__cms_signatorypage.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Cleans signatory page data for certificate generation, organizing signatory information and organizational details for official document creation.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__cms_signatorypage"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000748,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 17,
+  "is_dead_code_candidate": false
+}

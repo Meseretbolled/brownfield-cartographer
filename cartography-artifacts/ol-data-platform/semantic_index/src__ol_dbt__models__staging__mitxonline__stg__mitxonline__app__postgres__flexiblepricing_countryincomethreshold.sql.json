@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__flexiblepricing_countryincomethreshold.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__flexiblepricing_countryincomethreshold.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Defines income-based pricing thresholds for different countries to support flexible pricing strategies",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__flexiblepricing_countryincomethreshold"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001293,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 21,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Course_Run_Metadata_c6e47f3c-aeb2-4e25-bf43-e9bd3f068127.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Course_Run_Metadata_c6e47f3c-aeb2-4e25-bf43-e9bd3f068127.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Displays metadata for course runs including titles, IDs, platforms, and start/end dates in a sortable table format",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 54,
+  "is_dead_code_candidate": false
+}

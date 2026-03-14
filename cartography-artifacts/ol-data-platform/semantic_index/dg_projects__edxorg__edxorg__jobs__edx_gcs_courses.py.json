@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/edxorg/edxorg/jobs/edx_gcs_courses.py",
+  "relative_path": "dg_projects/edxorg/edxorg/jobs/edx_gcs_courses.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Extracts Open edX course data from GCS and uploads it to S3 nightly for institutional research",
+  "domain_cluster": "ingestion",
+  "exported_functions": [
+    "sync_gcs_to_s3"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 23,
+  "is_dead_code_candidate": true
+}

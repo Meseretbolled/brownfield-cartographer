@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__courserunenrollments_with_programs.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__courserunenrollments_with_programs.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Combines course enrollment data with program requirements to identify which enrollments are part of structured learning programs, supporting program completion tracking and analytics.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__courserunenrollments_with_programs"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001363,
+  "complexity_score": 13.0,
+  "change_velocity_30d": 0,
+  "loc": 87,
+  "is_dead_code_candidate": false
+}

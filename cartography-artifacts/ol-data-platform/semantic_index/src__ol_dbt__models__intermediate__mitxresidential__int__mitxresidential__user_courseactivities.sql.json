@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__user_courseactivities.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__user_courseactivities.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Aggregates and analyzes user engagement metrics across various course activities to measure participation and learning behavior in residential MITx courses.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxresidential__user_courseactivities"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 10.0,
+  "change_velocity_30d": 1,
+  "loc": 69,
+  "is_dead_code_candidate": true
+}

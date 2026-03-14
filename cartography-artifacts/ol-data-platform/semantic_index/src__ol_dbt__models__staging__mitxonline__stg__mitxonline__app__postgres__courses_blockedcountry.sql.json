@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_blockedcountry.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_blockedcountry.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Manages geographic restrictions for MITx Online courses, allowing the platform to enforce compliance with licensing and regulatory requirements by blocking access from specific countries.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__courses_blockedcountry"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001293,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 17,
+  "is_dead_code_candidate": false
+}

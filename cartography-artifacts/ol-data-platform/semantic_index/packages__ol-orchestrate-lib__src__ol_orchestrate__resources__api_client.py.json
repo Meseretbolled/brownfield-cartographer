@@ -1,0 +1,21 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/resources/api_client.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/resources/api_client.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Facilitates authenticated HTTP communication with external APIs, providing a reusable client for making GET and POST requests with configurable timeouts and headers.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "get_request",
+    "post_request",
+    "http_client",
+    "from_secret"
+  ],
+  "exported_classes": [
+    "BaseApiClient"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 1.0,
+  "change_velocity_30d": 0,
+  "loc": 48,
+  "is_dead_code_candidate": true
+}

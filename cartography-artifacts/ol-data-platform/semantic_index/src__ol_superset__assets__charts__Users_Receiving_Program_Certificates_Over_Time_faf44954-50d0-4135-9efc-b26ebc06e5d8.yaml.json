@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Users_Receiving_Program_Certificates_Over_Time_faf44954-50d0-4135-9efc-b26ebc06e5d8.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Users_Receiving_Program_Certificates_Over_Time_faf44954-50d0-4135-9efc-b26ebc06e5d8.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks program certificate issuance over time by counting unique users receiving certificates on a daily basis",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 120,
+  "is_dead_code_candidate": false
+}

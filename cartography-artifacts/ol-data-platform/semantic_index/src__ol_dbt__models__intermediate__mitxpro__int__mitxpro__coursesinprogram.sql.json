@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__coursesinprogram.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__coursesinprogram.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maps courses to programs, providing visibility into program structure and course enrollment patterns across different learning pathways.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__coursesinprogram"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000821,
+  "complexity_score": 13.0,
+  "change_velocity_30d": 0,
+  "loc": 52,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__mitxonline_course_engagements_daily_e7330108-bdfa-4ff0-8ca3-084d7e8cbda8.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__mitxonline_course_engagements_daily_e7330108-bdfa-4ff0-8ca3-084d7e8cbda8.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides daily aggregated course engagement data from MITx Online, including course activity dates, platform identification, and current course run status to support learning analytics and course performance monitoring.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 228,
+  "is_dead_code_candidate": false
+}

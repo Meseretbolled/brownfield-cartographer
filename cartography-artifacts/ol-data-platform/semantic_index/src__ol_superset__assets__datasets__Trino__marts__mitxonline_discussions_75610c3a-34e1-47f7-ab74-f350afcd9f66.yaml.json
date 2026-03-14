@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__mitxonline_discussions_75610c3a-34e1-47f7-ab74-f350afcd9f66.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__mitxonline_discussions_75610c3a-34e1-47f7-ab74-f350afcd9f66.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Captures and analyzes discussion activity within online courses to understand student engagement and interaction patterns in educational content.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 223,
+  "is_dead_code_candidate": false
+}

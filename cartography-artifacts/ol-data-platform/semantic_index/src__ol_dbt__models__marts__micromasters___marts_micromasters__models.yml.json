@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/marts/micromasters/_marts_micromasters__models.yml",
+  "relative_path": "src/ol_dbt/models/marts/micromasters/_marts_micromasters__models.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Defines data models and their documentation for MicroMasters mart tables to support data governance and understanding of the mart layer structure",
+  "domain_cluster": "configuration",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 277,
+  "is_dead_code_candidate": false
+}

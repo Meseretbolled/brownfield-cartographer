@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/dimensional/afact_problem_engagement.sql",
+  "relative_path": "src/ol_dbt/models/dimensional/afact_problem_engagement.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Aggregates problem engagement metrics including attempt counts, success rates, and timing data to analyze student performance and problem difficulty across course content.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "afact_problem_engagement"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001035,
+  "complexity_score": 8.0,
+  "change_velocity_30d": 1,
+  "loc": 86,
+  "is_dead_code_candidate": false
+}

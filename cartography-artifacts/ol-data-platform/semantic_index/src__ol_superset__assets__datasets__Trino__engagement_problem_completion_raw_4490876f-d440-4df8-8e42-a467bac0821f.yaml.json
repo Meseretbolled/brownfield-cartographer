@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/engagement_problem_completion_raw_4490876f-d440-4df8-8e42-a467bac0821f.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/engagement_problem_completion_raw_4490876f-d440-4df8-8e42-a467bac0821f.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks learner engagement with course problems, measuring completion rates and accuracy for analytics and reporting.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 175,
+  "is_dead_code_candidate": false
+}

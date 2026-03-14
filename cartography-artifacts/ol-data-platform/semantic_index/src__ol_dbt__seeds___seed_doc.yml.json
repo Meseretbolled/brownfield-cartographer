@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/seeds/_seed_doc.yml",
+  "relative_path": "src/ol_dbt/seeds/_seed_doc.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Defines seed data structures for user access roles and platform metadata to enable row-level security filtering and platform information tracking in downstream analytics",
+  "domain_cluster": "configuration",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 1,
+  "loc": 54,
+  "is_dead_code_candidate": false
+}

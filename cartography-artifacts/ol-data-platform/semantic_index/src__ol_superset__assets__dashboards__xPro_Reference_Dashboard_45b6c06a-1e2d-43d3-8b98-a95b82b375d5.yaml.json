@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/dashboards/xPro_Reference_Dashboard_45b6c06a-1e2d-43d3-8b98-a95b82b375d5.yaml",
+  "relative_path": "src/ol_superset/assets/dashboards/xPro_Reference_Dashboard_45b6c06a-1e2d-43d3-8b98-a95b82b375d5.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Serves as a central reference dashboard for xPro product data with links to related dashboards and charts for enrollment, products, course engagement, and orders",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 167,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Problem_Engagement_By_Subsection_bec01f31-3a3e-4bba-a280-9160e00e2b87.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Problem_Engagement_By_Subsection_bec01f31-3a3e-4bba-a280-9160e00e2b87.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Shows problem engagement statistics broken down by subsection to track student performance",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 75,
+  "is_dead_code_candidate": false
+}

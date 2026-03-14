@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitx/int__mitx__program_certificates.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitx/int__mitx__program_certificates.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Aggregates program completion certificates from MicroMasters and MITx Online platforms, deduplicating and standardizing certificate data to provide a unified view of program completions across both systems.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitx__program_certificates"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 8.0,
+  "change_velocity_30d": 0,
+  "loc": 45,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/edxorg/edxorg/jobs/__init__.py",
+  "relative_path": "dg_projects/edxorg/edxorg/jobs/__init__.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Initialises the edxorg jobs package for organisational structure",
+  "domain_cluster": "utilities",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 0,
+  "is_dead_code_candidate": false
+}

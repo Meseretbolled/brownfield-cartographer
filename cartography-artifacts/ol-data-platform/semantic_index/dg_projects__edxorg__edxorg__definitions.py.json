@@ -1,0 +1,17 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/edxorg/edxorg/definitions.py",
+  "relative_path": "dg_projects/edxorg/edxorg/definitions.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Data synchronization and processing definitions for edx.org data - orchestrates the ingestion, transformation, and storage of course data, tracking logs, and credential reports from edx.org and IRx sources",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "s3_uploads_bucket",
+    "sync_edxorg_program_reports"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 2.0,
+  "change_velocity_30d": 4,
+  "loc": 295,
+  "is_dead_code_candidate": true
+}

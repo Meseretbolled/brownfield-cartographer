@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Video_Engagement_By_Section_and_Subsection_738b9337-2477-4f49-95e6-4201a90c6f28.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Video_Engagement_By_Section_and_Subsection_738b9337-2477-4f49-95e6-4201a90c6f28.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Analyzes video engagement metrics by section and subsection, showing viewing patterns and completion rates for educational content.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 127,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__courses_courserun.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__courses_courserun.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts and standardizes MITxPro course run information from raw data, including URLs and timestamps, to support course catalog and enrollment analytics.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__app__postgres__courses_courserun"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001907,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 28,
+  "is_dead_code_candidate": false
+}

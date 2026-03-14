@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__proctored_exam_grades.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__proctored_exam_grades.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts and joins proctored exam grades from MITx Online with course information from MicroMasters to associate exam runs with their respective courses and user details, solving the business need to track and report on proctored exam performance across different platforms.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__proctored_exam_grades"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000897,
+  "complexity_score": 19.0,
+  "change_velocity_30d": 1,
+  "loc": 88,
+  "is_dead_code_candidate": false
+}

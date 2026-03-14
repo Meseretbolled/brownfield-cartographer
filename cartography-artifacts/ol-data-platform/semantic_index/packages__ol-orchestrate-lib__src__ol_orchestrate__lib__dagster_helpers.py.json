@@ -1,0 +1,19 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/lib/dagster_helpers.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/lib/dagster_helpers.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Manages file I/O operations for Dagster pipelines, handling local and S3-based storage configurations based on deployment environment.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "sanitize_mapping_key",
+    "contains_invalid_partition_strings",
+    "default_io_manager",
+    "default_file_object_io_manager"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 2.0,
+  "change_velocity_30d": 0,
+  "loc": 43,
+  "is_dead_code_candidate": true
+}

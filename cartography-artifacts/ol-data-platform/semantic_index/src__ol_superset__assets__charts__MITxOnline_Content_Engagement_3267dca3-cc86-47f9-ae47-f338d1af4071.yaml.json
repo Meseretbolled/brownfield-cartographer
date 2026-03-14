@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/MITxOnline_Content_Engagement_3267dca3-cc86-47f9-ae47-f338d1af4071.yaml",
+  "relative_path": "src/ol_superset/assets/charts/MITxOnline_Content_Engagement_3267dca3-cc86-47f9-ae47-f338d1af4071.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks different types of content engagement (video watching, problem solving, discussion participation) over time to measure learner activity and course interaction levels.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 223,
+  "is_dead_code_candidate": false
+}

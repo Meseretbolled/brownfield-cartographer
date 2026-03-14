@@ -1,0 +1,24 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/lakehouse/lakehouse/resources/superset_api.py",
+  "relative_path": "dg_projects/lakehouse/lakehouse/resources/superset_api.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Creates authenticated client for accessing Superset API to manage and refresh dataset metadata for business intelligence dashboards",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "get_dataset_list",
+    "get_or_create_dataset",
+    "refresh_dataset",
+    "update_dataset",
+    "client",
+    "yield_for_execution"
+  ],
+  "exported_classes": [
+    "SupersetApiClient",
+    "SupersetApiClientFactory"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 1,
+  "loc": 195,
+  "is_dead_code_candidate": true
+}

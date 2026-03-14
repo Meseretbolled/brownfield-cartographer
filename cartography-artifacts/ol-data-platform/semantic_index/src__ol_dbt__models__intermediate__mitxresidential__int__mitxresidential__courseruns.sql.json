@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__courseruns.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__courseruns.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides course metadata for scheduling and organizational purposes",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxresidential__courseruns"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000848,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 16,
+  "is_dead_code_candidate": false
+}

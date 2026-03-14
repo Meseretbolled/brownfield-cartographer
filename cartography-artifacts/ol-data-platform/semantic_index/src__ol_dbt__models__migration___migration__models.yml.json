@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/migration/_migration__models.yml",
+  "relative_path": "src/ol_dbt/models/migration/_migration__models.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Identifies course runs and enrollments from edX.org that have not yet been migrated to MITx Online, providing a catalog of pending migration items for data engineering teams to process.",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 155,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_programenrollment.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_programenrollment.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Manages user enrollments in educational programs and tracks enrollment status and activity",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__courses_programenrollment"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001032,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 20,
+  "is_dead_code_candidate": false
+}

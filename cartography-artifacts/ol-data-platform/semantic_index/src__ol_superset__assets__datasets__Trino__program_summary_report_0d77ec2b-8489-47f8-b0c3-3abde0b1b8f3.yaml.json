@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/program_summary_report_0d77ec2b-8489-47f8-b0c3-3abde0b1b8f3.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/program_summary_report_0d77ec2b-8489-47f8-b0c3-3abde0b1b8f3.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Summarizes program-level metrics including enrollments and certificates for reporting",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 139,
+  "is_dead_code_candidate": false
+}

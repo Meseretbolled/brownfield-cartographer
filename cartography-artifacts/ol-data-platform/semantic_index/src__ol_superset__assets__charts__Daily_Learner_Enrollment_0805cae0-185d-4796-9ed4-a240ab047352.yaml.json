@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Daily_Learner_Enrollment_0805cae0-185d-4796-9ed4-a240ab047352.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Daily_Learner_Enrollment_0805cae0-185d-4796-9ed4-a240ab047352.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Shows daily enrollment counts for a specific course, breaking down verified, audit, and total enrollments by date to monitor course popularity and learner engagement trends.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 110,
+  "is_dead_code_candidate": false
+}

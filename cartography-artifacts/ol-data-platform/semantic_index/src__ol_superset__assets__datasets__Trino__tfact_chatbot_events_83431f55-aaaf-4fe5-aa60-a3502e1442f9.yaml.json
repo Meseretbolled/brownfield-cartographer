@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/tfact_chatbot_events_83431f55-aaaf-4fe5-aa60-a3502e1442f9.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/tfact_chatbot_events_83431f55-aaaf-4fe5-aa60-a3502e1442f9.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Captures chatbot interaction events including timestamps, thread IDs, and source information for analyzing AI assistant usage and engagement.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 223,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/micromasters/subqueries/__micromasters_course_grades_non_dedp_from_edxorg.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/micromasters/subqueries/__micromasters_course_grades_non_dedp_from_edxorg.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Retrieves non-DEDp course grades from edX.org by joining course grades with course runs and programs, filtering for non-DEDp programs only.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "__micromasters_course_grades_non_dedp_from_edxorg"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000945,
+  "complexity_score": 7.0,
+  "change_velocity_30d": 0,
+  "loc": 28,
+  "is_dead_code_candidate": false
+}

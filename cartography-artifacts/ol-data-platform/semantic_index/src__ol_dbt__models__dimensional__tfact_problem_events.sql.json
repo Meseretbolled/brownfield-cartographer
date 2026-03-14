@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/dimensional/tfact_problem_events.sql",
+  "relative_path": "src/ol_dbt/models/dimensional/tfact_problem_events.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Tracks problem check and showanswer events from MITx Online tracking logs to capture student problem-solving interactions and assessment data.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "tfact_problem_events"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001606,
+  "complexity_score": 21.0,
+  "change_velocity_30d": 1,
+  "loc": 253,
+  "is_dead_code_candidate": false
+}

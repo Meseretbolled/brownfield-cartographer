@@ -1,0 +1,140 @@
+{
+  "drift_flags": {},
+  "domain_map": {
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/package-lock.yml": "configuration",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/packages.yml": "configuration",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/dbt_project.yml": "configuration",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/Taskfile.yml": "orchestration",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/__sources.yml": "ingestion",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.yml": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.yml": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.yml": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.yml": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.yml": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.yml": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.yml": "serving",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql": "serving",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.yml": "testing",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.yml": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.yml": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.yml": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/metricflow_time_spine.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.yml": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/macros/cents_to_dollars.sql": "transformation",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/macros/generate_schema_name.sql": "configuration"
+  },
+  "day_one_answers": {
+    "What is the primary data ingestion path? (trace from raw sources to first transformation)": "The primary data ingestion path flows from raw source tables in the `jaffle_shop` database through the staging models. Each staging file (e.g., `/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql`, `/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql`) transforms raw data into standardized staging tables like `stg_orders`, `stg_products`, and `stg_supplies` without any upstream dependencies.",
+    "What are the 3-5 most critical output datasets or endpoints?": "The three most critical output datasets are `orders`, `order_items`, and `customers` in the marts layer. These are produced by `/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql`, `/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql`, and `/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql` respectively, serving as the main business-facing analytics tables.",
+    "What is the blast radius if the most critical module fails? (which downstream systems break)": "If `/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql` fails, the blast radius includes `stg_supplies`, `order_items`, and `supplies` tables. Since `order_items` depends on both `stg_supplies` and other staging tables, its failure cascades to break any downstream analytics or reporting that relies on complete order item data.",
+    "Where is the business logic concentrated vs distributed? (which modules/files own the core rules)": "Business logic is concentrated in the staging models where data cleaning, standardization, and transformation rules are applied. The staging files like `stg_products.sql` and `stg_orders.sql` contain the core rules for data normalization, while the marts layer primarily aggregates and joins these cleaned datasets without complex business rules.",
+    "What has changed most frequently in the last 30 days? (git velocity map \u2014 likely pain points)": "In the last 30 days, configuration files like `/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/package-lock.yml`, `/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/packages.yml`, and `/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/dbt_project.yml` have shown the highest velocity. This suggests frequent dependency updates or configuration changes, likely indicating active development or troubleshooting of the dbt project setup."
+  },
+  "budget_summary": {
+    "calls": 12,
+    "used_tokens_estimated": 13013,
+    "budget_tokens": 2000000,
+    "remaining_tokens": 1986987
+  },
+  "call_log": [
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 3544,
+      "completion_chars": 263,
+      "tokens_estimated": 952,
+      "cumulative_tokens": 952
+    },
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 3807,
+      "completion_chars": 767,
+      "tokens_estimated": 1144,
+      "cumulative_tokens": 2096
+    },
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 3465,
+      "completion_chars": 762,
+      "tokens_estimated": 1057,
+      "cumulative_tokens": 3153
+    },
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 6005,
+      "completion_chars": 774,
+      "tokens_estimated": 1695,
+      "cumulative_tokens": 4848
+    },
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 4812,
+      "completion_chars": 499,
+      "tokens_estimated": 1328,
+      "cumulative_tokens": 6176
+    },
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 5372,
+      "completion_chars": 892,
+      "tokens_estimated": 1566,
+      "cumulative_tokens": 7742
+    },
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 2120,
+      "completion_chars": 308,
+      "tokens_estimated": 607,
+      "cumulative_tokens": 8349
+    },
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 2363,
+      "completion_chars": 171,
+      "tokens_estimated": 634,
+      "cumulative_tokens": 8983
+    },
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 2903,
+      "completion_chars": 159,
+      "tokens_estimated": 766,
+      "cumulative_tokens": 9749
+    },
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 2741,
+      "completion_chars": 180,
+      "tokens_estimated": 731,
+      "cumulative_tokens": 10480
+    },
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 853,
+      "completion_chars": 35,
+      "tokens_estimated": 222,
+      "cumulative_tokens": 10702
+    },
+    {
+      "model": "arcee-ai/trinity-large-preview:free",
+      "prompt_chars": 7114,
+      "completion_chars": 2130,
+      "tokens_estimated": 2311,
+      "cumulative_tokens": 13013
+    }
+  ],
+  "models": {
+    "fast_model": "arcee-ai/trinity-large-preview:free",
+    "strong_model": "arcee-ai/trinity-large-preview:free"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__micromasters_dedp_exam_grades_b22c2064-0dd4-4e1a-9cdf-a74a9302f39d.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__micromasters_dedp_exam_grades_b22c2064-0dd4-4e1a-9cdf-a74a9302f39d.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks and analyzes proctored exam performance for MicroMasters programs, allowing educators to monitor student progress and identify areas needing improvement in specialized courses.",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 175,
+  "is_dead_code_candidate": false
+}

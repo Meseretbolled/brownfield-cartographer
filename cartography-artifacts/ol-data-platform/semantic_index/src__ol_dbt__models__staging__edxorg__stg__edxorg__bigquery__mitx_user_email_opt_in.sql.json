@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/edxorg/stg__edxorg__bigquery__mitx_user_email_opt_in.sql",
+  "relative_path": "src/ol_dbt/models/staging/edxorg/stg__edxorg__bigquery__mitx_user_email_opt_in.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Captures user email opt-in preferences from edX to enable personalized communication and marketing compliance",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__edxorg__bigquery__mitx_user_email_opt_in"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.002003,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 21,
+  "is_dead_code_candidate": false
+}

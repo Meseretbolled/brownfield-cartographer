@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__b2becommerce_b2border.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__b2becommerce_b2border.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Consolidates B2B order data with product and Salesforce opportunity information to provide a comprehensive view of corporate purchases, their associated products, and sales pipeline connections.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__b2becommerce_b2border"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000821,
+  "complexity_score": 13.0,
+  "change_velocity_30d": 0,
+  "loc": 60,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Suspicious_Behavior_Report_3acf6da0-1add-486f-9e70-884a1bb306f9.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Suspicious_Behavior_Report_3acf6da0-1add-486f-9e70-884a1bb306f9.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Generates a detailed table report of suspicious learner behavior patterns, including problem-solving attempts and time metrics, to identify potential academic integrity issues.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 87,
+  "is_dead_code_candidate": false
+}

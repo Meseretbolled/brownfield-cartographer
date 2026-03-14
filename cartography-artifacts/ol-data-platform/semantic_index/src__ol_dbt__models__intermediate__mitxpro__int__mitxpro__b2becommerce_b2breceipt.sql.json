@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__b2becommerce_b2breceipt.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__b2becommerce_b2breceipt.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Stores structured data for e-commerce receipt transactions including payment details and billing information for business-to-business purchases.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__b2becommerce_b2breceipt"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000821,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 19,
+  "is_dead_code_candidate": false
+}

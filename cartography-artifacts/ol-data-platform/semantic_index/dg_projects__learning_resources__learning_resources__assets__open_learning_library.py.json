@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/learning_resources/learning_resources/assets/open_learning_library.py",
+  "relative_path": "dg_projects/learning_resources/learning_resources/assets/open_learning_library.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Manages synchronization of MIT Open Learning Library course repositories from GitHub to S3 for search functionality in MIT Open",
+  "domain_cluster": "ingestion",
+  "exported_functions": [
+    "oll_github_repos"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 13,
+  "is_dead_code_candidate": true
+}

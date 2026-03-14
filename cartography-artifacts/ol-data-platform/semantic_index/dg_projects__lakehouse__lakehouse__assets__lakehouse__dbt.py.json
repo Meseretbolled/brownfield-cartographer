@@ -1,0 +1,20 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/lakehouse/lakehouse/assets/lakehouse/dbt.py",
+  "relative_path": "dg_projects/lakehouse/lakehouse/assets/lakehouse/dbt.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Defines and orchestrates DBT-based data transformation assets for the lakehouse, including environment-specific configuration and automation policies",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "full_dbt_project",
+    "get_automation_condition",
+    "get_group_name"
+  ],
+  "exported_classes": [
+    "DbtAutomationTranslator"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 2.0,
+  "change_velocity_30d": 0,
+  "loc": 62,
+  "is_dead_code_candidate": true
+}

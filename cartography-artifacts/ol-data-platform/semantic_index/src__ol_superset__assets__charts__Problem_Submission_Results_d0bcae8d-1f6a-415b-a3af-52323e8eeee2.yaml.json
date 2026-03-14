@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Problem_Submission_Results_d0bcae8d-1f6a-415b-a3af-52323e8eeee2.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Problem_Submission_Results_d0bcae8d-1f6a-415b-a3af-52323e8eeee2.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Analyzes problem submission patterns by course, showing success and failure rates to help educators identify difficult concepts and improve course content or instruction.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 112,
+  "is_dead_code_candidate": false
+}

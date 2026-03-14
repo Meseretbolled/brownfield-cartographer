@@ -1,0 +1,18 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/openedx/openedx/definitions.py",
+  "relative_path": "dg_projects/openedx/openedx/definitions.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Main OpenEdX data extraction repository definition with Vault authentication and S3 bucket configuration",
+  "domain_cluster": "configuration",
+  "exported_functions": [
+    "s3_uploads_bucket",
+    "earliest_log_date",
+    "daily_tracking_log_config"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 1,
+  "loc": 223,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,17 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/student_risk_probability/student_risk_probability/lib/helper.py",
+  "relative_path": "dg_projects/student_risk_probability/student_risk_probability/lib/helper.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Provide helper functions for scaling features and calculating risk probabilities using logistic regression weights",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "scaled_features",
+    "risk_probability"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 1.0,
+  "change_velocity_30d": 1,
+  "loc": 58,
+  "is_dead_code_candidate": true
+}

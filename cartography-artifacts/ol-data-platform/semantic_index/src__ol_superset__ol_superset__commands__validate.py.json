@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/ol_superset/commands/validate.py",
+  "relative_path": "src/ol_superset/ol_superset/commands/validate.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Validates Superset asset YAML files for syntax errors and provides an inventory of assets to ensure configuration files are well-formed before deployment.",
+  "domain_cluster": "testing",
+  "exported_functions": [
+    "validate"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 17.0,
+  "change_velocity_30d": 2,
+  "loc": 164,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/b2b_organization/b2b_organization/sensors/b2b_organization.py",
+  "relative_path": "dg_projects/b2b_organization/b2b_organization/sensors/b2b_organization.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Generates dynamic partition requests for B2B organization data exports based on new organizations found in the data warehouse, enabling automated data processing for B2B customers.",
+  "domain_cluster": "orchestration",
+  "exported_functions": [
+    "b2b_organization_list_sensor"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 1.0,
+  "change_velocity_30d": 0,
+  "loc": 65,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Order_detail_aff18084-6079-49b3-9604-d68c8a315296.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Order_detail_aff18084-6079-49b3-9604-d68c8a315296.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Shows the most recent order fulfillment dates for tracking e-commerce operations and order processing timelines",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 109,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__courses_courserunenrollment.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__courses_courserunenrollment.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Standardizes course run enrollment data from the source system, providing a clean view of user enrollments, statuses, and timestamps for educational program tracking.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__app__postgres__courses_courserunenrollment"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001086,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 22,
+  "is_dead_code_candidate": false
+}

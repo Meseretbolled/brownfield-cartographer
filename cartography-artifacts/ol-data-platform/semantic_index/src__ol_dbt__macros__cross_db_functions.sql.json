@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/macros/cross_db_functions.sql",
+  "relative_path": "src/ol_dbt/macros/cross_db_functions.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides cross-database compatibility functions for timestamp parsing, array joining, and regex operations, solving the problem of writing database-agnostic SQL code that works across Trino, DuckDB, and StarRocks.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "cross_db_functions"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 6.0,
+  "change_velocity_30d": 2,
+  "loc": 120,
+  "is_dead_code_candidate": true
+}

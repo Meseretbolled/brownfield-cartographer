@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/learn-ai/stg__learn_ai__app__postgres__chatbots_tutorbotoutput.sql",
+  "relative_path": "src/ol_dbt/models/staging/learn-ai/stg__learn_ai__app__postgres__chatbots_tutorbotoutput.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw tutorbot output data by extracting key fields and deduplicating records to provide a clean dataset of chatbot interactions.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__learn_ai__app__postgres__chatbots_tutorbotoutput"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.00091,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 14,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/micromasters/subqueries/__micromasters__users.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/micromasters/subqueries/__micromasters__users.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a comprehensive user profile by combining authentication data from multiple platforms (MicroMasters, mitxonline, edx.org) and enriching it with demographic and contact information.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "__micromasters__users"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.002814,
+  "complexity_score": 13.0,
+  "change_velocity_30d": 0,
+  "loc": 93,
+  "is_dead_code_candidate": false
+}

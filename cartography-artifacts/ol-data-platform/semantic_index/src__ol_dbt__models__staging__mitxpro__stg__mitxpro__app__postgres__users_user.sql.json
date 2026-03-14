@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__users_user.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__users_user.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw xPro user data into a cleaned staging table for downstream analytics, standardizing timestamps and formatting user information.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__app__postgres__users_user"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.00201,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 19,
+  "is_dead_code_candidate": false
+}

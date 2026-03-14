@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitx/int__mitx__courserun_certificates.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitx/int__mitx__courserun_certificates.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Combines course completion certificates from multiple sources (MITx Online, edX.org, and MicroMasters) while filtering out duplicates and program-specific certificates to create a comprehensive view of individual course completions.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitx__courserun_certificates"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001217,
+  "complexity_score": 12.0,
+  "change_velocity_30d": 0,
+  "loc": 96,
+  "is_dead_code_candidate": false
+}

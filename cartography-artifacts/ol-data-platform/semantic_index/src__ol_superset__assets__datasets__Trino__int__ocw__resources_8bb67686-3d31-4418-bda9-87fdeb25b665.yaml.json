@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/int__ocw__resources_8bb67686-3d31-4418-bda9-87fdeb25b665.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/int__ocw__resources_8bb67686-3d31-4418-bda9-87fdeb25b665.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "This dataset tracks the status of external resource URLs and backup URLs for course materials, monitoring whether links are accessible or broken.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 451,
+  "is_dead_code_candidate": false
+}

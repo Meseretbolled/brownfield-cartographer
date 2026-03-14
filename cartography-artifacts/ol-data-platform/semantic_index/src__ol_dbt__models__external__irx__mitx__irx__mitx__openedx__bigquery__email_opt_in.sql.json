@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__bigquery__email_opt_in.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__bigquery__email_opt_in.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Captures and exposes user email opt-in preferences for marketing and communication purposes, enabling targeted email campaigns based on user consent.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "irx__mitx__openedx__bigquery__email_opt_in"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 11,
+  "is_dead_code_candidate": true
+}

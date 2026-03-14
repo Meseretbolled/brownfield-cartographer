@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/dim_discussion_topic_62e16051-719e-48d6-b256-e40600ec3764.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/dim_discussion_topic_62e16051-719e-48d6-b256-e40600ec3764.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Stores discussion topic metadata for course content management and analysis",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 127,
+  "is_dead_code_candidate": false
+}

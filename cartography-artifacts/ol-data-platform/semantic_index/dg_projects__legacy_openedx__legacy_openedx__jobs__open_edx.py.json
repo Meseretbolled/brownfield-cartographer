@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/legacy_openedx/legacy_openedx/jobs/open_edx.py",
+  "relative_path": "dg_projects/legacy_openedx/legacy_openedx/jobs/open_edx.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Defines a Dagster graph that orchestrates the extraction of Open edX course data and user information for institutional research purposes",
+  "domain_cluster": "orchestration",
+  "exported_functions": [
+    "edx_course_pipeline"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 53,
+  "is_dead_code_candidate": true
+}

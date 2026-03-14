@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxresidential/stg__mitxresidential__openedx__user_courseaccessrole.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxresidential/stg__mitxresidential__openedx__user_courseaccessrole.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maps user roles to courses by cleaning and standardizing course access role data, providing visibility into who has what level of access to specific courses.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxresidential__openedx__user_courseaccessrole"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000753,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 15,
+  "is_dead_code_candidate": false
+}

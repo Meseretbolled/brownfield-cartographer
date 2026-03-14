@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/reporting/organization_administration_report.sql",
+  "relative_path": "src/ol_dbt/models/reporting/organization_administration_report.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Generates organization administration reports with enrollment, role, and engagement data for institutional oversight.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "organization_administration_report"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000784,
+  "complexity_score": 37.0,
+  "change_velocity_30d": 0,
+  "loc": 313,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__cms_instructorpagelink.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__cms_instructorpagelink.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maintains instructor page relationships within the CMS, supporting navigation and linking between course content and instructor profiles.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__cms_instructorpagelink"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001327,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 12,
+  "is_dead_code_candidate": false
+}

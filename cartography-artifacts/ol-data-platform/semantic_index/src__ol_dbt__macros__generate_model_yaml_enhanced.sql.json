@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/macros/generate_model_yaml_enhanced.sql",
+  "relative_path": "src/ol_dbt/macros/generate_model_yaml_enhanced.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Automates the generation of YAML model documentation with enhanced column metadata to streamline data warehouse documentation and maintenance",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "generate_model_yaml_enhanced"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 14.0,
+  "change_velocity_30d": 0,
+  "loc": 221,
+  "is_dead_code_candidate": true
+}

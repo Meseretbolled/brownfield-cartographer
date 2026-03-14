@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__ecommerce_discount.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__ecommerce_discount.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw MITx Online ecommerce discount data into a standardized format for analytics, enabling analysis of discount programs including their types, amounts, and redemption patterns.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__ecommerce_discount"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001699,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 34,
+  "is_dead_code_candidate": false
+}

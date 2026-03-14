@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/micromasters/stg__micromasters__app__postgres__ecommerce_coupon.sql",
+  "relative_path": "src/ol_dbt/models/staging/micromasters/stg__micromasters__app__postgres__ecommerce_coupon.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw micromasters ecommerce coupon data into a cleaned staging table with standardized field names, formatted amounts, and human-readable discount descriptions for analysis of promotional campaigns.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__micromasters__app__postgres__ecommerce_coupon"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000797,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 36,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/MITxOnline_Enrollment_Geography_de62ba2c-c4c8-4973-99eb-f1a7bcbe16e6.yaml",
+  "relative_path": "src/ol_superset/assets/charts/MITxOnline_Enrollment_Geography_de62ba2c-c4c8-4973-99eb-f1a7bcbe16e6.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Visualizes the geographic distribution of MITxOnline enrollments by country, showing where learners are located worldwide using a color-coded world map.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 38,
+  "is_dead_code_candidate": false
+}

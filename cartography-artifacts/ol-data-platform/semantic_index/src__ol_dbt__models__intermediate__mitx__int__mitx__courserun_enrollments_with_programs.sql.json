@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitx/int__mitx__courserun_enrollments_with_programs.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitx/int__mitx__courserun_enrollments_with_programs.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Joins course enrollment data from edX.org with user information and program requirements to create a comprehensive view of active enrollments across both edX and MITx Online platforms.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitx__courserun_enrollments_with_programs"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001143,
+  "complexity_score": 12.0,
+  "change_velocity_30d": 0,
+  "loc": 78,
+  "is_dead_code_candidate": false
+}

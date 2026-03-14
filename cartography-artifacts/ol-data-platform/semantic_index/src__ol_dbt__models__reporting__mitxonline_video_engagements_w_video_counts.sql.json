@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/reporting/mitxonline_video_engagements_w_video_counts.sql",
+  "relative_path": "src/ol_dbt/models/reporting/mitxonline_video_engagements_w_video_counts.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a report of MITx Online video engagement metrics, including total videos per section, user-specific viewing counts, and current course status.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "mitxonline_video_engagements_w_video_counts"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 6.0,
+  "change_velocity_30d": 3,
+  "loc": 51,
+  "is_dead_code_candidate": true
+}

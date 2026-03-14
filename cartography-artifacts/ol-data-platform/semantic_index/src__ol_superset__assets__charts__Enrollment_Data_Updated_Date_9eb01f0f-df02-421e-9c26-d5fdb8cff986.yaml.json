@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Enrollment_Data_Updated_Date_9eb01f0f-df02-421e-9c26-d5fdb8cff986.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Enrollment_Data_Updated_Date_9eb01f0f-df02-421e-9c26-d5fdb8cff986.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Shows the most recent enrollment data update date to track when course enrollment information was last refreshed",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 63,
+  "is_dead_code_candidate": false
+}

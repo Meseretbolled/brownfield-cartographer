@@ -1,0 +1,30 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/bin/dbt-local-dev.py",
+  "relative_path": "bin/dbt-local-dev.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Provides a unified CLI tool for local dbt development with DuckDB and Iceberg, enabling testing, registration of Glue tables, and cleanup of development schemas.",
+  "domain_cluster": "testing",
+  "exported_functions": [
+    "get_glue_tables",
+    "register_tables_in_duckdb",
+    "show_registry",
+    "cleanup_local_tables",
+    "get_trino_connection",
+    "validate_schema_safety",
+    "get_schemas_to_clean",
+    "get_all_eligible_schemas",
+    "get_tables_and_views",
+    "drop_objects",
+    "register",
+    "list_sources",
+    "cleanup_local",
+    "test",
+    "cleanup"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 155.0,
+  "change_velocity_30d": 1,
+  "loc": 1782,
+  "is_dead_code_candidate": true
+}

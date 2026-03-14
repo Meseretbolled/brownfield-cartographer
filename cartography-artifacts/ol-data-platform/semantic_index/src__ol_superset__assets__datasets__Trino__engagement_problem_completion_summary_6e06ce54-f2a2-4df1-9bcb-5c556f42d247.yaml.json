@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/engagement_problem_completion_summary_6e06ce54-f2a2-4df1-9bcb-5c556f42d247.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/engagement_problem_completion_summary_6e06ce54-f2a2-4df1-9bcb-5c556f42d247.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks and summarizes student engagement with course problems, providing insights into completion rates and problem-solving behavior across course runs.",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 139,
+  "is_dead_code_candidate": false
+}

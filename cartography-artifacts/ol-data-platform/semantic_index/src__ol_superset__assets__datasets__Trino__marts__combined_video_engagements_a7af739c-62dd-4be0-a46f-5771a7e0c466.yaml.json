@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__combined_video_engagements_a7af739c-62dd-4be0-a46f-5771a7e0c466.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__combined_video_engagements_a7af739c-62dd-4be0-a46f-5771a7e0c466.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Aggregates video engagement metrics including user education levels and course information for analyzing learning patterns and content effectiveness.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 367,
+  "is_dead_code_candidate": false
+}

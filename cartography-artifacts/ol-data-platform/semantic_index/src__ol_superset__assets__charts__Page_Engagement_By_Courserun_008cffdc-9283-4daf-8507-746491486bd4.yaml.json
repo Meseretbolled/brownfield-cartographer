@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Page_Engagement_By_Courserun_008cffdc-9283-4daf-8507-746491486bd4.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Page_Engagement_By_Courserun_008cffdc-9283-4daf-8507-746491486bd4.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Aggregates page view counts by courserun, enabling analysis of content popularity and learner navigation patterns.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 91,
+  "is_dead_code_candidate": false
+}

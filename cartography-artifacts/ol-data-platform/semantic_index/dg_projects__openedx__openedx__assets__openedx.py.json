@@ -1,0 +1,20 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/openedx/openedx/assets/openedx.py",
+  "relative_path": "dg_projects/openedx/openedx/assets/openedx.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Provides access to live courseware data from Open edX environments, enabling downstream analytics and content processing workflows.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [
+    "openedx_live_courseware",
+    "course_structure",
+    "course_xml",
+    "extract_courserun_details",
+    "openedx_course_content_webhook"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 15.0,
+  "change_velocity_30d": 4,
+  "loc": 384,
+  "is_dead_code_candidate": true
+}

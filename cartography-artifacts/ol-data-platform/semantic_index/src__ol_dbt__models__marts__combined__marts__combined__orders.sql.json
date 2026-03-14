@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/marts/combined/marts__combined__orders.sql",
+  "relative_path": "src/ol_dbt/models/marts/combined/marts__combined__orders.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Combines order data from multiple platforms to create a unified view of transactions and revenue",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "marts__combined__orders"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001301,
+  "complexity_score": 39.0,
+  "change_velocity_30d": 2,
+  "loc": 521,
+  "is_dead_code_candidate": false
+}

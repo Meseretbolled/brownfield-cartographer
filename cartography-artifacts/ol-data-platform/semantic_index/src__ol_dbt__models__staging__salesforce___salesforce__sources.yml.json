@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/salesforce/_salesforce__sources.yml",
+  "relative_path": "src/ol_dbt/models/staging/salesforce/_salesforce__sources.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Define metadata and schema for Salesforce opportunity raw data source, including field descriptions and data types for data catalog and documentation",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 242,
+  "is_dead_code_candidate": false
+}

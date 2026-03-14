@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__combined_discounts_a5df905c-0480-4227-b234-1a1064672b32.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__combined_discounts_a5df905c-0480-4227-b234-1a1064672b32.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Manages and tracks discount programs across multiple channels, providing visibility into promotional effectiveness and helping optimize pricing strategies for different customer segments.",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 295,
+  "is_dead_code_candidate": false
+}

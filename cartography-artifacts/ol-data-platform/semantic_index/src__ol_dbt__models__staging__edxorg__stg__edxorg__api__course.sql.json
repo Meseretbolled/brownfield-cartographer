@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/edxorg/stg__edxorg__api__course.sql",
+  "relative_path": "src/ol_dbt/models/staging/edxorg/stg__edxorg__api__course.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts and normalizes course metadata from edX, including titles, descriptions, topics, and prerequisites, to provide a clean reference dataset for course catalog management.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__edxorg__api__course"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001295,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 1,
+  "loc": 28,
+  "is_dead_code_candidate": false
+}

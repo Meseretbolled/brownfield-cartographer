@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_line.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_line.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a unified view of ecommerce line items by joining order details with product information and program run associations, enabling analysis of purchases and their relationships to specific courses and programs.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__ecommerce_line"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001044,
+  "complexity_score": 9.0,
+  "change_velocity_30d": 0,
+  "loc": 38,
+  "is_dead_code_candidate": false
+}

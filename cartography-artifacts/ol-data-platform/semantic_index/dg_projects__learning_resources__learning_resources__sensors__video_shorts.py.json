@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/learning_resources/learning_resources/sensors/video_shorts.py",
+  "relative_path": "dg_projects/learning_resources/learning_resources/sensors/video_shorts.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Monitors Google Sheets for new video short entries and automatically creates partitions to trigger processing workflows for new educational video content.",
+  "domain_cluster": "monitoring",
+  "exported_functions": [
+    "video_shorts_discovery_sensor"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 1,
+  "loc": 83,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__assessment_trainingexample.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__assessment_trainingexample.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Retrieve training examples used in both automated and student training workflows to support machine learning model training and evaluation.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [
+    "irx__mitx__openedx__mysql__assessment_trainingexample"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 12.0,
+  "change_velocity_30d": 0,
+  "loc": 33,
+  "is_dead_code_candidate": true
+}

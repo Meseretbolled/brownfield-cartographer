@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__user_courseactivities_daily.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxresidential/int__mitxresidential__user_courseactivities_daily.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Aggregates daily user activity counts by course for usage analytics and trend reporting.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxresidential__user_courseactivities_daily"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000732,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 1,
+  "loc": 19,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,24 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/lib/openedx.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/lib/openedx.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Handles course structure processing by generating block indexes and unnesting course data for downstream analytics, enabling structured course content analysis.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "generate_block_indexes",
+    "un_nest_course_structure",
+    "process_video_xml",
+    "process_policy_json",
+    "parse_course_id",
+    "parse_video_xml",
+    "write_video_json_file",
+    "process_course_xml",
+    "parse_course_xml"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 28.0,
+  "change_velocity_30d": 0,
+  "loc": 316,
+  "is_dead_code_candidate": true
+}

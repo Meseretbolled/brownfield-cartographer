@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/dashboards/Orders_7b9f141d-14d2-40c6-aa01-fef8a0375ce8.yaml",
+  "relative_path": "src/ol_superset/assets/dashboards/Orders_7b9f141d-14d2-40c6-aa01-fef8a0375ce8.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides a comprehensive view of order management including fulfillment dates, contract details, and detailed order information to streamline e-commerce operations.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 421,
+  "is_dead_code_candidate": false
+}

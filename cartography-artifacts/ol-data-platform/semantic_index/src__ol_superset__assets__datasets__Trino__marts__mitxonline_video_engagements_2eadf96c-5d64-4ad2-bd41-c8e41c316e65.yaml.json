@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__mitxonline_video_engagements_2eadf96c-5d64-4ad2-bd41-c8e41c316e65.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__mitxonline_video_engagements_2eadf96c-5d64-4ad2-bd41-c8e41c316e65.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides mart-level video engagement data with user details for business intelligence",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 271,
+  "is_dead_code_candidate": false
+}

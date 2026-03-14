@@ -1,0 +1,26 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/ol_superset/lib/role_management.py",
+  "relative_path": "src/ol_superset/ol_superset/lib/role_management.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Manages role-based access control by loading governance policies and synchronizing dataset permissions, ensuring proper data governance and security compliance.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "load_governance_roles",
+    "get_local_datasets",
+    "get_superset_datasets",
+    "get_all_roles",
+    "get_role_dataset_permissions",
+    "get_all_datasource_permissions",
+    "compute_schema_to_datasets",
+    "compute_desired_dataset_ids",
+    "add_role_permissions",
+    "delete_role_permissions",
+    "find_governance_roles_json"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 44.0,
+  "change_velocity_30d": 1,
+  "loc": 467,
+  "is_dead_code_candidate": true
+}

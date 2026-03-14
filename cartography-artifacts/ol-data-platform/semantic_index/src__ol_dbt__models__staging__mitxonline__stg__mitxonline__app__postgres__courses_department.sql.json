@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_department.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_department.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides a clean reference table of MITx Online course departments for organizational reporting and filtering.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__courses_department"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001032,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 16,
+  "is_dead_code_candidate": false
+}

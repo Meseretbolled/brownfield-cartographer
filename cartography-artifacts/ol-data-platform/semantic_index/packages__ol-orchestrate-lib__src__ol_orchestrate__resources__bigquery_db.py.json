@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/resources/bigquery_db.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/resources/bigquery_db.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Creates connections to Google BigQuery databases using service account credentials, enabling access to cloud-based data warehousing for analytics",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "bigquery_db_resource"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 79,
+  "is_dead_code_candidate": true
+}

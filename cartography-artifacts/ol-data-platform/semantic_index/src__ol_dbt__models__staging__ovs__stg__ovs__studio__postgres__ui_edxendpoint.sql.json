@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/ovs/stg__ovs__studio__postgres__ui_edxendpoint.sql",
+  "relative_path": "src/ol_dbt/models/staging/ovs/stg__ovs__studio__postgres__ui_edxendpoint.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw OVS studio endpoint data by renaming columns and standardizing timestamp formats for downstream use.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__ovs__studio__postgres__ui_edxendpoint"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000908,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 20,
+  "is_dead_code_candidate": false
+}

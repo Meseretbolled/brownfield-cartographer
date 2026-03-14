@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/combined/int__combined__courserun_certificates.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/combined/int__combined__courserun_certificates.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a unified view of course completion certificates across multiple learning platforms, combining certificate data while filtering out revoked certificates and standardizing user identifiers",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__combined__courserun_certificates"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000781,
+  "complexity_score": 7.0,
+  "change_velocity_30d": 0,
+  "loc": 71,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/edxorg/stg__edxorg__s3__user_profile.sql",
+  "relative_path": "src/ol_dbt/models/staging/edxorg/stg__edxorg__s3__user_profile.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw user profile data into standardized format, enabling consistent user information across the platform for personalization and analytics.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__edxorg__s3__user_profile"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000753,
+  "complexity_score": 9.0,
+  "change_velocity_30d": 0,
+  "loc": 44,
+  "is_dead_code_candidate": false
+}

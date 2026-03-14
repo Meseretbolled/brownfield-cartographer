@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__course_runs.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__course_runs.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Consolidates course run information from MITx Online by joining course details with run-specific data, providing a comprehensive view of available courses and their delivery schedules.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__course_runs"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.003684,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 30,
+  "is_dead_code_candidate": false
+}

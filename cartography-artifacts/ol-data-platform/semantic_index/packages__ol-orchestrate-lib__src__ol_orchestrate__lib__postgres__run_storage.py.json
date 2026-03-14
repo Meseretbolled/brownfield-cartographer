@@ -1,0 +1,21 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/lib/postgres/run_storage.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/lib/postgres/run_storage.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Provides a connection-pooled PostgreSQL implementation for Dagster run storage to prevent database connection exhaustion during complex data pipeline executions",
+  "domain_cluster": "monitoring",
+  "exported_functions": [
+    "optimize_for_webserver",
+    "config_type",
+    "from_config_value",
+    "inst_data"
+  ],
+  "exported_classes": [
+    "PooledPostgresRunStorage"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 4,
+  "loc": 198,
+  "is_dead_code_candidate": true
+}

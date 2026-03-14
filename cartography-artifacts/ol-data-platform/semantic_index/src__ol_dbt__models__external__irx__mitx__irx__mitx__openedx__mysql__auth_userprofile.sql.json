@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__auth_userprofile.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__auth_userprofile.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Retrieves user profile data including demographics and preferences for enrolled students",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "irx__mitx__openedx__mysql__auth_userprofile"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 28,
+  "is_dead_code_candidate": true
+}

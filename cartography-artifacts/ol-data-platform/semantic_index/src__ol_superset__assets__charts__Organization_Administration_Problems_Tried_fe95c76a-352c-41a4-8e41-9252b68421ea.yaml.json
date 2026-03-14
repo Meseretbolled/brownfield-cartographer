@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Organization_Administration_Problems_Tried_fe95c76a-352c-41a4-8e41-9252b68421ea.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Organization_Administration_Problems_Tried_fe95c76a-352c-41a4-8e41-9252b68421ea.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Aggregates monthly problem-solving attempts by learners to measure engagement with course content and learning activities",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 136,
+  "is_dead_code_candidate": false
+}

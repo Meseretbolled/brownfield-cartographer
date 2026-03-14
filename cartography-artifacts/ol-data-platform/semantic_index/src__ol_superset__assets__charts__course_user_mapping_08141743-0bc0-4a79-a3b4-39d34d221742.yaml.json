@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/course_user_mapping_08141743-0bc0-4a79-a3b4-39d34d221742.yaml",
+  "relative_path": "src/ol_superset/assets/charts/course_user_mapping_08141743-0bc0-4a79-a3b4-39d34d221742.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Maps users to their enrolled courses, showing course enrollment details and user information for tracking course participation and user-course relationships.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 1,
+  "loc": 37,
+  "is_dead_code_candidate": false
+}

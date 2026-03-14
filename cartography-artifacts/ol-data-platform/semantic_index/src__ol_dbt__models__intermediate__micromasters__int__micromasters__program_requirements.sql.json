@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/micromasters/int__micromasters__program_requirements.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/micromasters/int__micromasters__program_requirements.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Define MicroMasters program requirements by categorizing courses as Core or Elective to support program completion tracking",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__micromasters__program_requirements"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001015,
+  "complexity_score": 13.0,
+  "change_velocity_30d": 0,
+  "loc": 84,
+  "is_dead_code_candidate": false
+}

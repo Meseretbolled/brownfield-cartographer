@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/bootcamps/int__bootcamps__ecommerce_order.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/bootcamps/int__bootcamps__ecommerce_order.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "This module consolidates ecommerce order data with related line items, receipts, users, and course run information to provide a comprehensive view of course purchases, including payment details and user information.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__bootcamps__ecommerce_order"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000996,
+  "complexity_score": 11.0,
+  "change_velocity_30d": 0,
+  "loc": 51,
+  "is_dead_code_candidate": false
+}

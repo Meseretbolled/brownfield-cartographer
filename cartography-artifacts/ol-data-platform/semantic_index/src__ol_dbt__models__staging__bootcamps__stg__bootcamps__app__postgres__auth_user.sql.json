@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/bootcamps/stg__bootcamps__app__postgres__auth_user.sql",
+  "relative_path": "src/ol_dbt/models/staging/bootcamps/stg__bootcamps__app__postgres__auth_user.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Standardizes user authentication data from the bootcamp platform, solving the business problem of user management by providing a consistent view of user accounts with proper timestamps for account activity.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__bootcamps__app__postgres__auth_user"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001122,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 17,
+  "is_dead_code_candidate": false
+}

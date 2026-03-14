@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/ocw/stg__ocw__studio__postgres__websites_websitecontent.sql",
+  "relative_path": "src/ol_dbt/models/staging/ocw/stg__ocw__studio__postgres__websites_websitecontent.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms OCW studio website content data from raw warehouse tables into a staging model with extracted course metadata and standardized column names for website content management.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__ocw__studio__postgres__websites_websitecontent"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.003212,
+  "complexity_score": 6.0,
+  "change_velocity_30d": 1,
+  "loc": 66,
+  "is_dead_code_candidate": false
+}

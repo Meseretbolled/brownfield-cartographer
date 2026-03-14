@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Video_Engagement_per_Section_ac95bf65-b2ea-4e6a-9fdf-8fdff4758f5e.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Video_Engagement_per_Section_ac95bf65-b2ea-4e6a-9fdf-8fdff4758f5e.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks video engagement metrics at the section level, showing how many learners have viewed at least one video versus all videos in each section to measure content consumption patterns.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 5,
+  "loc": 258,
+  "is_dead_code_candidate": false
+}

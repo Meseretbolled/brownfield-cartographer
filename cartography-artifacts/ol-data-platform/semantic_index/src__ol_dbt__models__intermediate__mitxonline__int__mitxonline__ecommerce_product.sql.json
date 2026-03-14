@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__ecommerce_product.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__ecommerce_product.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maps e-commerce products to their corresponding course runs or programs to understand what educational offerings are available for purchase.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__ecommerce_product"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000997,
+  "complexity_score": 13.0,
+  "change_velocity_30d": 1,
+  "loc": 48,
+  "is_dead_code_candidate": false
+}

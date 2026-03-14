@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__combined__products_d53b0a52-4450-4d2a-8ce4-143b9f9e327b.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__combined__products_d53b0a52-4450-4d2a-8ce4-143b9f9e327b.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "This module serves as a centralized product catalog that consolidates course information across multiple platforms, enabling analysis of course availability, pricing, and enrollment status for business decision-making.",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 375,
+  "is_dead_code_candidate": false
+}

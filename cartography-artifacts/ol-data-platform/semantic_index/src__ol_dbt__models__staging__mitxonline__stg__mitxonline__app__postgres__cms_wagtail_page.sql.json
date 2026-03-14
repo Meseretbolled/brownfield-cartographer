@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__cms_wagtail_page.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__cms_wagtail_page.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Standardizes Wagtail CMS page metadata to support content management and navigation across the MITx Online platform",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__cms_wagtail_page"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001561,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 28,
+  "is_dead_code_candidate": false
+}

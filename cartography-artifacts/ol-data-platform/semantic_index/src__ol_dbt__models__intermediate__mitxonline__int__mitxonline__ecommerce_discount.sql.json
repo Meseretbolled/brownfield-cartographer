@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__ecommerce_discount.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__ecommerce_discount.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maintains a reference of available discount codes and their properties for MITx Online ecommerce transactions, supporting promotional campaigns and pricing strategies.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__ecommerce_discount"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000818,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 17,
+  "is_dead_code_candidate": false
+}

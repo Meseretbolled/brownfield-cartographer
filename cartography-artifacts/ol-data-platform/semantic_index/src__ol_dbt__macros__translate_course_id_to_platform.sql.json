@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/macros/translate_course_id_to_platform.sql",
+  "relative_path": "src/ol_dbt/macros/translate_course_id_to_platform.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maps course identifiers to their corresponding learning platform names (MITxOnline, MITxPro, or edX), solving the problem of tracking which courses belong to which platform when data is stored in a unified format.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "translate_course_id_to_platform"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 11,
+  "is_dead_code_candidate": true
+}

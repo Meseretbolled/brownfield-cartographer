@@ -1,0 +1,18 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/resources/github.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/resources/github.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Enables secure GitHub API interactions by fetching credentials from Vault and creating authenticated clients for repository operations within data pipelines.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "get_client"
+  ],
+  "exported_classes": [
+    "GithubApiClientFactory"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 1.0,
+  "change_velocity_30d": 0,
+  "loc": 47,
+  "is_dead_code_candidate": true
+}

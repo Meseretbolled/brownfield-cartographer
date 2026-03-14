@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/afact_video_engagement_7ac81107-1993-427e-b2ed-b8835b1ce58d.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/afact_video_engagement_7ac81107-1993-427e-b2ed-b8835b1ce58d.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks video engagement metrics including play time and activity timestamps for learning analytics",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 247,
+  "is_dead_code_candidate": false
+}

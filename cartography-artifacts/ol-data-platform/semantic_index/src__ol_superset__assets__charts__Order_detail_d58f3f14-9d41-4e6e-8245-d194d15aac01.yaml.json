@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Order_detail_d58f3f14-9d41-4e6e-8245-d194d15aac01.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Order_detail_d58f3f14-9d41-4e6e-8245-d194d15aac01.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Shows detailed order transaction data including pricing, discounts, payment methods, and customer information for financial reconciliation and customer service operations.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 147,
+  "is_dead_code_candidate": false
+}

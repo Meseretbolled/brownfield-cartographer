@@ -1,0 +1,19 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/edxorg/edxorg/io_managers/gcs.py",
+  "relative_path": "dg_projects/edxorg/edxorg/io_managers/gcs.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Manages file input/output operations with Google Cloud Storage, enabling data assets to be loaded from and stored to GCS buckets as part of the data pipeline workflow.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "load_input",
+    "handle_output"
+  ],
+  "exported_classes": [
+    "GCSFileIOManager"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 50,
+  "is_dead_code_candidate": true
+}

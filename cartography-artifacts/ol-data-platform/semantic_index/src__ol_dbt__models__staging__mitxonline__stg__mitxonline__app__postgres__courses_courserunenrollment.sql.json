@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_courserunenrollment.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_courserunenrollment.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Tracks student enrollment status and subscription preferences for MITx Online course runs to support access control and communication.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__courses_courserunenrollment"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000899,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 26,
+  "is_dead_code_candidate": false
+}

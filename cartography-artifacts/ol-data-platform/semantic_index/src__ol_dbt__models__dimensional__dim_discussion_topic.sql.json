@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/dimensional/dim_discussion_topic.sql",
+  "relative_path": "src/ol_dbt/models/dimensional/dim_discussion_topic.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a unified dimension table for discussion topics across course content, combining discussion components and course-wide discussion topics to enable analysis of discussion engagement and topic distribution.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "dim_discussion_topic"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000897,
+  "complexity_score": 7.0,
+  "change_velocity_30d": 2,
+  "loc": 63,
+  "is_dead_code_candidate": false
+}

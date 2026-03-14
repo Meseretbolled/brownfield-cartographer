@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/macros/apply_deduplication_query.sql",
+  "relative_path": "src/ol_dbt/macros/apply_deduplication_query.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides deduplication logic to ensure only the most recent record is retained when incremental sync appends duplicate data, preventing data quality issues from multiple record versions",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "apply_deduplication_query"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 39,
+  "is_dead_code_candidate": true
+}

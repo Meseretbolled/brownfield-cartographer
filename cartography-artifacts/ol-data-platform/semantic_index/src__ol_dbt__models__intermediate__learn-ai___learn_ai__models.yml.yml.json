@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/learn-ai/_learn_ai__models.yml.yml",
+  "relative_path": "src/ol_dbt/models/intermediate/learn-ai/_learn_ai__models.yml.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Stores structured data for e-commerce receipt transactions including payment details and billing information for business-to-business purchases.",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 1,
+  "loc": 129,
+  "is_dead_code_candidate": false
+}

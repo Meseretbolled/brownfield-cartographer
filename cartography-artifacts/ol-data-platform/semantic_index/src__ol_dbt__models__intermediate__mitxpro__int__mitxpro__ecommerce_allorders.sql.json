@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_allorders.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_allorders.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "This module consolidates order and user data from MITxPro's e-commerce system, linking orders with user information, course runs, and payment details to support business operations.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__ecommerce_allorders"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000836,
+  "complexity_score": 38.0,
+  "change_velocity_30d": 0,
+  "loc": 235,
+  "is_dead_code_candidate": false
+}

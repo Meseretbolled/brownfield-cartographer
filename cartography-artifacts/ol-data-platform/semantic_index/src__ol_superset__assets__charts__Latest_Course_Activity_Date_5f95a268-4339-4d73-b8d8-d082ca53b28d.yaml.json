@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Latest_Course_Activity_Date_5f95a268-4339-4d73-b8d8-d082ca53b28d.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Latest_Course_Activity_Date_5f95a268-4339-4d73-b8d8-d082ca53b28d.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Shows the latest activity date for courses to monitor engagement timelines",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 119,
+  "is_dead_code_candidate": false
+}

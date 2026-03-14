@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/bootcamps/_stg_bootcamps__models.yml",
+  "relative_path": "src/ol_dbt/models/staging/bootcamps/_stg_bootcamps__models.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Defines data quality tests and column specifications for wire transfer receipts, payment receipts, and ecommerce line items in the bootcamps system",
+  "domain_cluster": "testing",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 624,
+  "is_dead_code_candidate": false
+}

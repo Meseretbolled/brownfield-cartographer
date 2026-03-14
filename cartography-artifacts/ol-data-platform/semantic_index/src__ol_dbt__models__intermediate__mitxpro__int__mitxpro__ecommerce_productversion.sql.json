@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_productversion.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_productversion.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Module providing: int__mitxpro__ecommerce_productversion. Contains 15 lines of Language.SQL code.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__ecommerce_productversion"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001049,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 15,
+  "is_dead_code_candidate": false
+}

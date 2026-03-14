@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/micromasters/subqueries/__micromasters_program_certificates_non_dedp.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/micromasters/subqueries/__micromasters_program_certificates_non_dedp.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Compiles non-DEDp MicroMasters program certificates from edX.org data, handling duplicate certificates and including override list for users who should receive certificates despite not meeting requirements.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "__micromasters_program_certificates_non_dedp"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001011,
+  "complexity_score": 14.0,
+  "change_velocity_30d": 0,
+  "loc": 83,
+  "is_dead_code_candidate": false
+}

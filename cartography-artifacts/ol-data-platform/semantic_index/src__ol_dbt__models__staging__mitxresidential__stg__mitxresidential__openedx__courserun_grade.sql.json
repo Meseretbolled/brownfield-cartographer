@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxresidential/stg__mitxresidential__openedx__courserun_grade.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxresidential/stg__mitxresidential__openedx__courserun_grade.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Records and tracks course grades for students, enabling performance analysis and certification decisions.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxresidential__openedx__courserun_grade"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.00092,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 18,
+  "is_dead_code_candidate": false
+}

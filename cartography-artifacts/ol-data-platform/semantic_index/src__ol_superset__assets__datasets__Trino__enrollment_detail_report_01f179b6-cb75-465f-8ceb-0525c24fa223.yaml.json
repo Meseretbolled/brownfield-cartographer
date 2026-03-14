@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/enrollment_detail_report_01f179b6-cb75-465f-8ceb-0525c24fa223.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/enrollment_detail_report_01f179b6-cb75-465f-8ceb-0525c24fa223.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Generates detailed enrollment reports including payment and certification information for business intelligence.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 539,
+  "is_dead_code_candidate": false
+}

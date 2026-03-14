@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/micromasters/_int_micromasters__models.yml",
+  "relative_path": "src/ol_dbt/models/intermediate/micromasters/_int_micromasters__models.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Consolidates program certificate data from both MicroMasters and MITx Online databases to create a unified view of learner achievements across different certificate types and issuance sources.",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 685,
+  "is_dead_code_candidate": false
+}

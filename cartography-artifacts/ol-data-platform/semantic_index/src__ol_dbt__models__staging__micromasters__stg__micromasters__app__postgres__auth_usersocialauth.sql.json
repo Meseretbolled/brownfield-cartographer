@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/micromasters/stg__micromasters__app__postgres__auth_usersocialauth.sql",
+  "relative_path": "src/ol_dbt/models/staging/micromasters/stg__micromasters__app__postgres__auth_usersocialauth.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Tracks user authentication methods and providers to enable identity matching across systems",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__micromasters__app__postgres__auth_usersocialauth"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001946,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 20,
+  "is_dead_code_candidate": false
+}

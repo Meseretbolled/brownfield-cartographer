@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/reporting/engagement_problem_completion_summary.sql",
+  "relative_path": "src/ol_dbt/models/reporting/engagement_problem_completion_summary.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides a detailed summary of problem engagement and completion rates for learners across different courses and sections, tracking attempts and successful completions.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "engagement_problem_completion_summary"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 18.0,
+  "change_velocity_30d": 1,
+  "loc": 82,
+  "is_dead_code_candidate": true
+}

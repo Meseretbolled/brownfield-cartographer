@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/marts/combined/marts__combined_coursesinprogram.sql",
+  "relative_path": "src/ol_dbt/models/marts/combined/marts__combined_coursesinprogram.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maps courses to their respective programs across different platforms to provide program structure visibility",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "marts__combined_coursesinprogram"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001342,
+  "complexity_score": 17.0,
+  "change_velocity_30d": 1,
+  "loc": 86,
+  "is_dead_code_candidate": false
+}

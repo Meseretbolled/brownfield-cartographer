@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_order.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_order.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Aggregates order-level data including coupon redemption details and payment information, providing a comprehensive view of customer transactions for financial reporting and order management.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__ecommerce_order"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001044,
+  "complexity_score": 14.0,
+  "change_velocity_30d": 0,
+  "loc": 68,
+  "is_dead_code_candidate": false
+}

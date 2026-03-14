@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Program_Summary_8350fe92-c02c-4e98-92ed-adabae3fb582.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Program_Summary_8350fe92-c02c-4e98-92ed-adabae3fb582.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Presents a summary of program metrics including enrollments, unique users, certificates, and other key performance indicators for program evaluation.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 60,
+  "is_dead_code_candidate": false
+}

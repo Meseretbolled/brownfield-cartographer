@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Latest_Dashboard_Activity_Recorded_Date_af403a98-7ff4-407a-b1c9-5161ffc10522.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Latest_Dashboard_Activity_Recorded_Date_af403a98-7ff4-407a-b1c9-5161ffc10522.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Displays the most recent dashboard activity date to track when data was last updated, helping users verify data freshness and monitor system usage patterns over time.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 119,
+  "is_dead_code_candidate": false
+}

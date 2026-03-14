@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__cms_certificatepage.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__cms_certificatepage.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Stores certificate template configurations and settings for generating professional certificates",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__app__postgres__cms_certificatepage"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.00097,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 17,
+  "is_dead_code_candidate": false
+}

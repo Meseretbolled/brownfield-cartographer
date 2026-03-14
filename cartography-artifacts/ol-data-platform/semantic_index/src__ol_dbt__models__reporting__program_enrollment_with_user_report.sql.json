@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/reporting/program_enrollment_with_user_report.sql",
+  "relative_path": "src/ol_dbt/models/reporting/program_enrollment_with_user_report.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Generates a comprehensive enrollment report with user demographics and course completion tracking for program-level analysis, enabling program administrators to monitor student progress and program effectiveness.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "program_enrollment_with_user_report"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 15.0,
+  "change_velocity_30d": 1,
+  "loc": 114,
+  "is_dead_code_candidate": true
+}

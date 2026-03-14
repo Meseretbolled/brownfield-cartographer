@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__user_courseactivity_problemsubmitted.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__user_courseactivity_problemsubmitted.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Captures and structures problem submission events from course activities to track student performance and grading data.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__user_courseactivity_problemsubmitted"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000898,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 1,
+  "loc": 23,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_receipt.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_receipt.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts and transforms payment receipt data from JSON format into structured fields, enabling financial transaction analysis and reconciliation.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__ecommerce_receipt"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001069,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 1,
+  "loc": 33,
+  "is_dead_code_candidate": false
+}

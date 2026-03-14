@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/reporting/cheating_detection_report.sql",
+  "relative_path": "src/ol_dbt/models/reporting/cheating_detection_report.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Implements a cheating detection system that analyzes problem submission patterns and grades to identify potential academic integrity violations across courses.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "cheating_detection_report"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001293,
+  "complexity_score": 32.0,
+  "change_velocity_30d": 4,
+  "loc": 306,
+  "is_dead_code_candidate": false
+}

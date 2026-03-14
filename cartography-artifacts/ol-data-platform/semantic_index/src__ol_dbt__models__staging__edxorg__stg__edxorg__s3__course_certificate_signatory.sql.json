@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/edxorg/stg__edxorg__s3__course_certificate_signatory.sql",
+  "relative_path": "src/ol_dbt/models/staging/edxorg/stg__edxorg__s3__course_certificate_signatory.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Cleans and deduplicates course certificate signatory data, normalizing names and constructing image URLs to support certificate generation and verification workflows.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__edxorg__s3__course_certificate_signatory"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000833,
+  "complexity_score": 8.0,
+  "change_velocity_30d": 1,
+  "loc": 44,
+  "is_dead_code_candidate": false
+}

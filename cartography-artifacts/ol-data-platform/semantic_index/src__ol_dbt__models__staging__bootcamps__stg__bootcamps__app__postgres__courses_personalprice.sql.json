@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/bootcamps/stg__bootcamps__app__postgres__courses_personalprice.sql",
+  "relative_path": "src/ol_dbt/models/staging/bootcamps/stg__bootcamps__app__postgres__courses_personalprice.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maps personalized pricing information for bootcamp runs to individual users to support dynamic pricing strategies and financial reporting.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__bootcamps__app__postgres__courses_personalprice"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000773,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 15,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/cheating_detection_report_65bdc57c-00f9-42d0-bd37-d4363532fd81.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/cheating_detection_report_65bdc57c-00f9-42d0-bd37-d4363532fd81.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides a report for detecting academic dishonesty by analyzing student performance metrics across courses, helping identify potential cheating patterns.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 332,
+  "is_dead_code_candidate": false
+}

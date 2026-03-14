@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__courserun_videos.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__courserun_videos.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Links MITxPro course videos with external video platform data to provide unified video metadata including duration and status information.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__courserun_videos"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000856,
+  "complexity_score": 8.0,
+  "change_velocity_30d": 0,
+  "loc": 32,
+  "is_dead_code_candidate": false
+}

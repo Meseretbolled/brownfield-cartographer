@@ -1,0 +1,19 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/data_loading/data_loading/defs/edxorg_s3_ingest/dagster_assets.py",
+  "relative_path": "dg_projects/data_loading/data_loading/defs/edxorg_s3_ingest/dagster_assets.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Module 4 creates Dagster assets that wrap dlt sources with upstream dependencies, consolidating partitioned EdX.org data into non-partitioned assets for downstream processing.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [
+    "edxorg_s3_consolidated_tables",
+    "get_asset_spec"
+  ],
+  "exported_classes": [
+    "EdxorgDltTranslator"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 1.0,
+  "change_velocity_30d": 1,
+  "loc": 78,
+  "is_dead_code_candidate": true
+}

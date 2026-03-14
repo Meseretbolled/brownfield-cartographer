@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/data_loading/data_loading/defs/edxorg_s3_ingest/defs.py",
+  "relative_path": "dg_projects/data_loading/data_loading/defs/edxorg_s3_ingest/defs.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Module 2 serves as the entry point for EdX.org S3 data ingestion definitions, exporting the consolidated Dagster assets for downstream consumption.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 1,
+  "loc": 12,
+  "is_dead_code_candidate": false
+}

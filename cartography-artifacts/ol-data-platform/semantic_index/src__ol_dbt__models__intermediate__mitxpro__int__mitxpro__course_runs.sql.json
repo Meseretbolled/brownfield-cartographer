@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__course_runs.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__course_runs.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides a consolidated view of course runs with platform information for MITxPro, enabling analysis of course availability and scheduling across different platforms.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__course_runs"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001123,
+  "complexity_score": 7.0,
+  "change_velocity_30d": 0,
+  "loc": 35,
+  "is_dead_code_candidate": false
+}

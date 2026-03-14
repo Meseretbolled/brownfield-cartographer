@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__courserunenrollments.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__courserunenrollments.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Verifies course enrollments by cross-referencing MITx Online enrollments with verified purchase orders from both MITx Online and MicroMasters platforms, ensuring accurate enrollment tracking for DEDP courses.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__courserunenrollments"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001879,
+  "complexity_score": 28.0,
+  "change_velocity_30d": 0,
+  "loc": 138,
+  "is_dead_code_candidate": false
+}

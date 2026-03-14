@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Micromasters_Users_d7f0a985-f4b0-4643-9832-88d106aa087c.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Micromasters_Users_d7f0a985-f4b0-4643-9832-88d106aa087c.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides a list of Micromasters users with basic user information, sorted by user ID in descending order",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 1,
+  "loc": 33,
+  "is_dead_code_candidate": false
+}

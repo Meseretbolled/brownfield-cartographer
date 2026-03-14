@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/MITxOnline_Enrollment_Demographics_by_Education_5cfc7ea9-6636-41b4-9af7-68c98aeff4de.yaml",
+  "relative_path": "src/ol_superset/assets/charts/MITxOnline_Enrollment_Demographics_by_Education_5cfc7ea9-6636-41b4-9af7-68c98aeff4de.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Analyzes enrollment demographics by education level to understand learner background distribution",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 56,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__openedx__api__course_structure.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__openedx__api__course_structure.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Tracks changes in course structure data to detect when course content has been modified, ensuring downstream systems have the latest course organization and content information.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__openedx__api__course_structure"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.002393,
+  "complexity_score": 6.0,
+  "change_velocity_30d": 0,
+  "loc": 39,
+  "is_dead_code_candidate": false
+}

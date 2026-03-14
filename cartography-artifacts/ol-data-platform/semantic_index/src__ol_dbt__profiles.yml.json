@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/profiles.yml",
+  "relative_path": "src/ol_dbt/profiles.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Configures database connection profiles for different environments (QA, production, development) to enable dbt to connect to appropriate data warehouses based on deployment context",
+  "domain_cluster": "configuration",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 1,
+  "loc": 76,
+  "is_dead_code_candidate": false
+}

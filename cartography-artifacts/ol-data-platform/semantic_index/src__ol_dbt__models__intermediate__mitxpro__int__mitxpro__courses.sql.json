@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__courses.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__courses.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Consolidates course metadata from multiple sources including platform details, topics, instructors, and certificate information, creating a comprehensive catalog for course management and marketing purposes.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__courses"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001233,
+  "complexity_score": 17.0,
+  "change_velocity_30d": 1,
+  "loc": 82,
+  "is_dead_code_candidate": false
+}

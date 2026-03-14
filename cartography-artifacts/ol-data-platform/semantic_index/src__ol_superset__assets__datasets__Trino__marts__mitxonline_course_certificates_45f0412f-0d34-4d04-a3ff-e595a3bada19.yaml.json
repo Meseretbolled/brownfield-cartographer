@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__mitxonline_course_certificates_45f0412f-0d34-4d04-a3ff-e595a3bada19.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__mitxonline_course_certificates_45f0412f-0d34-4d04-a3ff-e595a3bada19.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Manages course certificate data including issuance details, student information, and certificate URLs for credential verification and tracking.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 140,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__django_comment_client_role_users.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__django_comment_client_role_users.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maps users to their roles within course communities, supporting community management and access control for discussion forums and collaborative features.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [
+    "irx__mitx__openedx__mysql__django_comment_client_role_users"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 16,
+  "is_dead_code_candidate": true
+}

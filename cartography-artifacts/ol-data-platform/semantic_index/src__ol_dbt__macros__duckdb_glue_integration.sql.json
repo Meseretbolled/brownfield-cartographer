@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/macros/duckdb_glue_integration.sql",
+  "relative_path": "src/ol_dbt/macros/duckdb_glue_integration.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Enables seamless data access across development and production environments by abstracting away database-specific differences between DuckDB and Trino when querying Iceberg tables",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "duckdb_glue_integration"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 1.0,
+  "change_velocity_30d": 1,
+  "loc": 30,
+  "is_dead_code_candidate": true
+}

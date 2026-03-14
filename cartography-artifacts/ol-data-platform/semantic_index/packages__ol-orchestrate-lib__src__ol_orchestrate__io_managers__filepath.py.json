@@ -1,0 +1,31 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/io_managers/filepath.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/io_managers/filepath.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Manages file-based I/O operations across local, GCS, and S3 storage systems, enabling secure and efficient data movement between pipeline steps.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "load_input",
+    "handle_output",
+    "configure_path_fs",
+    "configure_gcs_fs",
+    "configure_s3_fs",
+    "configure_local_fs",
+    "vault_read_token",
+    "handle_output",
+    "load_input",
+    "handle_output",
+    "handle_output"
+  ],
+  "exported_classes": [
+    "FileObjectIOManager",
+    "S3FileObjectIOManager",
+    "DummyIOManager",
+    "LocalFileObjectIOManager"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 7.0,
+  "change_velocity_30d": 0,
+  "loc": 136,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/dim_problem_23a7a643-e426-42ea-9759-c05f7a524e22.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/dim_problem_23a7a643-e426-42ea-9759-c05f7a524e22.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Stores and manages problem-level data for courses, supporting assessment analysis and content debugging.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 151,
+  "is_dead_code_candidate": false
+}

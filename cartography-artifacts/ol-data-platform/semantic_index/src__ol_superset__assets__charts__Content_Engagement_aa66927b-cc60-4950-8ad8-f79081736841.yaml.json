@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Content_Engagement_aa66927b-cc60-4950-8ad8-f79081736841.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Content_Engagement_aa66927b-cc60-4950-8ad8-f79081736841.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Measures content engagement by tracking distinct users who watched videos, attempted problems, or participated in discussions across course activities",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 6,
+  "loc": 216,
+  "is_dead_code_candidate": false
+}

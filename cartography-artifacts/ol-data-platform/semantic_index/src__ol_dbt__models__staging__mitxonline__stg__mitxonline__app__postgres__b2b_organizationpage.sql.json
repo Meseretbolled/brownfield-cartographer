@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__b2b_organizationpage.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__b2b_organizationpage.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Manages organizational profiles and SSO integration for B2B partners on MITx Online platform",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__b2b_organizationpage"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000918,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 16,
+  "is_dead_code_candidate": false
+}

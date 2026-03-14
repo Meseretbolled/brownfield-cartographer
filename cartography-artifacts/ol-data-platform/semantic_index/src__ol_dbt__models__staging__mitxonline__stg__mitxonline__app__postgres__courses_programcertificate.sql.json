@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_programcertificate.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_programcertificate.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Processes program certificate data from MITx Online to track digital credentials issued to learners, including their status and timestamps for auditing and reporting.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__courses_programcertificate"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001093,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 18,
+  "is_dead_code_candidate": false
+}

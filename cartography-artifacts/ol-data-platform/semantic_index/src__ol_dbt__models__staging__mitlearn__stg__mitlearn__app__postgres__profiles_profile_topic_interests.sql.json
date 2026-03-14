@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitlearn/stg__mitlearn__app__postgres__profiles_profile_topic_interests.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitlearn/stg__mitlearn__app__postgres__profiles_profile_topic_interests.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Records the association between user profiles and their topic interests, allowing the system to understand what subjects users are interested in learning about.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitlearn__app__postgres__profiles_profile_topic_interests"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000848,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 14,
+  "is_dead_code_candidate": false
+}

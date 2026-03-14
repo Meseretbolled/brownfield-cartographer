@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__mitxonline_problem_summary_dc51305d-a55b-42b6-84d2-a412f96ac900.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__mitxonline_problem_summary_dc51305d-a55b-42b6-84d2-a412f96ac900.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "This module provides detailed problem-level analytics for MITxOnline courses, tracking individual student performance on specific problems and generating summary statistics for course assessment and improvement.",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 175,
+  "is_dead_code_candidate": false
+}

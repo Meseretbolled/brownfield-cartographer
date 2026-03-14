@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__programs.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__programs.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Module providing: int__mitxpro__programs. Contains 89 lines of Language.SQL code.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__programs"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001149,
+  "complexity_score": 20.0,
+  "change_velocity_30d": 1,
+  "loc": 89,
+  "is_dead_code_candidate": false
+}

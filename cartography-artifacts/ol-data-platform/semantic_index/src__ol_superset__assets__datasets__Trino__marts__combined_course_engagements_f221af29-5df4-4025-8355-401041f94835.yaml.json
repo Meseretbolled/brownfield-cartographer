@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__combined_course_engagements_f221af29-5df4-4025-8355-401041f94835.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__combined_course_engagements_f221af29-5df4-4025-8355-401041f94835.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides aggregated course engagement metrics for analysis of learner participation and activity across courses",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 271,
+  "is_dead_code_candidate": false
+}

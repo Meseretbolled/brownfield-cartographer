@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Coupon_Dashboard_Last_Updated_a468ef05-11af-4a02-b61c-f928f36f17fb.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Coupon_Dashboard_Last_Updated_a468ef05-11af-4a02-b61c-f928f36f17fb.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Monitors coupon data freshness by displaying when coupon-related tables were last updated in the data warehouse",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 79,
+  "is_dead_code_candidate": false
+}

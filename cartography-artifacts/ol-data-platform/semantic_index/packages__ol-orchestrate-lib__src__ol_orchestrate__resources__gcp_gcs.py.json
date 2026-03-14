@@ -1,0 +1,19 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/resources/gcp_gcs.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/resources/gcp_gcs.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Provides secure connectivity to Google Cloud Storage for data pipelines, enabling authenticated file operations within Dagster workflows.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "yield_for_execution",
+    "client"
+  ],
+  "exported_classes": [
+    "GCSConnection"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 59,
+  "is_dead_code_candidate": true
+}

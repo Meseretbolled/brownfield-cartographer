@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/micromasters/subqueries/__micromasters_course_certificates_dedp_from_mitxonline.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/micromasters/subqueries/__micromasters_course_certificates_dedp_from_mitxonline.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts DEDP course certificates from MITxOnline data by joining certificates with course runs, courses, and enrollment data, filtering for DEDP programs and excluding revoked certificates.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "__micromasters_course_certificates_dedp_from_mitxonline"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001039,
+  "complexity_score": 10.0,
+  "change_velocity_30d": 0,
+  "loc": 40,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,521 @@
+{
+  "dataset_nodes": {
+    "stg_supplies": {
+      "name": "stg_supplies",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql",
+      "description": null
+    },
+    "stg_order_items": {
+      "name": "stg_order_items",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql",
+      "description": null
+    },
+    "stg_products": {
+      "name": "stg_products",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql",
+      "description": null
+    },
+    "stg_orders": {
+      "name": "stg_orders",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql",
+      "description": null
+    },
+    "stg_locations": {
+      "name": "stg_locations",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql",
+      "description": null
+    },
+    "stg_customers": {
+      "name": "stg_customers",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql",
+      "description": null
+    },
+    "order_items": {
+      "name": "order_items",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql",
+      "description": null
+    },
+    "orders": {
+      "name": "orders",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql",
+      "description": null
+    },
+    "metricflow_time_spine": {
+      "name": "metricflow_time_spine",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/metricflow_time_spine.sql",
+      "description": null
+    },
+    "supplies": {
+      "name": "supplies",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql",
+      "description": null
+    },
+    "customers": {
+      "name": "customers",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql",
+      "description": null
+    },
+    "products": {
+      "name": "products",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql",
+      "description": null
+    },
+    "locations": {
+      "name": "locations",
+      "storage_type": "table",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql",
+      "description": null
+    },
+    "jaffle_shop": {
+      "name": "jaffle_shop",
+      "storage_type": "unknown",
+      "schema_snapshot": null,
+      "owner": null,
+      "is_source_of_truth": false,
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/dbt_project.yml",
+      "description": "dbt project: jaffle_shop"
+    }
+  },
+  "transformation_nodes": {
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql",
+      "source_datasets": [],
+      "target_datasets": [
+        "stg_supplies"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql",
+      "line_range": [
+        1,
+        31
+      ],
+      "sql_query": "with\n\nsource as (\n\n    select * from {{ source('ecom', 'raw_supplies') }}\n\n),\n\nrenamed as (\n\n    select\n\n        ----------  ids\n        {{ dbt_utils.generate_surrogate_key(['id', 'sku']) }} as supply_uuid,\n        id as supply_id,\n        sku as product_id,\n\n        ---------- text\n        name as supply_name,\n\n        ---------- numerics\n        {{ cents_to_dollars('cost') }} as supply_cost,\n\n        ---------- booleans\n        perishable as is_perishable_supply\n\n    from source\n\n)\n\nselect * f"
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql",
+      "source_datasets": [],
+      "target_datasets": [
+        "stg_order_items"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql",
+      "line_range": [
+        1,
+        22
+      ],
+      "sql_query": "with\n\nsource as (\n\n    select * from {{ source('ecom', 'raw_items') }}\n\n),\n\nrenamed as (\n\n    select\n\n        ----------  ids\n        id as order_item_id,\n        order_id,\n        sku as product_id\n\n    from source\n\n)\n\nselect * from renamed\n"
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql",
+      "source_datasets": [],
+      "target_datasets": [
+        "stg_products"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql",
+      "line_range": [
+        1,
+        34
+      ],
+      "sql_query": "with\n\nsource as (\n\n    select * from {{ source('ecom', 'raw_products') }}\n\n),\n\nrenamed as (\n\n    select\n\n        ----------  ids\n        sku as product_id,\n\n        ---------- text\n        name as product_name,\n        type as product_type,\n        description as product_description,\n\n\n        ---------- numerics\n        {{ cents_to_dollars('price') }} as product_price,\n\n        ---------- booleans\n        coalesce(type = 'jaffle', false) as is_food_item,\n\n        coalesce(type = 'beverage', fal"
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql",
+      "source_datasets": [],
+      "target_datasets": [
+        "stg_orders"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql",
+      "line_range": [
+        1,
+        33
+      ],
+      "sql_query": "with\n\nsource as (\n\n    select * from {{ source('ecom', 'raw_orders') }}\n\n),\n\nrenamed as (\n\n    select\n\n        ----------  ids\n        id as order_id,\n        store_id as location_id,\n        customer as customer_id,\n\n        ---------- numerics\n        subtotal as subtotal_cents,\n        tax_paid as tax_paid_cents,\n        order_total as order_total_cents,\n        {{ cents_to_dollars('subtotal') }} as subtotal,\n        {{ cents_to_dollars('tax_paid') }} as tax_paid,\n        {{ cents_to_dollars("
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql",
+      "source_datasets": [],
+      "target_datasets": [
+        "stg_locations"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql",
+      "line_range": [
+        1,
+        29
+      ],
+      "sql_query": "with\n\nsource as (\n\n    select * from {{ source('ecom', 'raw_stores') }}\n\n),\n\nrenamed as (\n\n    select\n\n        ----------  ids\n        id as location_id,\n\n        ---------- text\n        name as location_name,\n\n        ---------- numerics\n        tax_rate,\n\n        ---------- timestamps\n        {{ dbt.date_trunc('day', 'opened_at') }} as opened_date\n\n    from source\n\n)\n\nselect * from renamed\n"
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql",
+      "source_datasets": [],
+      "target_datasets": [
+        "stg_customers"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql",
+      "line_range": [
+        1,
+        23
+      ],
+      "sql_query": "with\n\nsource as (\n\n    select * from {{ source('ecom', 'raw_customers') }}\n\n),\n\nrenamed as (\n\n    select\n\n        ----------  ids\n        id as customer_id,\n\n        ---------- text\n        name as customer_name\n\n    from source\n\n)\n\nselect * from renamed\n"
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql",
+      "source_datasets": [
+        "stg_orders",
+        "order_items"
+      ],
+      "target_datasets": [
+        "orders"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql",
+      "line_range": [
+        1,
+        77
+      ],
+      "sql_query": "with\n\norders as (\n\n    select * from {{ ref('stg_orders') }}\n\n),\n\norder_items as (\n\n    select * from {{ ref('order_items') }}\n\n),\n\norder_items_summary as (\n\n    select\n        order_id,\n\n        sum(supply_cost) as order_cost,\n        sum(product_price) as order_items_subtotal,\n        count(order_item_id) as count_order_items,\n        sum(\n            case\n                when is_food_item then 1\n                else 0\n            end\n        ) as count_food_items,\n        sum(\n            cas"
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/metricflow_time_spine.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/metricflow_time_spine.sql",
+      "source_datasets": [],
+      "target_datasets": [
+        "metricflow_time_spine"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/metricflow_time_spine.sql",
+      "line_range": [
+        1,
+        19
+      ],
+      "sql_query": "-- metricflow_time_spine.sql\nwith\n\ndays as (\n\n    --for BQ adapters use \"DATE('01/01/2000','mm/dd/yyyy')\"\n    {{ dbt_date.get_base_dates(n_dateparts=365*10, datepart=\"day\") }}\n\n),\n\ncast_to_date as (\n\n    select cast(date_day as date) as date_day\n\n    from days\n\n)\n\nselect * from cast_to_date\n"
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql",
+      "source_datasets": [
+        "stg_supplies"
+      ],
+      "target_datasets": [
+        "supplies"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql",
+      "line_range": [
+        1,
+        9
+      ],
+      "sql_query": "with\n\nsupplies as (\n\n    select * from {{ ref('stg_supplies') }}\n\n)\n\nselect * from supplies\n"
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql",
+      "source_datasets": [
+        "orders",
+        "stg_customers"
+      ],
+      "target_datasets": [
+        "customers"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql",
+      "line_range": [
+        1,
+        58
+      ],
+      "sql_query": "with\n\ncustomers as (\n\n    select * from {{ ref('stg_customers') }}\n\n),\n\norders as (\n\n    select * from {{ ref('orders') }}\n\n),\n\ncustomer_orders_summary as (\n\n    select\n        orders.customer_id,\n\n        count(distinct orders.order_id) as count_lifetime_orders,\n        count(distinct orders.order_id) > 1 as is_repeat_buyer,\n        min(orders.ordered_at) as first_ordered_at,\n        max(orders.ordered_at) as last_ordered_at,\n        sum(orders.subtotal) as lifetime_spend_pretax,\n        sum(or"
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql",
+      "source_datasets": [
+        "stg_products"
+      ],
+      "target_datasets": [
+        "products"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql",
+      "line_range": [
+        1,
+        9
+      ],
+      "sql_query": "with\n\nproducts as (\n\n    select * from {{ ref('stg_products') }}\n\n)\n\nselect * from products\n"
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql",
+      "source_datasets": [
+        "stg_locations"
+      ],
+      "target_datasets": [
+        "locations"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql",
+      "line_range": [
+        1,
+        9
+      ],
+      "sql_query": "with\n\nlocations as (\n\n    select * from {{ ref('stg_locations') }}\n\n)\n\nselect * from locations\n"
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql": {
+      "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "source_datasets": [
+        "stg_orders",
+        "stg_supplies",
+        "stg_order_items",
+        "stg_products"
+      ],
+      "target_datasets": [
+        "order_items"
+      ],
+      "transformation_type": "dbt_model",
+      "source_file": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "line_range": [
+        1,
+        66
+      ],
+      "sql_query": "with\n\norder_items as (\n\n    select * from {{ ref('stg_order_items') }}\n\n),\n\n\norders as (\n\n    select * from {{ ref('stg_orders') }}\n\n),\n\nproducts as (\n\n    select * from {{ ref('stg_products') }}\n\n),\n\nsupplies as (\n\n    select * from {{ ref('stg_supplies') }}\n\n),\n\norder_supplies_summary as (\n\n    select\n        product_id,\n\n        sum(supply_cost) as supply_cost\n\n    from supplies\n\n    group by 1\n\n),\n\njoined as (\n\n    select\n        order_items.*,\n\n        orders.ordered_at,\n\n        products.p"
+    }
+  },
+  "edges": [
+    {
+      "source": "stg_supplies",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "stg_supplies",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "stg_order_items",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "stg_products",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "stg_products",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "stg_orders",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "stg_orders",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "stg_locations",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "stg_customers",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "order_items",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "orders",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql",
+      "edge_type": "CONSUMES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql",
+      "target": "stg_supplies",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql",
+      "target": "stg_order_items",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql",
+      "target": "stg_products",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql",
+      "target": "stg_orders",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql",
+      "target": "stg_locations",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql",
+      "target": "stg_customers",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql",
+      "target": "orders",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/metricflow_time_spine.sql",
+      "target": "metricflow_time_spine",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql",
+      "target": "supplies",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql",
+      "target": "customers",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql",
+      "target": "products",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql",
+      "target": "locations",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "target": "order_items",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "metadata": {}
+    }
+  ],
+  "sources": [
+    "jaffle_shop",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/metricflow_time_spine.sql"
+  ],
+  "sinks": [
+    "metricflow_time_spine",
+    "supplies",
+    "customers",
+    "products",
+    "locations",
+    "jaffle_shop"
+  ],
+  "generated_at": "2026-03-14T15:01:16.278710",
+  "target_repo": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop"
+}

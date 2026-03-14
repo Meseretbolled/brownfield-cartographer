@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__student_anonymoususerid.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__student_anonymoususerid.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "This module retrieves anonymous user IDs mapped to course IDs from the MITx Open edX MySQL database, enabling the tracking of user activity while preserving privacy through anonymized identifiers.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "irx__mitx__openedx__mysql__student_anonymoususerid"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 1.0,
+  "change_velocity_30d": 0,
+  "loc": 5,
+  "is_dead_code_candidate": true
+}

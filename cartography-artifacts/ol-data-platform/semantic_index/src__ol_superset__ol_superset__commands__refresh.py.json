@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/ol_superset/commands/refresh.py",
+  "relative_path": "src/ol_superset/ol_superset/commands/refresh.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Updates physical dataset schemas in Superset to reflect changes from dbt model deployments, ensuring charts and dashboards can access new or modified columns in the underlying database tables.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "refresh"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 21.0,
+  "change_velocity_30d": 1,
+  "loc": 244,
+  "is_dead_code_candidate": true
+}

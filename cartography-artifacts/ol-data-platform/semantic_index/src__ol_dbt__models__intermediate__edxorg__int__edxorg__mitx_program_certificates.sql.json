@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/edxorg/int__edxorg__mitx_program_certificates.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/edxorg/int__edxorg__mitx_program_certificates.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a deduplicated list of learners who have completed MITx programs on edX.org, linking each learner to their corresponding micromasters program ID for downstream analytics.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__edxorg__mitx_program_certificates"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.00098,
+  "complexity_score": 6.0,
+  "change_velocity_30d": 0,
+  "loc": 44,
+  "is_dead_code_candidate": false
+}

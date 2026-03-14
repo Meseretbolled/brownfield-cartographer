@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__flexiblepricing_flexiblepriceapplication.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__flexiblepricing_flexiblepriceapplication.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Manages flexible pricing applications and financial aid requests to support equitable access to courses based on users' financial circumstances.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__flexiblepricing_flexiblepriceapplication"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000879,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 32,
+  "is_dead_code_candidate": false
+}

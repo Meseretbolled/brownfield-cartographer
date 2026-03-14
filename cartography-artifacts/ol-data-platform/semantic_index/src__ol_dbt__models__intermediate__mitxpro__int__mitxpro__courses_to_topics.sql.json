@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__courses_to_topics.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__courses_to_topics.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a mapping between courses and their topical categories by joining course pages with topic assignments, enabling analysis of course content organization and topic coverage across the platform.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__courses_to_topics"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001045,
+  "complexity_score": 7.0,
+  "change_velocity_30d": 0,
+  "loc": 24,
+  "is_dead_code_candidate": false
+}

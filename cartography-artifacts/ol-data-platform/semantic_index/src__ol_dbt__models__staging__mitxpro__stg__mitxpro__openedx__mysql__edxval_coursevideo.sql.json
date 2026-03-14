@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__openedx__mysql__edxval_coursevideo.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__openedx__mysql__edxval_coursevideo.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Processes course video metadata from Open edX, enabling content management and analysis of video-related features across courses.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__openedx__mysql__edxval_coursevideo"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000941,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 16,
+  "is_dead_code_candidate": false
+}

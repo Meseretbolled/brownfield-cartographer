@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__user_courseactivities_daily.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__user_courseactivities_daily.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Aggregates daily user course activity statistics from tracking logs, enabling analysis of user engagement patterns at a daily level in MITx Online courses.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__user_courseactivities_daily"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000859,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 1,
+  "loc": 19,
+  "is_dead_code_candidate": false
+}

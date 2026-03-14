@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/salesforce/int__salesforce__opportunity.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/salesforce/int__salesforce__opportunity.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides a curated view of Salesforce opportunity data for downstream analytics, exposing key opportunity attributes such as stage, amount, and revenue sharing details.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__salesforce__opportunity"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000838,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 30,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/zendesk/stg__zendesk__ticket_comment.sql",
+  "relative_path": "src/ol_dbt/models/staging/zendesk/stg__zendesk__ticket_comment.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw Zendesk ticket comment data into a cleaned staging table with standardized field names and formats, making support ticket conversations accessible for analysis and reporting.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__zendesk__ticket_comment"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000996,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 1,
+  "loc": 28,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,30 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/edxorg/edxorg_tests/test_edxorg_lib.py",
+  "relative_path": "dg_projects/edxorg/edxorg_tests/test_edxorg_lib.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Unit tests for edxorg parsing utilities - validates file categorization and path parsing logic for edx.org data archive processing",
+  "domain_cluster": "testing",
+  "exported_functions": [
+    "test_sql_is_db_table",
+    "test_json_is_course_structure",
+    "test_xml_tar_gz_is_course_xml",
+    "test_mongo_is_forum_mongo",
+    "test_unknown_extension_is_unhandled",
+    "test_mongo_course_id",
+    "test_components_extracted",
+    "test_invalid_path_returns_empty",
+    "test_json_course_id_no_suffix",
+    "test_json_data_category_is_course_structure",
+    "test_sql_course_id_and_table_name",
+    "test_xml_course_id_no_suffix"
+  ],
+  "exported_classes": [
+    "TestCategorizeArchiveElement",
+    "TestParseArchivePath"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 1,
+  "loc": 138,
+  "is_dead_code_candidate": true
+}

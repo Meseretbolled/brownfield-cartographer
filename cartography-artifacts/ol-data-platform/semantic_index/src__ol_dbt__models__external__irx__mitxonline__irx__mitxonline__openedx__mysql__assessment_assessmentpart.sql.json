@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitxonline/irx__mitxonline__openedx__mysql__assessment_assessmentpart.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitxonline/irx__mitxonline__openedx__mysql__assessment_assessmentpart.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Analyzes assessment parts to understand student performance and feedback on specific assessment components.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "irx__mitxonline__openedx__mysql__assessment_assessmentpart"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 9.0,
+  "change_velocity_30d": 0,
+  "loc": 25,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/marts/combined/marts__combined_course_enrollment_detail.sql",
+  "relative_path": "src/ol_dbt/models/marts/combined/marts__combined_course_enrollment_detail.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a unified dataset of course enrollment details across multiple platforms by combining enrollment data, course runs, user information, and transaction records to provide a comprehensive view of learner activity and payment status.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "marts__combined_course_enrollment_detail"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.002369,
+  "complexity_score": 47.0,
+  "change_velocity_30d": 0,
+  "loc": 485,
+  "is_dead_code_candidate": false
+}

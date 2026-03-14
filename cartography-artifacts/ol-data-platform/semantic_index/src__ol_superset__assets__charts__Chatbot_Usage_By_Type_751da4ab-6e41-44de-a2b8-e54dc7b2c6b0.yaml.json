@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Chatbot_Usage_By_Type_751da4ab-6e41-44de-a2b8-e54dc7b2c6b0.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Chatbot_Usage_By_Type_751da4ab-6e41-44de-a2b8-e54dc7b2c6b0.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Shows chatbot usage patterns by type over time, tracking the frequency of different chatbot interactions to understand which features are being used most.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 124,
+  "is_dead_code_candidate": false
+}

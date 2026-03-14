@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__mitxonline_problem_submissions_9e61277c-345a-4958-947b-2436eb4abf15.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__mitxonline_problem_submissions_9e61277c-345a-4958-947b-2436eb4abf15.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks problem submission activity for MITxOnline courses, enabling analysis of student engagement and performance on course problems",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 236,
+  "is_dead_code_candidate": false
+}

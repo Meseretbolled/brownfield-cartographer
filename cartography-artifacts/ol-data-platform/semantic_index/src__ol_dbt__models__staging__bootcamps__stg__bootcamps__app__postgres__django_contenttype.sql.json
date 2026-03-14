@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/bootcamps/stg__bootcamps__app__postgres__django_contenttype.sql",
+  "relative_path": "src/ol_dbt/models/staging/bootcamps/stg__bootcamps__app__postgres__django_contenttype.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw Django content type data from the bootcamps PostgreSQL database into a standardized staging format with concatenated identifiers",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__bootcamps__app__postgres__django_contenttype"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 20,
+  "is_dead_code_candidate": true
+}

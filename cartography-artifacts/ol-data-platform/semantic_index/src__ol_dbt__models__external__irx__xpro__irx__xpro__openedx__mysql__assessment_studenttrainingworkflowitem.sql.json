@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/xpro/irx__xpro__openedx__mysql__assessment_studenttrainingworkflowitem.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/xpro/irx__xpro__openedx__mysql__assessment_studenttrainingworkflowitem.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Retrieves workflow item data for student training workflows, tracking the progress and order of training exercises.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "irx__xpro__openedx__mysql__assessment_studenttrainingworkflowitem"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 1.0,
+  "change_velocity_30d": 0,
+  "loc": 6,
+  "is_dead_code_candidate": true
+}

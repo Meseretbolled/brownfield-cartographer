@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/bootcamps/int__bootcamps__applications.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/bootcamps/int__bootcamps__applications.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Tracks bootcamp application progress and payment status by joining application data with course runs, application steps, payment information, and order fulfillment details to provide a comprehensive view of each applicant's journey.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__bootcamps__applications"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 21.0,
+  "change_velocity_30d": 0,
+  "loc": 100,
+  "is_dead_code_candidate": true
+}

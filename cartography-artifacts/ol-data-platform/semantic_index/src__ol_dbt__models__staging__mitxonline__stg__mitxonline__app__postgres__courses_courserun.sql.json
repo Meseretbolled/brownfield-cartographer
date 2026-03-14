@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_courserun.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_courserun.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms MITx Online course run data from raw warehouse format into a cleaned staging table with standardized timestamps and URL construction for course access.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__courses_courserun"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.00327,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 1,
+  "loc": 39,
+  "is_dead_code_candidate": false
+}

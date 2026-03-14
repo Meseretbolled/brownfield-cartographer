@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__users.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__users.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides a unified view of user information by combining user data from MITx Online with profile details from both MITx Online and MicroMasters platforms, enabling cross-platform user identification and enrichment.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__users"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.006089,
+  "complexity_score": 19.0,
+  "change_velocity_30d": 1,
+  "loc": 94,
+  "is_dead_code_candidate": false
+}

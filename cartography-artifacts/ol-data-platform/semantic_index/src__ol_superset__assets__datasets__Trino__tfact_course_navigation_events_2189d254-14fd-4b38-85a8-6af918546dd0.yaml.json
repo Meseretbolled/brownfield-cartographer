@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/tfact_course_navigation_events_2189d254-14fd-4b38-85a8-6af918546dd0.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/tfact_course_navigation_events_2189d254-14fd-4b38-85a8-6af918546dd0.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Captures user navigation events within courses to understand learning pathways and platform usage patterns.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 175,
+  "is_dead_code_candidate": false
+}

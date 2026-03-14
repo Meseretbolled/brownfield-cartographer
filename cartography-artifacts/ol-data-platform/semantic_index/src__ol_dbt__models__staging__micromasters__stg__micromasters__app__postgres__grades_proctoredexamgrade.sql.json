@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/micromasters/stg__micromasters__app__postgres__grades_proctoredexamgrade.sql",
+  "relative_path": "src/ol_dbt/models/staging/micromasters/stg__micromasters__app__postgres__grades_proctoredexamgrade.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Records proctored exam results to verify academic integrity and determine course completion eligibility",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__micromasters__app__postgres__grades_proctoredexamgrade"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000826,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 26,
+  "is_dead_code_candidate": false
+}

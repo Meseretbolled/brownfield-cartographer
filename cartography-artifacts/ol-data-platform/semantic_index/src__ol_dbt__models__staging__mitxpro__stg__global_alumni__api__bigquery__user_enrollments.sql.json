@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__global_alumni__api__bigquery__user_enrollments.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__global_alumni__api__bigquery__user_enrollments.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Standardizes global alumni enrollment data including user demographics and course run details for enrollment analytics and reporting.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__global_alumni__api__bigquery__user_enrollments"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001224,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 49,
+  "is_dead_code_candidate": false
+}

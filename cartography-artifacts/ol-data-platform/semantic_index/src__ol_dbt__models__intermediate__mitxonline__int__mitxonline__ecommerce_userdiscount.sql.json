@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__ecommerce_userdiscount.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__ecommerce_userdiscount.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms and structures user discount data to track promotional offers and pricing adjustments applied to user accounts.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__ecommerce_userdiscount"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 11,
+  "is_dead_code_candidate": true
+}

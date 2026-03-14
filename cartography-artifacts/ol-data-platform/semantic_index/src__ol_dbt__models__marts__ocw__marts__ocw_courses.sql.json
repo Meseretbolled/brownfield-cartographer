@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/marts/ocw/marts__ocw_courses.sql",
+  "relative_path": "src/ol_dbt/models/marts/ocw/marts__ocw_courses.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a denormalized view of OCW courses with instructor information, providing a comprehensive dataset for course analysis and reporting.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "marts__ocw_courses"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 1,
+  "loc": 33,
+  "is_dead_code_candidate": true
+}

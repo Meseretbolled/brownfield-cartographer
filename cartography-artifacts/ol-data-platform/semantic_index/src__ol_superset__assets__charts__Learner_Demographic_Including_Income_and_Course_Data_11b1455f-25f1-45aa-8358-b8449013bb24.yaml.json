@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Learner_Demographic_Including_Income_and_Course_Data_11b1455f-25f1-45aa-8358-b8449013bb24.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Learner_Demographic_Including_Income_and_Course_Data_11b1455f-25f1-45aa-8358-b8449013bb24.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Consolidates comprehensive learner demographic data including income, course enrollment history, and certification status to support research and program evaluation",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 74,
+  "is_dead_code_candidate": false
+}

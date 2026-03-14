@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/dashboards/Learn_User_Profile_47b963a4-74a2-472c-9a3b-a9986be146e9.yaml",
+  "relative_path": "src/ol_superset/assets/dashboards/Learn_User_Profile_47b963a4-74a2-472c-9a3b-a9986be146e9.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Displays detailed user profile information for learners in the Learn platform, including new user trends and last updated timestamps",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 296,
+  "is_dead_code_candidate": false
+}

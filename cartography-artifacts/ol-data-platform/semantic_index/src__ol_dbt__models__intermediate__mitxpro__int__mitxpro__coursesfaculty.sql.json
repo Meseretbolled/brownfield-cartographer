@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__coursesfaculty.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__coursesfaculty.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts and structures faculty member information associated with course pages, enabling analysis of course instructors and their profiles.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__coursesfaculty"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000848,
+  "complexity_score": 11.0,
+  "change_velocity_30d": 0,
+  "loc": 49,
+  "is_dead_code_candidate": false
+}

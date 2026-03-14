@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Order_Dashboard_Last_Updated_0ef1c6be-600c-4802-aa04-33f1b6dd9e9b.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Order_Dashboard_Last_Updated_0ef1c6be-600c-4802-aa04-33f1b6dd9e9b.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks and displays the last update timestamps for order-related data tables, helping monitor data freshness and update schedules.",
+  "domain_cluster": "monitoring",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 79,
+  "is_dead_code_candidate": false
+}

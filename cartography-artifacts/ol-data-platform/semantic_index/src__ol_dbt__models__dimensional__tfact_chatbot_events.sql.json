@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/dimensional/tfact_chatbot_events.sql",
+  "relative_path": "src/ol_dbt/models/dimensional/tfact_chatbot_events.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Captures chatbot interaction events from MITx Online and Canvas platforms to analyze student engagement with AI-powered tutoring and support systems.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "tfact_chatbot_events"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000858,
+  "complexity_score": 14.0,
+  "change_velocity_30d": 1,
+  "loc": 188,
+  "is_dead_code_candidate": false
+}

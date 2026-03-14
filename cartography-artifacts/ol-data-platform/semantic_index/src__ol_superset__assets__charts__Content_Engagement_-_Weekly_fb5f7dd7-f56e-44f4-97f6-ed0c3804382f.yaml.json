@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Content_Engagement_-_Weekly_fb5f7dd7-f56e-44f4-97f6-ed0c3804382f.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Content_Engagement_-_Weekly_fb5f7dd7-f56e-44f4-97f6-ed0c3804382f.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Visualizes weekly trends in content engagement, showing counts of users who watched videos, tried problems, or participated in discussions over time.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 6,
+  "loc": 230,
+  "is_dead_code_candidate": false
+}

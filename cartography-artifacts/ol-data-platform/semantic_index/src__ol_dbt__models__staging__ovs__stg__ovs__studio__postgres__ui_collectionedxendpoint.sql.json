@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/ovs/stg__ovs__studio__postgres__ui_collectionedxendpoint.sql",
+  "relative_path": "src/ol_dbt/models/staging/ovs/stg__ovs__studio__postgres__ui_collectionedxendpoint.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a mapping table between collections and edX endpoints, enabling analysis of content distribution across different edX environments.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__ovs__studio__postgres__ui_collectionedxendpoint"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000908,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 17,
+  "is_dead_code_candidate": false
+}

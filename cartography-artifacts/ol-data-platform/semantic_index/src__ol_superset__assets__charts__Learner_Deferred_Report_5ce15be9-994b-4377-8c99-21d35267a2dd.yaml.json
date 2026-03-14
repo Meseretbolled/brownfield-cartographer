@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Learner_Deferred_Report_5ce15be9-994b-4377-8c99-21d35267a2dd.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Learner_Deferred_Report_5ce15be9-994b-4377-8c99-21d35267a2dd.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks learners whose enrollment status is deferred, providing visibility into enrollment delays or pending approvals.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 71,
+  "is_dead_code_candidate": false
+}

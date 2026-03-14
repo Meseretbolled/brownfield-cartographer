@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/macros/json_query_string.sql",
+  "relative_path": "src/ol_dbt/macros/json_query_string.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides cross-database compatibility for extracting string values from JSON data, enabling consistent data extraction across different database systems (Trino, DuckDB, StarRocks) in the data platform.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "json_query_string"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 2.0,
+  "change_velocity_30d": 1,
+  "loc": 37,
+  "is_dead_code_candidate": true
+}

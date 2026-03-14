@@ -1,0 +1,20 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/resources/postgres_db.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/resources/postgres_db.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Establishes connections to PostgreSQL databases and executes queries, enabling data retrieval and manipulation for analytics workflows",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "postgres_db_resource",
+    "run_chunked_query",
+    "run_write_query"
+  ],
+  "exported_classes": [
+    "PostgresClient"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 2.0,
+  "change_velocity_30d": 1,
+  "loc": 128,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__ecommerce_userdiscount.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__ecommerce_userdiscount.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms MITx Online user discount data from raw warehouse format into a cleaned staging table with standardized timestamps for tracking discount usage.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__ecommerce_userdiscount"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001293,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 19,
+  "is_dead_code_candidate": false
+}

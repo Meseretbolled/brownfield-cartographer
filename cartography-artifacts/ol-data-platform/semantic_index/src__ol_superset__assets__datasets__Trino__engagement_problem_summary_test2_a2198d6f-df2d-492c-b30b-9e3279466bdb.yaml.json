@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/engagement_problem_summary_test2_a2198d6f-df2d-492c-b30b-9e3279466bdb.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/engagement_problem_summary_test2_a2198d6f-df2d-492c-b30b-9e3279466bdb.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Analyzes problem engagement metrics across courses, calculating attempt rates and problem completion statistics for student performance tracking",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 156,
+  "is_dead_code_candidate": false
+}

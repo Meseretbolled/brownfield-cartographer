@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__assessment_rubric.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitx/irx__mitx__openedx__mysql__assessment_rubric.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "This module centralizes rubric data used across multiple assessment systems, ensuring consistent evaluation criteria and grading standards are applied throughout the learning platform.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "irx__mitx__openedx__mysql__assessment_rubric"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 22.0,
+  "change_velocity_30d": 0,
+  "loc": 55,
+  "is_dead_code_candidate": true
+}

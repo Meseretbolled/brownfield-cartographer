@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Coupon_Summary_ae86fc71-d19e-4e6a-80b6-c68ca638b536.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Coupon_Summary_ae86fc71-d19e-4e6a-80b6-c68ca638b536.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks coupon usage and availability, showing active coupons, redemption counts, and remaining valid coupons for promotional campaign management",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 107,
+  "is_dead_code_candidate": false
+}

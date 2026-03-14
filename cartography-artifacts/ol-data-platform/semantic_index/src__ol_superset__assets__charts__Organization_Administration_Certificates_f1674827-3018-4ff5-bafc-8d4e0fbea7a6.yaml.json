@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Organization_Administration_Certificates_f1674827-3018-4ff5-bafc-8d4e0fbea7a6.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Organization_Administration_Certificates_f1674827-3018-4ff5-bafc-8d4e0fbea7a6.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks and visualizes the monthly count of certificates issued through the organization's administration system, providing insights into certification activity over time.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 139,
+  "is_dead_code_candidate": false
+}

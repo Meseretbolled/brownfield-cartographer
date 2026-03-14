@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitxonline/irx__mitxonline__openedx__mysql__course_groups_cohortmembership.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitxonline/irx__mitxonline__openedx__mysql__course_groups_cohortmembership.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maps users to course cohorts and user groups, enabling analysis of group-based learning activities and cohort membership.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "irx__mitxonline__openedx__mysql__course_groups_cohortmembership"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 16,
+  "is_dead_code_candidate": true
+}

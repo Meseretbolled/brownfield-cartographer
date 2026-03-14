@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/dashboards/Course_AI_Chatbot_b6b79d2a-4a21-4454-a4df-d12549e9bd7d.yaml",
+  "relative_path": "src/ol_superset/assets/dashboards/Course_AI_Chatbot_b6b79d2a-4a21-4454-a4df-d12549e9bd7d.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Analyzes AI chatbot usage patterns in courses to improve automated student support and identify areas where chatbot assistance is most needed.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 218,
+  "is_dead_code_candidate": false
+}

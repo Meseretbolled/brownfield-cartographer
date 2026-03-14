@@ -1,0 +1,19 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/openedx/openedx/sensors/openedx.py",
+  "relative_path": "dg_projects/openedx/openedx/sensors/openedx.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Monitors Open edX course catalog for new courses and triggers data pipeline runs when new courses are detected.",
+  "domain_cluster": "monitoring",
+  "exported_functions": [
+    "course_run_sensor",
+    "course_version_sensor"
+  ],
+  "exported_classes": [
+    "CourseCursor"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 9.0,
+  "change_velocity_30d": 1,
+  "loc": 143,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,18 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/lakehouse/lakehouse/definitions.py",
+  "relative_path": "dg_projects/lakehouse/lakehouse/definitions.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Defines ELT data pipeline assets and orchestration for the data lakehouse",
+  "domain_cluster": "orchestration",
+  "exported_functions": [
+    "get_asset_spec"
+  ],
+  "exported_classes": [
+    "OLAirbyteTranslator"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 14.0,
+  "change_velocity_30d": 2,
+  "loc": 303,
+  "is_dead_code_candidate": true
+}

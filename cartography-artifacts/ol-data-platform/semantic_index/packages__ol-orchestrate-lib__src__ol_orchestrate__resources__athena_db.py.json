@@ -1,0 +1,19 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/resources/athena_db.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/resources/athena_db.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Establishes connections to Amazon Athena databases for executing SQL queries against large-scale data warehouses in cloud-based analytics workflows.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "athena_db_resource",
+    "run_query"
+  ],
+  "exported_classes": [
+    "AthenaClient"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 1,
+  "loc": 105,
+  "is_dead_code_candidate": true
+}

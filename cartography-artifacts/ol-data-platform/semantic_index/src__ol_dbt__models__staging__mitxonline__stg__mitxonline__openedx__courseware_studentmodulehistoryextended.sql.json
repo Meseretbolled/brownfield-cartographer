@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__openedx__courseware_studentmodulehistoryextended.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__openedx__courseware_studentmodulehistoryextended.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Tracks historical state changes of student module interactions, enabling analysis of learning progression and problem-solving patterns over time by maintaining a complete audit trail of student activity",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__openedx__courseware_studentmodulehistoryextended"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000807,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 35,
+  "is_dead_code_candidate": false
+}

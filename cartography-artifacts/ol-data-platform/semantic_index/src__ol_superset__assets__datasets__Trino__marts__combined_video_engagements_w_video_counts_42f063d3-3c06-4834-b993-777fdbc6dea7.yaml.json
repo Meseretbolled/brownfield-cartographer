@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__combined_video_engagements_w_video_counts_42f063d3-3c06-4834-b993-777fdbc6dea7.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__combined_video_engagements_w_video_counts_42f063d3-3c06-4834-b993-777fdbc6dea7.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Analyzes video engagement patterns across courses with completion status tracking",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 158,
+  "is_dead_code_candidate": false
+}

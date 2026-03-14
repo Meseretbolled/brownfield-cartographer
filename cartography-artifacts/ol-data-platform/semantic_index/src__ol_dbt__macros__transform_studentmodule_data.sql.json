@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/macros/transform_studentmodule_data.sql",
+  "relative_path": "src/ol_dbt/macros/transform_studentmodule_data.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms student module data to extract problem events and state information, solving the need to track student interactions with course problems across both current and historical data for analytics and reporting.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "transform_studentmodule_data"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 10.0,
+  "change_velocity_30d": 0,
+  "loc": 91,
+  "is_dead_code_candidate": true
+}

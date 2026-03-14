@@ -1,0 +1,21 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/learning_resources/learning_resources/lib/google_sheets.py",
+  "relative_path": "dg_projects/learning_resources/learning_resources/lib/google_sheets.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Provides data ingestion from Google Sheets to retrieve video metadata for downstream processing in a learning resources pipeline",
+  "domain_cluster": "ingestion",
+  "exported_functions": [
+    "fetch_video_shorts_from_google_sheet",
+    "parse_pub_date",
+    "extract_filename_from_dropbox_url",
+    "generate_partition_key",
+    "convert_dropbox_link_to_direct",
+    "parse_sheet_rows"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 32.0,
+  "change_velocity_30d": 2,
+  "loc": 329,
+  "is_dead_code_candidate": true
+}

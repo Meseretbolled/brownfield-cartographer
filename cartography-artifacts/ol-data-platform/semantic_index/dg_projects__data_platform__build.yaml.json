@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/data_platform/build.yaml",
+  "relative_path": "dg_projects/data_platform/build.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Module 3 is a build configuration file that defines Docker build settings for the data platform, specifying the build context, Dockerfile location, and container registry for deployment.",
+  "domain_cluster": "configuration",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 6,
+  "is_dead_code_candidate": false
+}

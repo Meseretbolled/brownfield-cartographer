@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxresidential/stg__mitxresidential__openedx__auth_user.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxresidential/stg__mitxresidential__openedx__auth_user.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Stores and maintains user account information, providing the foundation for user identification and personalization.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxresidential__openedx__auth_user"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001576,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 28,
+  "is_dead_code_candidate": false
+}

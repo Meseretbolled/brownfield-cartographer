@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/tfact_discussion_events_368125b7-c1c9-4f72-a360-9547536b4945.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/tfact_discussion_events_368125b7-c1c9-4f72-a360-9547536b4945.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Monitors and analyzes discussion forum activity, capturing user interactions, roles, and engagement patterns in online course discussions.",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 235,
+  "is_dead_code_candidate": false
+}

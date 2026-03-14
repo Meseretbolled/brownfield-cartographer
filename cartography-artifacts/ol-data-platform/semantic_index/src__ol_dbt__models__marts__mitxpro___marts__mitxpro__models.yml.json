@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/marts/mitxpro/_marts__mitxpro__models.yml",
+  "relative_path": "src/ol_dbt/models/marts/mitxpro/_marts__mitxpro__models.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Defines the schema and validation rules for XPro e-commerce product data, ensuring data integrity for product listings and course offerings.",
+  "domain_cluster": "configuration",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 140,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_coupon.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__ecommerce_coupon.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "This model consolidates coupon data from the e-commerce system to provide a unified view of available coupons, their properties, and their relationships to payment methods, enabling better analysis of promotional strategies.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__ecommerce_coupon"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000934,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 21,
+  "is_dead_code_candidate": false
+}

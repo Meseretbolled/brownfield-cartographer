@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxresidential/_int_mitxresidential__models.yml",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxresidential/_int_mitxresidential__models.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Tracks and validates core user attributes for residential MITx platform users, ensuring data integrity for downstream analytics and reporting.",
+  "domain_cluster": "testing",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 661,
+  "is_dead_code_candidate": false
+}

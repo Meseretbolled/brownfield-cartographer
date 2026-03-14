@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_course_to_department.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__app__postgres__courses_course_to_department.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maps relationships between courses and their associated departments, providing organizational context for course offerings and enabling department-level reporting and analysis",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__app__postgres__courses_course_to_department"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001032,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 13,
+  "is_dead_code_candidate": false
+}

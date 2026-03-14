@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/lib/dagster_types/files.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/lib/dagster_types/files.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Defines a specialized file path type for Dagster workflows to handle filesystem operations in data pipelines",
+  "domain_cluster": "utilities",
+  "exported_functions": [],
+  "exported_classes": [
+    "DagsterPath"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 8,
+  "is_dead_code_candidate": true
+}

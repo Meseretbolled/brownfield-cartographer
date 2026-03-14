@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/learn-ai/stg__learn_ai__app__postgres__chatbots_chatresponserating.sql",
+  "relative_path": "src/ol_dbt/models/staging/learn-ai/stg__learn_ai__app__postgres__chatbots_chatresponserating.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Captures user feedback on AI chatbot responses, including ratings and reasons, to evaluate and improve the chatbot's performance and user satisfaction.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__learn_ai__app__postgres__chatbots_chatresponserating"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.00084,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 16,
+  "is_dead_code_candidate": false
+}

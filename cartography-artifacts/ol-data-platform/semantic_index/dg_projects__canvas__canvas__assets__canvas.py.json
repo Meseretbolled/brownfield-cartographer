@@ -1,0 +1,17 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/canvas/canvas/assets/canvas.py",
+  "relative_path": "dg_projects/canvas/canvas/assets/canvas.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Extracts and processes course data from Canvas, including files, assignments, and other course elements, transforming them into structured assets for downstream use.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "export_course_content",
+    "course_content_metadata"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 8.0,
+  "change_velocity_30d": 0,
+  "loc": 266,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/student_risk_probability/student_risk_probability/definitions.py",
+  "relative_path": "dg_projects/student_risk_probability/student_risk_probability/definitions.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Module 4 establishes the asset definitions and job configurations for the student risk probability project, including data export jobs and resource management for interacting with Iceberg catalogs and S3 storage.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 1,
+  "loc": 68,
+  "is_dead_code_candidate": false
+}

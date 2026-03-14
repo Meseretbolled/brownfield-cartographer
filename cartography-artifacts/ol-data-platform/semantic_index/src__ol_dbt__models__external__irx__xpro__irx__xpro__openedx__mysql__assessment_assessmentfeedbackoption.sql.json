@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/xpro/irx__xpro__openedx__mysql__assessment_assessmentfeedbackoption.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/xpro/irx__xpro__openedx__mysql__assessment_assessmentfeedbackoption.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts assessment feedback options and their relationships to assessments and submissions, enabling analysis of student feedback mechanisms in the learning platform.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "irx__xpro__openedx__mysql__assessment_assessmentfeedbackoption"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 15.0,
+  "change_velocity_30d": 0,
+  "loc": 44,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/_int_mitxpro__models.yml",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/_int_mitxpro__models.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Defines the schema for a unified orders table that combines B2B and regular orders, establishing the structure for downstream analytics on purchase behavior and order processing.",
+  "domain_cluster": "configuration",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 2191,
+  "is_dead_code_candidate": false
+}

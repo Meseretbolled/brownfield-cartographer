@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Record_Count_1e441a91-5d1a-4f4f-9bf8-90fcc9d12988.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Record_Count_1e441a91-5d1a-4f4f-9bf8-90fcc9d12988.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Displays a big number showing the total count of records in a dataset, providing a quick summary metric for data volume monitoring.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 44,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__programsfaculty.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__programsfaculty.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Provides faculty information for MITxPro programs by joining faculty member data with program page paths to enable faculty attribution on program pages.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__programsfaculty"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000821,
+  "complexity_score": 11.0,
+  "change_velocity_30d": 0,
+  "loc": 51,
+  "is_dead_code_candidate": false
+}

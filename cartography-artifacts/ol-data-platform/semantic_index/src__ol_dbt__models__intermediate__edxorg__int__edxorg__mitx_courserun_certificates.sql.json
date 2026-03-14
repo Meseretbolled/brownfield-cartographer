@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/edxorg/int__edxorg__mitx_courserun_certificates.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/edxorg/int__edxorg__mitx_courserun_certificates.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Compiles course certificate data for MITx courses on edX.org, joining user and course information to track earned certificates and their details.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__edxorg__mitx_courserun_certificates"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001534,
+  "complexity_score": 24.0,
+  "change_velocity_30d": 0,
+  "loc": 182,
+  "is_dead_code_candidate": false
+}

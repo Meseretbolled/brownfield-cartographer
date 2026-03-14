@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitlearn/stg__mitlearn__app__postgres__learning_resources_search_percolatequery_users.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitlearn/stg__mitlearn__app__postgres__learning_resources_search_percolatequery_users.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Tracks which users are associated with specific search percolate queries, enabling personalized search alert functionality for monitoring relevant content.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitlearn__app__postgres__learning_resources_search_percolatequery_users"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 15,
+  "is_dead_code_candidate": true
+}

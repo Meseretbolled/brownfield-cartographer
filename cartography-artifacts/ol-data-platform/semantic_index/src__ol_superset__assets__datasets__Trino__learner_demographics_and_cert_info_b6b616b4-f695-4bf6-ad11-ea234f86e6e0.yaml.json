@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/learner_demographics_and_cert_info_b6b616b4-f695-4bf6-ad11-ea234f86e6e0.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/learner_demographics_and_cert_info_b6b616b4-f695-4bf6-ad11-ea234f86e6e0.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides demographic and certification information about learners to support student success analysis and program evaluation.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 271,
+  "is_dead_code_candidate": false
+}

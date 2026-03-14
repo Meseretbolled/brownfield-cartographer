@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/learn-ai/stg__learn_ai__app__postgres__users_user.sql",
+  "relative_path": "src/ol_dbt/models/staging/learn-ai/stg__learn_ai__app__postgres__users_user.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw user data by extracting key fields and deduplicating records to provide a clean dataset of user information for analysis.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__learn_ai__app__postgres__users_user"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001051,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 22,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/mitxonline/irx__mitxonline__openedx__mysql__user_id_map.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/mitxonline/irx__mitxonline__openedx__mysql__user_id_map.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a mapping between anonymous user identifiers and actual user credentials, facilitating privacy-preserving analytics while maintaining the ability to connect user data across systems.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [
+    "irx__mitxonline__openedx__mysql__user_id_map"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 7.0,
+  "change_velocity_30d": 0,
+  "loc": 19,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxresidential/stg__mitxresidential__openedx__courseware_studentmodule.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxresidential/stg__mitxresidential__openedx__courseware_studentmodule.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw student module data to track individual student interactions with course content, capturing grades and state changes for learning analytics.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxresidential__openedx__courseware_studentmodule"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001104,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 22,
+  "is_dead_code_candidate": false
+}

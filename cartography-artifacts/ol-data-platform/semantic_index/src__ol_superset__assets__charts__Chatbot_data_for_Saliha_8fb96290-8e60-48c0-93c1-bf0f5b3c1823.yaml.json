@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Chatbot_data_for_Saliha_8fb96290-8e60-48c0-93c1-bf0f5b3c1823.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Chatbot_data_for_Saliha_8fb96290-8e60-48c0-93c1-bf0f5b3c1823.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Displays chatbot conversation data for Saliha, filtering by specific course IDs and showing only sessions with agent or human messages",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 78,
+  "is_dead_code_candidate": false
+}

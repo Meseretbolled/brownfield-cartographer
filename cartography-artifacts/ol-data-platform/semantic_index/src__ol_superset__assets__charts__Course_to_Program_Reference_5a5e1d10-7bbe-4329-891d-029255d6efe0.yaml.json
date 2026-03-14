@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Course_to_Program_Reference_5a5e1d10-7bbe-4329-891d-029255d6efe0.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Course_to_Program_Reference_5a5e1d10-7bbe-4329-891d-029255d6efe0.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Creates a reference table mapping courses to their parent programs, showing relationships between course and program identifiers and titles.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 50,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/ops/__init__.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/ops/__init__.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Initializes the ops module for the orchestrate library, establishing the namespace for operational components in the data platform.",
+  "domain_cluster": "orchestration",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 0,
+  "is_dead_code_candidate": false
+}

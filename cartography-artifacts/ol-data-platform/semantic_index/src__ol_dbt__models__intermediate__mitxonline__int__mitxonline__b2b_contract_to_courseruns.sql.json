@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__b2b_contract_to_courseruns.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/int__mitxonline__b2b_contract_to_courseruns.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a mapping between B2B contracts and course runs to enable business-to-business reporting on which organizations have access to specific course offerings, solving the need to manage and track contractual relationships with enterprise customers.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxonline__b2b_contract_to_courseruns"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000773,
+  "complexity_score": 7.0,
+  "change_velocity_30d": 0,
+  "loc": 23,
+  "is_dead_code_candidate": false
+}

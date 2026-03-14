@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/bootcamps/stg__bootcamps__app__postgres__courses_course.sql",
+  "relative_path": "src/ol_dbt/models/staging/bootcamps/stg__bootcamps__app__postgres__courses_course.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms bootcamp course data from raw warehouse tables into a cleaned staging model with standardized column names for course identification and metadata.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__bootcamps__app__postgres__courses_course"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.00142,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 15,
+  "is_dead_code_candidate": false
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/combined/int__combined__user_course_roles.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/combined/int__combined__user_course_roles.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "This model aggregates user course role assignments from multiple platforms to create a comprehensive view of user permissions and access levels across different learning environments, supporting access control and user management.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__combined__user_course_roles"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000773,
+  "complexity_score": 33.0,
+  "change_velocity_30d": 0,
+  "loc": 172,
+  "is_dead_code_candidate": false
+}

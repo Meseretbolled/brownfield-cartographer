@@ -1,0 +1,18 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/lib/utils.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/lib/utils.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Handles Vault authentication and provides S3 bucket configuration mappings based on deployment environment, enabling secure credential management and consistent storage location references.",
+  "domain_cluster": "configuration",
+  "exported_functions": [
+    "authenticate_vault",
+    "s3_uploads_bucket",
+    "compute_zip_content_hash"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 8.0,
+  "change_velocity_30d": 0,
+  "loc": 94,
+  "is_dead_code_candidate": true
+}

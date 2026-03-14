@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/dashboards/Instructor_Level_Administration_Dashboard_5495ac4d-bac4-429c-8a7b-070f27f34904.yaml",
+  "relative_path": "src/ol_superset/assets/dashboards/Instructor_Level_Administration_Dashboard_5495ac4d-bac4-429c-8a7b-070f27f34904.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides instructors with a dashboard to monitor and analyze chatbot usage patterns and video engagement metrics across course sections",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 476,
+  "is_dead_code_candidate": false
+}

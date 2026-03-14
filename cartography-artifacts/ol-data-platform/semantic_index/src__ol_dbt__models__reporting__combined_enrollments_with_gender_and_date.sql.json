@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/reporting/combined_enrollments_with_gender_and_date.sql",
+  "relative_path": "src/ol_dbt/models/reporting/combined_enrollments_with_gender_and_date.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Creates a detailed enrollment dataset enriched with user demographic information including gender and job details, supporting diversity analysis and personalized learning insights for business stakeholders.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "combined_enrollments_with_gender_and_date"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 1,
+  "loc": 51,
+  "is_dead_code_candidate": true
+}

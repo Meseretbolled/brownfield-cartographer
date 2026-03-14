@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/micromasters/int__micromasters__course_enrollments.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/micromasters/int__micromasters__course_enrollments.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Consolidates course enrollment data from MITx platform with program information, filtering specifically for MicroMasters programs to track learner participation and program completion status.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__micromasters__course_enrollments"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001045,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 33,
+  "is_dead_code_candidate": false
+}

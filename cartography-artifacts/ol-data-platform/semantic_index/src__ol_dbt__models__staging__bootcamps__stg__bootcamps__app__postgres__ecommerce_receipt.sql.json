@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/bootcamps/stg__bootcamps__app__postgres__ecommerce_receipt.sql",
+  "relative_path": "src/ol_dbt/models/staging/bootcamps/stg__bootcamps__app__postgres__ecommerce_receipt.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Captures and standardizes e-commerce receipt data to track financial transactions and order confirmations.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__bootcamps__app__postgres__ecommerce_receipt"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001626,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 18,
+  "is_dead_code_candidate": false
+}

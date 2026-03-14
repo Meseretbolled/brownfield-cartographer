@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #0e1117;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/package-lock.yml", "label": "package-lock.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003epackage-lock.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 8\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/packages.yml", "label": "packages.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003epackages.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 7\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/dbt_project.yml", "label": "dbt_project.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003edbt_project.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 38\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/Taskfile.yml", "label": "Taskfile.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003eTaskfile.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 40\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql", "label": "stg_supplies.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_supplies.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.057699\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 31\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/__sources.yml", "label": "__sources.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003e__sources.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 20\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.yml", "label": "stg_customers.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_customers.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 9\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.yml", "label": "stg_orders.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_orders.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 12\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql", "label": "stg_order_items.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_order_items.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.035316\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 22\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.yml", "label": "stg_locations.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_locations.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 43\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.yml", "label": "stg_products.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_products.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 9\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.yml", "label": "stg_order_items.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_order_items.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 16\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql", "label": "stg_products.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_products.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.057699\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 34\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql", "label": "stg_orders.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_orders.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.051264\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 33\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql", "label": "stg_locations.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_locations.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.048715\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 29\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.yml", "label": "stg_supplies.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_supplies.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 12\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql", "label": "stg_customers.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003estg_customers.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.037524\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 23\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.yml", "label": "products.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003eproducts.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 26\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql", "label": "orders.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003eorders.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.037524\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 77\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.yml", "label": "order_items.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003eorder_items.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 181\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.yml", "label": "supplies.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003esupplies.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 24\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.yml", "label": "customers.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003ecustomers.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 107\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.yml", "label": "locations.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003elocations.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 24\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/metricflow_time_spine.sql", "label": "metricflow_time_spine.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003emetricflow_time_spine.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 19\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql", "label": "supplies.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003esupplies.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 9\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.yml", "label": "orders.yml", "shape": "dot", "size": 50, "title": "\u003cb\u003eorders.yml\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 183\u003cbr\u003eLanguage: Language.YAML"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql", "label": "customers.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003ecustomers.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 58\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql", "label": "products.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003eproducts.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 9\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql", "label": "locations.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003elocations.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 9\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql", "label": "order_items.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003eorder_items.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.042281\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 66\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/macros/cents_to_dollars.sql", "label": "cents_to_dollars.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003ecents_to_dollars.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 21\u003cbr\u003eLanguage: Language.SQL"}, {"color": "#4e79a7", "font": {"color": "#e0e0e0"}, "id": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/macros/generate_schema_name.sql", "label": "generate_schema_name.sql", "shape": "dot", "size": 50, "title": "\u003cb\u003egenerate_schema_name.sql\u003c/b\u003e\u003cbr\u003eDomain: unclassified\u003cbr\u003ePageRank: 0.026332\u003cbr\u003eVelocity 30d: 0\u003cbr\u003eLOC: 23\u003cbr\u003eLanguage: Language.SQL"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql", "to": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql", "value": 1}, {"arrows": "to", "from": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql", "to": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql", "value": 1}, {"arrows": "to", "from": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql", "to": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql", "value": 1}, {"arrows": "to", "from": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql", "to": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql", "value": 1}, {"arrows": "to", "from": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql", "to": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql", "value": 1}, {"arrows": "to", "from": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql", "to": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql", "value": 1}, {"arrows": "to", "from": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql", "to": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql", "value": 1}, {"arrows": "to", "from": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql", "to": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql", "value": 1}, {"arrows": "to", "from": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql", "to": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql", "value": 1}, {"arrows": "to", "from": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql", "to": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql", "value": 1}, {"arrows": "to", "from": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql", "to": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql", "value": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"physics": {"barnesHut": {"gravitationalConstant": -8000, "centralGravity": 0.3, "springLength": 120, "springConstant": 0.04, "damping": 0.09}, "minVelocity": 0.75}, "nodes": {"shape": "dot", "font": {"size": 11, "color": "#e0e0e0"}}, "edges": {"arrows": {"to": {"enabled": true, "scaleFactor": 0.5}}, "color": {"color": "rgba(140,150,170,0.3)"}, "smooth": {"type": "continuous"}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

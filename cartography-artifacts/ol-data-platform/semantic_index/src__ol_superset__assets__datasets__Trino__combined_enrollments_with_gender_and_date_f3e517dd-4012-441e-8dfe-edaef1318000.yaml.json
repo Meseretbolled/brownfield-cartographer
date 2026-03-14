@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/combined_enrollments_with_gender_and_date_f3e517dd-4012-441e-8dfe-edaef1318000.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/combined_enrollments_with_gender_and_date_f3e517dd-4012-441e-8dfe-edaef1318000.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "This dataset merges enrollment records with demographic information like gender and date details, enabling analysis of enrollment patterns across different user segments.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 523,
+  "is_dead_code_candidate": false
+}

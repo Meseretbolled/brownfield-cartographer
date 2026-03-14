@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Data_Detail_Problems_5e8a4f03-1504-4f8b-9990-de300d73ff93.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Data_Detail_Problems_5e8a4f03-1504-4f8b-9990-de300d73ff93.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Displays detailed problem-solving data including student attempts, grades, and success rates for course assessment analysis",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 73,
+  "is_dead_code_candidate": false
+}

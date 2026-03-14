@@ -1,0 +1,20 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/edxorg/edxorg/ops/edx_gcs_courses.py",
+  "relative_path": "dg_projects/edxorg/edxorg/ops/edx_gcs_courses.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Manages downloading course data tarballs from Google Cloud Storage and uploading results to S3 for institutional research analysis.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [
+    "download_edx_gcs_course_data",
+    "upload_edx_gcs_course_data_to_s3"
+  ],
+  "exported_classes": [
+    "DownloadEdxGcsCourseConfig",
+    "UploadEdxGcsCourseConfig"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 119,
+  "is_dead_code_candidate": true
+}

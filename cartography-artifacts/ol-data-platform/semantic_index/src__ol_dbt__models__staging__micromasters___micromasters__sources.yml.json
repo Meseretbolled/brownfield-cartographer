@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/micromasters/_micromasters__sources.yml",
+  "relative_path": "src/ol_dbt/models/staging/micromasters/_micromasters__sources.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Defines the source data structure and metadata for MicroMasters data integration, establishing the foundation for all subsequent data transformations.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 0,
+  "loc": 613,
+  "is_dead_code_candidate": false
+}

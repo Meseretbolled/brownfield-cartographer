@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/dim_user_last_updated_1e1419f1-f836-43de-964e-6ea9d9521645.yaml",
+  "relative_path": "src/ol_superset/assets/charts/dim_user_last_updated_1e1419f1-f836-43de-964e-6ea9d9521645.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Monitors the last update timestamps for user dimension tables to ensure data freshness and track ETL processes",
+  "domain_cluster": "monitoring",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 80,
+  "is_dead_code_candidate": false
+}

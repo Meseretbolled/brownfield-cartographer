@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__user_courseactivity_problemcheck.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__user_courseactivity_problemcheck.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts problem check events from course activity tracking to capture student assessment data including answers, attempts, and grades.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__user_courseactivity_problemcheck"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000897,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 1,
+  "loc": 25,
+  "is_dead_code_candidate": false
+}

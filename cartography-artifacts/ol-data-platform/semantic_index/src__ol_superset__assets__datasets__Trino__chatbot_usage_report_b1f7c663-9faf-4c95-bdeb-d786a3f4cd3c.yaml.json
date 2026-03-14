@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/chatbot_usage_report_b1f7c663-9faf-4c95-bdeb-d786a3f4cd3c.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/chatbot_usage_report_b1f7c663-9faf-4c95-bdeb-d786a3f4cd3c.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides analytics on chatbot usage patterns, tracking user interactions, AI responses, and conversation threads to evaluate virtual assistant effectiveness.",
+  "domain_cluster": "transformation",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 123,
+  "is_dead_code_candidate": false
+}

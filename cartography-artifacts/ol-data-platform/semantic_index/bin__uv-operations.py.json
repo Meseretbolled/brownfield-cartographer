@@ -1,0 +1,24 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/bin/uv-operations.py",
+  "relative_path": "bin/uv-operations.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Executes uv commands across all code locations in the data engineering projects directory, managing Python package dependencies and virtual environments.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "find_code_locations",
+    "run_uv_command",
+    "run_across_locations",
+    "sync",
+    "lock",
+    "build",
+    "pip"
+  ],
+  "exported_classes": [
+    "Colors"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 17.0,
+  "change_velocity_30d": 0,
+  "loc": 275,
+  "is_dead_code_candidate": true
+}

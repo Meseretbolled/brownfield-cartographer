@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxonline/stg__mitxonline__openedx__mysql__auth_user.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxonline/stg__mitxonline__openedx__mysql__auth_user.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts and standardizes user authentication data from the open edX platform for identity management and access control purposes.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxonline__openedx__mysql__auth_user"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.00155,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 19,
+  "is_dead_code_candidate": false
+}

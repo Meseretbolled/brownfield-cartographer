@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/raw__learn_ai__app__postgres__ai_chatbots_tutorbotoutput_757ec475-ddad-436a-9a7c-3da657b69a9b.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/raw__learn_ai__app__postgres__ai_chatbots_tutorbotoutput_757ec475-ddad-436a-9a7c-3da657b69a9b.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Captures and stores AI chatbot interaction data for tutoring applications, enabling analysis of student engagement patterns and effectiveness of AI-driven educational support.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 140,
+  "is_dead_code_candidate": false
+}

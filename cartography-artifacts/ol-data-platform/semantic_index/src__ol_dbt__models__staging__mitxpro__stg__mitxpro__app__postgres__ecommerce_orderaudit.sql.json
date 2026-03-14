@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__ecommerce_orderaudit.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__ecommerce_orderaudit.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Captures and standardizes order audit data from MITxPro's e-commerce system, allowing tracking of changes to orders for business operations and auditing purposes.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__app__postgres__ecommerce_orderaudit"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 21,
+  "is_dead_code_candidate": true
+}

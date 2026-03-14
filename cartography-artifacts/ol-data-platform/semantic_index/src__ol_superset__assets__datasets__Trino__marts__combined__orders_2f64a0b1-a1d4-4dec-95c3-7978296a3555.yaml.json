@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/datasets/Trino/marts__combined__orders_2f64a0b1-a1d4-4dec-95c3-7978296a3555.yaml",
+  "relative_path": "src/ol_superset/assets/datasets/Trino/marts__combined__orders_2f64a0b1-a1d4-4dec-95c3-7978296a3555.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Processes and organizes e-commerce order data including pricing, dates, and financial information for revenue analysis and business reporting.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 3,
+  "loc": 645,
+  "is_dead_code_candidate": false
+}

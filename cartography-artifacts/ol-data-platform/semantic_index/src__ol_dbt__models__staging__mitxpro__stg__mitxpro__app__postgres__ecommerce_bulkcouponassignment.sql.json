@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__ecommerce_bulkcouponassignment.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__ecommerce_bulkcouponassignment.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Manages bulk coupon assignments and distribution tracking for MIT xPro promotional campaigns.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__app__postgres__ecommerce_bulkcouponassignment"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 24,
+  "is_dead_code_candidate": true
+}

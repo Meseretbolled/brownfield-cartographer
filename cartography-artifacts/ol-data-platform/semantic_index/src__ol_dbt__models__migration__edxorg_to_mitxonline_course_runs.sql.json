@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/migration/edxorg_to_mitxonline_course_runs.sql",
+  "relative_path": "src/ol_dbt/models/migration/edxorg_to_mitxonline_course_runs.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Extracts and transforms course run data from edX.org, preparing it for migration to MITx Online by standardizing course identifiers, aggregating related data, and identifying courses that need to be migrated.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "edxorg_to_mitxonline_course_runs"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 15.0,
+  "change_velocity_30d": 1,
+  "loc": 93,
+  "is_dead_code_candidate": true
+}

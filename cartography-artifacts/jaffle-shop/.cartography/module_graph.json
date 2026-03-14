@@ -1,0 +1,676 @@
+{
+  "nodes": {
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/package-lock.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/package-lock.yml",
+      "language": "yaml",
+      "purpose_statement": "Manages package dependencies for dbt project",
+      "domain_cluster": "configuration",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 8,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/packages.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/packages.yml",
+      "language": "yaml",
+      "purpose_statement": "Defines package dependencies for dbt project",
+      "domain_cluster": "configuration",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 7,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/dbt_project.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/dbt_project.yml",
+      "language": "yaml",
+      "purpose_statement": "Configures dbt project settings and structure",
+      "domain_cluster": "configuration",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.288738",
+      "loc": 38,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/Taskfile.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/Taskfile.yml",
+      "language": "yaml",
+      "purpose_statement": "Automates dbt project setup and data generation tasks",
+      "domain_cluster": "orchestration",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.288738",
+      "loc": 40,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql",
+      "language": "sql",
+      "purpose_statement": "Transforms raw supply data into structured staging tables",
+      "domain_cluster": "transformation",
+      "complexity_score": 4.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 31,
+      "comment_ratio": 0.12903225806451613,
+      "imports": [
+        "dbt_source:ecom.raw_supplies"
+      ],
+      "exported_functions": [
+        "stg_supplies"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.05769867552129518
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/__sources.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/__sources.yml",
+      "language": "yaml",
+      "purpose_statement": "Defines the source data structure for e-commerce operations, establishing the foundational data assets that power the Jaffle Shop's business intelligence.",
+      "domain_cluster": "ingestion",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 20,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.yml",
+      "language": "yaml",
+      "purpose_statement": "Transforms raw customer data into a clean, standardized format with data quality validation to ensure reliable customer analytics and reporting.",
+      "domain_cluster": "transformation",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 9,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.yml",
+      "language": "yaml",
+      "purpose_statement": "Transforms raw order data with validation checks to ensure financial accuracy and provides a trusted foundation for order-based business analysis.",
+      "domain_cluster": "transformation",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 12,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql",
+      "language": "sql",
+      "purpose_statement": "Transforms raw order item data into a standardized format linking orders to products for detailed sales and product performance analysis.",
+      "domain_cluster": "transformation",
+      "complexity_score": 4.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 22,
+      "comment_ratio": 0.045454545454545456,
+      "imports": [
+        "dbt_source:ecom.raw_items"
+      ],
+      "exported_functions": [
+        "stg_order_items"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.035316266098191156
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.yml",
+      "language": "yaml",
+      "purpose_statement": "Transforms raw store location data into a standardized format with temporal consistency checks to support location-based business operations and analysis.",
+      "domain_cluster": "transformation",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 43,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.yml",
+      "language": "yaml",
+      "purpose_statement": "Creates a clean product catalog with standardized identifiers and pricing for all food and drink items available for ordering.",
+      "domain_cluster": "transformation",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 9,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.yml",
+      "language": "yaml",
+      "purpose_statement": "Transforms raw order item data into a structured format that links individual purchased items to their parent orders and provides pricing in both cents and dollars.",
+      "domain_cluster": "transformation",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 16,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql",
+      "language": "sql",
+      "purpose_statement": "Standardizes and cleans product data from the e-commerce source, converting pricing formats and adding boolean flags to identify food versus drink items.",
+      "domain_cluster": "transformation",
+      "complexity_score": 4.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 34,
+      "comment_ratio": 0.11764705882352941,
+      "imports": [
+        "dbt_source:ecom.raw_products"
+      ],
+      "exported_functions": [
+        "stg_products"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.05769867552129518
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql",
+      "language": "sql",
+      "purpose_statement": "Transforms raw order data into a structured format with standardized identifiers, converted pricing fields, and truncated timestamps for analysis.",
+      "domain_cluster": "transformation",
+      "complexity_score": 4.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 33,
+      "comment_ratio": 0.09090909090909091,
+      "imports": [
+        "dbt_source:ecom.raw_orders"
+      ],
+      "exported_functions": [
+        "stg_orders"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.05126446607718094
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql",
+      "language": "sql",
+      "purpose_statement": "Creates a clean store/location dimension table with standardized identifiers, tax rates, and opening dates for all retail locations.",
+      "domain_cluster": "transformation",
+      "complexity_score": 4.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 29,
+      "comment_ratio": 0.13793103448275862,
+      "imports": [
+        "dbt_source:ecom.raw_stores"
+      ],
+      "exported_functions": [
+        "stg_locations"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.04871487006441971
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.yml",
+      "language": "yaml",
+      "purpose_statement": "Captures detailed supply cost records to track fluctuating supply expenses over time, enabling accurate cost accounting for supplies.",
+      "domain_cluster": "transformation",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 12,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql",
+      "language": "sql",
+      "purpose_statement": "Transforms raw customer data from the e-commerce source system into a clean staging table with standardized customer identifiers and names.",
+      "domain_cluster": "transformation",
+      "complexity_score": 4.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289912",
+      "loc": 23,
+      "comment_ratio": 0.08695652173913043,
+      "imports": [
+        "dbt_source:ecom.raw_customers"
+      ],
+      "exported_functions": [
+        "stg_customers"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.03752366535286769
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.yml",
+      "language": "yaml",
+      "purpose_statement": "Defines a product dimension model that categorizes product attributes for analytical queries, supporting product-based reporting and analysis.",
+      "domain_cluster": "serving",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 26,
+      "comment_ratio": 0.15384615384615385,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql",
+      "language": "sql",
+      "purpose_statement": "Creates an enriched order fact table with calculated order metrics and customer ordering patterns, enabling comprehensive order analysis and customer behavior tracking.",
+      "domain_cluster": "serving",
+      "complexity_score": 10.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 77,
+      "comment_ratio": 0.0,
+      "imports": [
+        "dbt_ref:order_items",
+        "dbt_ref:stg_orders"
+      ],
+      "exported_functions": [
+        "orders"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.03752366535286769
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.yml",
+      "language": "yaml",
+      "purpose_statement": "Tests the integrity of order item data relationships and supply cost calculations, ensuring accurate cost aggregation and data quality for downstream analytics.",
+      "domain_cluster": "testing",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 181,
+      "comment_ratio": 0.022099447513812154,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.yml",
+      "language": "yaml",
+      "purpose_statement": "Provides a dimension table that maps supplies to products for inventory and supply chain analysis",
+      "domain_cluster": "transformation",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 24,
+      "comment_ratio": 0.16666666666666666,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.yml",
+      "language": "yaml",
+      "purpose_statement": "Creates a customer data mart with key metrics like lifetime spend and order history for customer relationship management",
+      "domain_cluster": "transformation",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 107,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.yml",
+      "language": "yaml",
+      "purpose_statement": "Establishes a location dimension table with tax rate information for regional analysis and reporting",
+      "domain_cluster": "transformation",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 24,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/metricflow_time_spine.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/metricflow_time_spine.sql",
+      "language": "sql",
+      "purpose_statement": "Generates a time spine covering 10 years for time-based aggregations and temporal analysis",
+      "domain_cluster": "transformation",
+      "complexity_score": 3.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": true,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 19,
+      "comment_ratio": 0.10526315789473684,
+      "imports": [],
+      "exported_functions": [
+        "metricflow_time_spine"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql",
+      "language": "sql",
+      "purpose_statement": "Materializes a supplies table from staging data for downstream analytics",
+      "domain_cluster": "transformation",
+      "complexity_score": 3.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": true,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 9,
+      "comment_ratio": 0.0,
+      "imports": [
+        "dbt_ref:stg_supplies"
+      ],
+      "exported_functions": [
+        "supplies"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.yml": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.yml",
+      "language": "yaml",
+      "purpose_statement": "Provides an aggregated view of orders with key metrics like total amounts, tax calculations, and categorization of food vs drink items to support order analysis and financial reporting.",
+      "domain_cluster": "transformation",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 183,
+      "comment_ratio": 0.0,
+      "imports": [],
+      "exported_functions": [],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql",
+      "language": "sql",
+      "purpose_statement": "Creates a comprehensive customer profile by combining customer details with their order history, including lifetime spend, order counts, and customer type classification for segmentation analysis.",
+      "domain_cluster": "transformation",
+      "complexity_score": 8.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": true,
+      "last_modified": "2026-03-14T00:48:16.289437",
+      "loc": 58,
+      "comment_ratio": 0.0,
+      "imports": [
+        "dbt_ref:orders",
+        "dbt_ref:stg_customers"
+      ],
+      "exported_functions": [
+        "customers"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql",
+      "language": "sql",
+      "purpose_statement": "Serves as a simple staging layer for product data, providing access to product attributes like names, prices, and item classifications for downstream analytics.",
+      "domain_cluster": "transformation",
+      "complexity_score": 3.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": true,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 9,
+      "comment_ratio": 0.0,
+      "imports": [
+        "dbt_ref:stg_products"
+      ],
+      "exported_functions": [
+        "products"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql",
+      "language": "sql",
+      "purpose_statement": "Acts as a staging layer for location data, making geographic and store location information available for analysis and reporting.",
+      "domain_cluster": "transformation",
+      "complexity_score": 3.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": true,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 9,
+      "comment_ratio": 0.0,
+      "imports": [
+        "dbt_ref:stg_locations"
+      ],
+      "exported_functions": [
+        "locations"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "language": "sql",
+      "purpose_statement": "Combines order item details with product information and supply costs to provide a complete view of individual order items including pricing, categorization, and fulfillment costs.",
+      "domain_cluster": "transformation",
+      "complexity_score": 11.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": false,
+      "last_modified": "2026-03-14T00:48:16.289484",
+      "loc": 66,
+      "comment_ratio": 0.0,
+      "imports": [
+        "dbt_ref:stg_order_items",
+        "dbt_ref:stg_orders",
+        "dbt_ref:stg_products",
+        "dbt_ref:stg_supplies"
+      ],
+      "exported_functions": [
+        "order_items"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.04228066062030547
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/macros/cents_to_dollars.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/macros/cents_to_dollars.sql",
+      "language": "sql",
+      "purpose_statement": "Provides a standardized method to convert currency values stored in cents to dollars for consistent financial reporting across different database systems",
+      "domain_cluster": "transformation",
+      "complexity_score": 0.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": true,
+      "last_modified": "2026-03-14T00:48:16.288738",
+      "loc": 21,
+      "comment_ratio": 0.047619047619047616,
+      "imports": [],
+      "exported_functions": [
+        "cents_to_dollars"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    },
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/macros/generate_schema_name.sql": {
+      "path": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/macros/generate_schema_name.sql",
+      "language": "sql",
+      "purpose_statement": "Determines the appropriate database schema name for data assets based on their type and deployment environment to maintain organized data structure",
+      "domain_cluster": "configuration",
+      "complexity_score": 1.0,
+      "change_velocity_30d": 0,
+      "is_dead_code_candidate": true,
+      "last_modified": "2026-03-14T00:48:16.289385",
+      "loc": 23,
+      "comment_ratio": 0.17391304347826086,
+      "imports": [],
+      "exported_functions": [
+        "generate_schema_name"
+      ],
+      "exported_classes": [],
+      "pagerank_score": 0.026332460641315687
+    }
+  },
+  "edges": [
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "edge_type": "IMPORTS",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql",
+      "edge_type": "IMPORTS",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/supplies.sql",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql",
+      "edge_type": "IMPORTS",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/orders.sql",
+      "edge_type": "IMPORTS",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/customers.sql",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.sql",
+      "edge_type": "IMPORTS",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/products.sql",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql",
+      "edge_type": "IMPORTS",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/locations.sql",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql",
+      "edge_type": "IMPORTS",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql",
+      "edge_type": "IMPORTS",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql",
+      "edge_type": "IMPORTS",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql",
+      "edge_type": "IMPORTS",
+      "weight": 1.0,
+      "metadata": {}
+    },
+    {
+      "source": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql",
+      "target": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql",
+      "edge_type": "IMPORTS",
+      "weight": 1.0,
+      "metadata": {}
+    }
+  ],
+  "circular_dependencies": [],
+  "high_velocity_files": [
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/package-lock.yml",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/packages.yml",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/dbt_project.yml",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/Taskfile.yml",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/__sources.yml",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_customers.yml",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.yml",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_order_items.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.yml"
+  ],
+  "architectural_hubs": [
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_supplies.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_products.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_orders.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/staging/stg_locations.sql",
+    "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop/models/marts/order_items.sql"
+  ],
+  "generated_at": "2026-03-14T15:01:16.158604",
+  "target_repo": "/home/meseret/Desktop/brownfield-cartographer/jaffle-shop"
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/marts/combined/marts__combined_course_engagements.sql",
+  "relative_path": "src/ol_dbt/models/marts/combined/marts__combined_course_engagements.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Consolidates daily course activity metrics across all platforms to enable comprehensive tracking of learner engagement and participation patterns.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "marts__combined_course_engagements"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 29.0,
+  "change_velocity_30d": 1,
+  "loc": 272,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__user_courseactivities_daily.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxpro/int__mitxpro__user_courseactivities_daily.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Aggregates daily user activity statistics for course runs, tracking the number of events per user per day to support engagement analysis.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__mitxpro__user_courseactivities_daily"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000732,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 1,
+  "loc": 19,
+  "is_dead_code_candidate": false
+}

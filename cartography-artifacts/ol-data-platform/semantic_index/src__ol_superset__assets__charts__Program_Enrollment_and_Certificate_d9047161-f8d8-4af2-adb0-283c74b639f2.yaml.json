@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Program_Enrollment_and_Certificate_d9047161-f8d8-4af2-adb0-283c74b639f2.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Program_Enrollment_and_Certificate_d9047161-f8d8-4af2-adb0-283c74b639f2.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Displays comprehensive program enrollment and completion data, including user demographics and course progress, to track program participation and identify completion trends.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 105,
+  "is_dead_code_candidate": false
+}

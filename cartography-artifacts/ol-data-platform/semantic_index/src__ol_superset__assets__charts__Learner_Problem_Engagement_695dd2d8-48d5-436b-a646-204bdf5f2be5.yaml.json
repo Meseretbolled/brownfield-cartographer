@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Learner_Problem_Engagement_695dd2d8-48d5-436b-a646-204bdf5f2be5.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Learner_Problem_Engagement_695dd2d8-48d5-436b-a646-204bdf5f2be5.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides detailed learner engagement data for individual problems, tracking attempts, correct answers, and grade distributions to help instructors understand student performance and identify areas where learners struggle.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 4,
+  "loc": 76,
+  "is_dead_code_candidate": false
+}

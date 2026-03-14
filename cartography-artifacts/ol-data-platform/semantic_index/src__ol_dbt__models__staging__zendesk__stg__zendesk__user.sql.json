@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/zendesk/stg__zendesk__user.sql",
+  "relative_path": "src/ol_dbt/models/staging/zendesk/stg__zendesk__user.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw Zendesk user data into a cleaned staging table with standardized field names and formats, making user information available for analysis of support interactions and agent performance.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__zendesk__user"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001095,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 0,
+  "loc": 52,
+  "is_dead_code_candidate": false
+}

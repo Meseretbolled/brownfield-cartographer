@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/canvas/canvas/sensors/canvas.py",
+  "relative_path": "dg_projects/canvas/canvas/sensors/canvas.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Sensor to monitor a Google Sheet for Canvas course IDs to export and trigger data pipeline runs",
+  "domain_cluster": "monitoring",
+  "exported_functions": [
+    "canvas_google_sheet_course_id_sensor"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 3.0,
+  "change_velocity_30d": 0,
+  "loc": 81,
+  "is_dead_code_candidate": true
+}

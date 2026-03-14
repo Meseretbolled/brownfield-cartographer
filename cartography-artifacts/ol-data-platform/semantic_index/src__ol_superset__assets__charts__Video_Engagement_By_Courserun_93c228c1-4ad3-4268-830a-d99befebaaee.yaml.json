@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/assets/charts/Video_Engagement_By_Courserun_93c228c1-4ad3-4268-830a-d99befebaaee.yaml",
+  "relative_path": "src/ol_superset/assets/charts/Video_Engagement_By_Courserun_93c228c1-4ad3-4268-830a-d99befebaaee.yaml",
+  "language": "Language.YAML",
+  "purpose_statement": "Shows detailed video engagement metrics including total video duration, time played, and percentage watched for each course run.",
+  "domain_cluster": "serving",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 2,
+  "loc": 107,
+  "is_dead_code_candidate": false
+}

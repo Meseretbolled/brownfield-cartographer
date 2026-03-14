@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/b2b_organization/b2b_organization/assets/data_export.py",
+  "relative_path": "dg_projects/b2b_organization/b2b_organization/assets/data_export.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Exports organization-specific data from a reporting table to CSV files for individual B2B organizations",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "export_b2b_organization_data"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 1.0,
+  "change_velocity_30d": 0,
+  "loc": 78,
+  "is_dead_code_candidate": true
+}

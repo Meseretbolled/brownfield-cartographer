@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/edxorg/int__edxorg__mitx_courserun_enrollments.sql",
+  "relative_path": "src/ol_dbt/models/intermediate/edxorg/int__edxorg__mitx_courserun_enrollments.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Combines enrollment data from edX.org with micromasters course run information to create a unified view of course enrollments including verification status and upgrade deadlines, supporting analysis of learner progression through MITx programs.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "int__edxorg__mitx_courserun_enrollments"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001508,
+  "complexity_score": 27.0,
+  "change_velocity_30d": 0,
+  "loc": 124,
+  "is_dead_code_candidate": false
+}

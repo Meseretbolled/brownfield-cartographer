@@ -1,0 +1,20 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/ol_superset/commands/dedupe.py",
+  "relative_path": "src/ol_superset/ol_superset/commands/dedupe.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Cleans up duplicate Superset asset files by removing redundant database ID or UUID suffixes from filenames, resolving issues caused by cross-environment exports that create multiple files for the same asset.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "extract_uuid_from_yaml",
+    "extract_base_name_without_id",
+    "deduplicate_assets",
+    "rename_assets_to_uuid",
+    "dedupe"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 36.0,
+  "change_velocity_30d": 2,
+  "loc": 361,
+  "is_dead_code_candidate": true
+}

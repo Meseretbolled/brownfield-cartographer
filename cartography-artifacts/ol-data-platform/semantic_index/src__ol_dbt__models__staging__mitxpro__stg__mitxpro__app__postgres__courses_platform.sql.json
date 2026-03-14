@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__courses_platform.sql",
+  "relative_path": "src/ol_dbt/models/staging/mitxpro/stg__mitxpro__app__postgres__courses_platform.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Maintains a reference table of learning platforms and their identifiers for cross-platform data integration.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__mitxpro__app__postgres__courses_platform"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.001882,
+  "complexity_score": 4.0,
+  "change_velocity_30d": 0,
+  "loc": 14,
+  "is_dead_code_candidate": false
+}

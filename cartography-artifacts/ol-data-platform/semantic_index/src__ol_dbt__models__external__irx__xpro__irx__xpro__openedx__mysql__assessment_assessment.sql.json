@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/external/irx/xpro/irx__xpro__openedx__mysql__assessment_assessment.sql",
+  "relative_path": "src/ol_dbt/models/external/irx/xpro/irx__xpro__openedx__mysql__assessment_assessment.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Links assessment scores to the learners who completed them and the specific submissions.",
+  "domain_cluster": "ingestion",
+  "exported_functions": [
+    "irx__xpro__openedx__mysql__assessment_assessment"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 7.0,
+  "change_velocity_30d": 0,
+  "loc": 19,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/staging/edxorg/stg__edxorg__s3__tracking_logs__user_activity.sql",
+  "relative_path": "src/ol_dbt/models/staging/edxorg/stg__edxorg__s3__tracking_logs__user_activity.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Transforms raw edX tracking logs into a cleaned user activity dataset by extracting and normalizing user interaction events, ensuring incremental updates only process new data.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "stg__edxorg__s3__tracking_logs__user_activity"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.005571,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 1,
+  "loc": 51,
+  "is_dead_code_candidate": false
+}

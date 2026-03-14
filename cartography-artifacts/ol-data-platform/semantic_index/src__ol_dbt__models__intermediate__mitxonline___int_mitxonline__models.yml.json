@@ -1,0 +1,14 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/intermediate/mitxonline/_int_mitxonline__models.yml",
+  "relative_path": "src/ol_dbt/models/intermediate/mitxonline/_int_mitxonline__models.yml",
+  "language": "Language.YAML",
+  "purpose_statement": "Provides metadata documentation for intermediate models, establishing data quality tests and column descriptions for MITx Online analytics tables.",
+  "domain_cluster": "configuration",
+  "exported_functions": [],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 0.0,
+  "change_velocity_30d": 1,
+  "loc": 2183,
+  "is_dead_code_candidate": false
+}

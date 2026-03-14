@@ -1,0 +1,19 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_deployments/reconcile_edxorg_partitions.py",
+  "relative_path": "dg_deployments/reconcile_edxorg_partitions.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Fixes data integrity issues in edX archive partitions by correcting course ID formatting errors that occurred due to regex parsing bugs, ensuring proper asset materialization and S3 path consistency",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "reconcile",
+    "main"
+  ],
+  "exported_classes": [
+    "_WorkItem"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 50.0,
+  "change_velocity_30d": 6,
+  "loc": 572,
+  "is_dead_code_candidate": true
+}

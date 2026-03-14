@@ -1,0 +1,32 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_superset/ol_superset/lib/superset_api.py",
+  "relative_path": "src/ol_superset/ol_superset/lib/superset_api.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Provides authentication and API client functionality for Superset instances, enabling secure programmatic access to Superset data and features through OAuth with PKCE.",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "get_instance_config",
+    "get_oauth_token_with_pkce",
+    "create_authenticated_session",
+    "get_csrf_token",
+    "get_asset_id_by_uuid",
+    "update_asset_external_management_flag",
+    "list_all_datasets_from_api",
+    "get_dataset_id_by_uuid",
+    "refresh_dataset",
+    "get_dataset_uuids_from_directory",
+    "get_asset_uuids_from_directory",
+    "update_pushed_assets_external_flag",
+    "list_roles",
+    "list_datasets_name_to_id",
+    "list_rls_filters"
+  ],
+  "exported_classes": [
+    "CallbackHandler"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 92.0,
+  "change_velocity_30d": 4,
+  "loc": 918,
+  "is_dead_code_candidate": true
+}

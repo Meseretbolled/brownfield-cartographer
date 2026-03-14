@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/marts/mitxonline/marts__mitxonline_user_profiles.sql",
+  "relative_path": "src/ol_dbt/models/marts/mitxonline/marts__mitxonline_user_profiles.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Centralizes user profile information with the latest income data for flexible pricing applications to support financial aid and demographic analysis.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "marts__mitxonline_user_profiles"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000856,
+  "complexity_score": 6.0,
+  "change_velocity_30d": 0,
+  "loc": 38,
+  "is_dead_code_candidate": false
+}

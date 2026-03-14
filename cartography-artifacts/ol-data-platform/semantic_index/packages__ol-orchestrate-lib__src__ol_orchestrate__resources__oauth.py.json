@@ -1,0 +1,23 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/packages/ol-orchestrate-lib/src/ol_orchestrate/resources/oauth.py",
+  "relative_path": "packages/ol-orchestrate-lib/src/ol_orchestrate/resources/oauth.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Handles OAuth2 authentication flows for external APIs, providing secure token management and HTTP client configuration for authenticated requests",
+  "domain_cluster": "utilities",
+  "exported_functions": [
+    "fetch_with_auth",
+    "http_client",
+    "validate_token_type",
+    "client",
+    "yield_for_execution"
+  ],
+  "exported_classes": [
+    "OAuthApiClient",
+    "OAuthApiClientFactory"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 9.0,
+  "change_velocity_30d": 0,
+  "loc": 141,
+  "is_dead_code_candidate": true
+}

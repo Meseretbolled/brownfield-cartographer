@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/learning_resources/learning_resources/definitions.py",
+  "relative_path": "dg_projects/learning_resources/learning_resources/definitions.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Defines the data pipeline for extracting learning resource metadata from multiple sources (MIT Sloan, Video Shorts, Open Learning Library) and orchestrates asset jobs and schedules for processing",
+  "domain_cluster": "orchestration",
+  "exported_functions": [],
+  "exported_classes": [
+    "VideoShortsSheetConfig"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 5.0,
+  "change_velocity_30d": 2,
+  "loc": 175,
+  "is_dead_code_candidate": true
+}

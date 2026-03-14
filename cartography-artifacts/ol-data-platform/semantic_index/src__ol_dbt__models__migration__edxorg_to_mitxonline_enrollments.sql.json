@@ -1,0 +1,16 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/src/ol_dbt/models/migration/edxorg_to_mitxonline_enrollments.sql",
+  "relative_path": "src/ol_dbt/models/migration/edxorg_to_mitxonline_enrollments.sql",
+  "language": "Language.SQL",
+  "purpose_statement": "Synchronizes course enrollments and grades between edX and MITxOnline platforms, including certificate generation and signatory management for cross-platform course completion tracking.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "edxorg_to_mitxonline_enrollments"
+  ],
+  "exported_classes": [],
+  "pagerank_score": 0.000699,
+  "complexity_score": 33.0,
+  "change_velocity_30d": 9,
+  "loc": 192,
+  "is_dead_code_candidate": true
+}

@@ -1,0 +1,32 @@
+{
+  "path": "/home/meseret/Desktop/brownfield-cartographer/ol-data-platform/dg_projects/legacy_openedx/legacy_openedx/ops/open_edx.py",
+  "relative_path": "dg_projects/legacy_openedx/legacy_openedx/ops/open_edx.py",
+  "language": "Language.PYTHON",
+  "purpose_statement": "Provides core data processing operations for Open edX integration, including course listing, database exports, and data transformation utilities for the data platform.",
+  "domain_cluster": "transformation",
+  "exported_functions": [
+    "list_courses",
+    "fetch_edx_course_structure_from_api",
+    "enrolled_users",
+    "student_submissions",
+    "course_enrollments",
+    "course_roles",
+    "user_roles",
+    "export_edx_forum_database",
+    "export_edx_courses",
+    "write_course_list_csv",
+    "upload_extracted_data"
+  ],
+  "exported_classes": [
+    "ListCoursesConfig",
+    "ExportEdxForumDatabaseConfig",
+    "ExportEdxCoursesConfig",
+    "UploadExtractedDataConfig",
+    "CourseStructureConfig"
+  ],
+  "pagerank_score": 0.000699,
+  "complexity_score": 18.0,
+  "change_velocity_30d": 1,
+  "loc": 686,
+  "is_dead_code_candidate": true
+}
