@@ -1,18 +1,8 @@
-"""
-Archivist Agent — Living Context Maintainer.
-
-Produces:
-  - CODEBASE.md
-  - onboarding_brief.md
-  - cartography_trace.jsonl
-
-The goal is to create living artifacts that can be injected into an AI coding
-agent or used by humans for Day-One brownfield onboarding.
-"""
 from __future__ import annotations
 
 import json
 import logging
+import os
 from datetime import datetime, UTC
 from pathlib import Path
 from typing import Any
@@ -20,6 +10,8 @@ from typing import Any
 from src.models import DataLineageGraph, ModuleGraph
 
 logger = logging.getLogger(__name__)
+
+GIT_DAYS = int(os.getenv("CARTOGRAPHER_GIT_DAYS", "30"))
 
 
 def _safe_rel(path: str, repo_path: Path) -> str:
@@ -42,26 +34,12 @@ class Archivist:
         self.lineage_graph = lineage_graph
         self.semanticist = semanticist
 
-    # ------------------------------------------------------------------
-    # Public API
-    # ------------------------------------------------------------------
-
     def run(self, output_dir: Path) -> None:
         output_dir.mkdir(parents=True, exist_ok=True)
-
-        codebase_md = self.generate_CODEBASE_md()
-        onboarding_md = self.generate_onboarding_brief_md()
-
-        (output_dir / "CODEBASE.md").write_text(codebase_md, encoding="utf-8")
-        (output_dir / "onboarding_brief.md").write_text(onboarding_md, encoding="utf-8")
-
+        (output_dir / "CODEBASE.md").write_text(self.generate_CODEBASE_md(), encoding="utf-8")
+        (output_dir / "onboarding_brief.md").write_text(self.generate_onboarding_brief_md(), encoding="utf-8")
         self.write_cartography_trace(output_dir / "cartography_trace.jsonl")
-
         logger.info("[Archivist] Wrote CODEBASE.md, onboarding_brief.md, cartography_trace.jsonl")
-
-    # ------------------------------------------------------------------
-    # CODEBASE.md
-    # ------------------------------------------------------------------
 
     def generate_CODEBASE_md(self) -> str:
         hubs = self.module_graph.architectural_hubs[:5]
@@ -76,14 +54,8 @@ class Archivist:
 
         purpose_nodes = sorted(
             self.module_graph.nodes.values(),
-            key=lambda n: (
-                n.domain_cluster or "",
-                -n.pagerank_score,
-                n.path,
-            ),
+            key=lambda n: (n.domain_cluster or "", -n.pagerank_score, n.path),
         )
-
-        overview = self._architecture_overview_paragraph()
 
         lines: list[str] = [
             "# CODEBASE.md",
@@ -92,7 +64,7 @@ class Archivist:
             "",
             "## Architecture Overview",
             "",
-            overview,
+            self._architecture_overview_paragraph(),
             "",
             "## Critical Path",
             "",
@@ -103,44 +75,21 @@ class Archivist:
         if hubs:
             for i, hub in enumerate(hubs, 1):
                 node = self.module_graph.nodes.get(hub)
-                purpose = node.purpose_statement if node else None
                 lines.append(f"{i}. `{_safe_rel(hub, self.repo_path)}`")
-                if purpose:
-                    lines.append(f"   - Purpose: {purpose}")
+                if node and node.purpose_statement:
+                    lines.append(f"   - Purpose: {node.purpose_statement}")
                 if node:
                     lines.append(f"   - PageRank: `{node.pagerank_score:.5f}`")
-                    lines.append(f"   - Change velocity (30d): `{node.change_velocity_30d}`")
+                    lines.append(f"   - Change velocity: `{node.change_velocity_30d}` commits ({GIT_DAYS}d window)")
         else:
             lines.append("- No architectural hubs detected.")
 
-        lines += [
-            "",
-            "## Data Sources & Sinks",
-            "",
-            "### Sources",
-        ]
-        if sources:
-            for s in sources:
-                lines.append(f"- `{s}`")
-        else:
-            lines.append("- None detected")
+        lines += ["", "## Data Sources & Sinks", "", "### Sources"]
+        lines += [f"- `{s}`" for s in sources] if sources else ["- None detected"]
+        lines += ["", "### Sinks"]
+        lines += [f"- `{s}`" for s in sinks] if sinks else ["- None detected"]
 
-        lines += [
-            "",
-            "### Sinks",
-        ]
-        if sinks:
-            for s in sinks:
-                lines.append(f"- `{s}`")
-        else:
-            lines.append("- None detected")
-
-        lines += [
-            "",
-            "## Known Debt",
-            "",
-            "### Circular Dependencies",
-        ]
+        lines += ["", "## Known Debt", "", "### Circular Dependencies"]
         if cycles:
             for cycle in cycles:
                 rendered = " ↔ ".join(f"`{_safe_rel(p, self.repo_path)}`" for p in cycle)
@@ -148,10 +97,7 @@ class Archivist:
         else:
             lines.append("- No circular dependencies detected")
 
-        lines += [
-            "",
-            "### Documentation Drift",
-        ]
+        lines += ["", "### Documentation Drift"]
         if drift_flags:
             for path, drift in sorted(drift_flags.items()):
                 lines.append(f"- `{_safe_rel(path, self.repo_path)}` — {drift}")
@@ -162,31 +108,24 @@ class Archivist:
             "",
             "## High-Velocity Files",
             "",
-            "Files changing most frequently in recent git history:",
+            f"Files with most commits in the last {GIT_DAYS} days:",
         ]
         if high_velocity:
             for p in high_velocity:
                 node = self.module_graph.nodes.get(p)
                 vel = node.change_velocity_30d if node else 0
-                lines.append(f"- `{_safe_rel(p, self.repo_path)}` — `{vel}` changes")
+                lines.append(f"- `{_safe_rel(p, self.repo_path)}` — `{vel}` commits")
         else:
             lines.append("- No git velocity data available")
 
-        lines += [
-            "",
-            "## Module Purpose Index",
-            "",
-        ]
+        lines += ["", "## Module Purpose Index", ""]
 
         current_domain = None
         for node in purpose_nodes:
             domain = node.domain_cluster or "unclassified"
             if domain != current_domain:
                 current_domain = domain
-                lines += [
-                    f"### {domain}",
-                    "",
-                ]
+                lines += [f"### {domain}", ""]
             lines.append(f"- `{_safe_rel(node.path, self.repo_path)}`")
             if node.purpose_statement:
                 lines.append(f"  - {node.purpose_statement}")
@@ -195,27 +134,18 @@ class Archivist:
         return "\n".join(lines).strip() + "\n"
 
     def _architecture_overview_paragraph(self) -> str:
-        module_count = len(self.module_graph.nodes)
-        import_edges = len(self.module_graph.edges)
-        dataset_count = len(self.lineage_graph.dataset_nodes)
-        transform_count = len(self.lineage_graph.transformation_nodes)
-
         top_hubs = ", ".join(
             f"`{_safe_rel(h, self.repo_path)}`" for h in self.module_graph.architectural_hubs[:3]
         ) or "no clear hubs"
-
         return (
             f"This repository was analyzed as a mixed-codebase system with "
-            f"`{module_count}` modules, `{import_edges}` import dependencies, "
-            f"`{dataset_count}` datasets, and `{transform_count}` lineage transformations. "
+            f"`{len(self.module_graph.nodes)}` modules, `{len(self.module_graph.edges)}` import dependencies, "
+            f"`{len(self.lineage_graph.dataset_nodes)}` datasets, and "
+            f"`{len(self.lineage_graph.transformation_nodes)}` lineage transformations. "
             f"The structural center of gravity is around {top_hubs}. "
-            f"The data layer appears to flow from discovered source nodes into downstream "
+            f"The data layer flows from discovered source nodes into downstream "
             f"transformations and sink datasets captured in the lineage graph."
         )
-
-    # ------------------------------------------------------------------
-    # onboarding_brief.md
-    # ------------------------------------------------------------------
 
     def generate_onboarding_brief_md(self) -> str:
         answers = {}
@@ -247,6 +177,7 @@ class Archivist:
             f"- Module graph edges: `{len(self.module_graph.edges)}`",
             f"- Lineage datasets: `{len(self.lineage_graph.dataset_nodes)}`",
             f"- Lineage transformations: `{len(self.lineage_graph.transformation_nodes)}`",
+            f"- Git analysis window: `{GIT_DAYS}` days",
             "",
             "## Immediate Next Actions",
             "",
@@ -279,17 +210,13 @@ class Archivist:
             "",
             "### Q4. Where is the business logic concentrated vs distributed?",
             "",
-            f"Business logic appears concentrated around the top hubs and their surrounding import neighborhoods: {', '.join(f'`{_safe_rel(h, self.repo_path)}`' for h in hubs[:3]) or 'unknown'}.",
+            f"Business logic concentrated around top hubs: {', '.join(f'`{_safe_rel(h, self.repo_path)}`' for h in hubs[:3]) or 'unknown'}.",
             "",
-            "### Q5. What has changed most frequently in the last 30 days?",
+            f"### Q5. What has changed most frequently in the last {GIT_DAYS} days?",
             "",
             f"High-velocity files: {', '.join(f'`{_safe_rel(v, self.repo_path)}`' for v in velocity) or 'no git data available'}.",
             "",
         ]
-
-    # ------------------------------------------------------------------
-    # cartography_trace.jsonl
-    # ------------------------------------------------------------------
 
     def write_cartography_trace(self, path: Path) -> None:
         records: list[dict[str, Any]] = []

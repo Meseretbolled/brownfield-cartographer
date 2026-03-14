@@ -1,6 +1,7 @@
 from __future__ import annotations
+
 from pathlib import Path
-from typing import Any
+
 import networkx as nx
 
 from src.models import (
@@ -40,8 +41,12 @@ class KnowledgeGraph:
         self._transformation_nodes[node.id] = node
         self.lineage_graph.add_node(node.id, node_type="transformation", **node.model_dump())
         for src in node.source_datasets:
+            if src not in self.lineage_graph:
+                self.lineage_graph.add_node(src, node_type="dataset")
             self.lineage_graph.add_edge(src, node.id, edge_type=EdgeType.CONSUMES)
         for tgt in node.target_datasets:
+            if tgt not in self.lineage_graph:
+                self.lineage_graph.add_node(tgt, node_type="dataset")
             self.lineage_graph.add_edge(node.id, tgt, edge_type=EdgeType.PRODUCES)
 
     def compute_pagerank(self) -> dict[str, float]:
@@ -55,13 +60,22 @@ class KnowledgeGraph:
         return scores
 
     def find_circular_dependencies(self) -> list[list[str]]:
-        return [sorted(c) for c in nx.strongly_connected_components(self.module_graph) if len(c) > 1]
+        return [
+            sorted(c)
+            for c in nx.strongly_connected_components(self.module_graph)
+            if len(c) > 1
+        ]
 
     def blast_radius(self, node_id: str) -> list[str]:
-        graph = self.lineage_graph if node_id in self.lineage_graph else self.module_graph
-        if node_id not in graph:
-            return []
-        return list(nx.descendants(graph, node_id))
+        if node_id in self.lineage_graph:
+            return list(nx.descendants(self.lineage_graph, node_id))
+        if node_id in self.module_graph:
+            return list(nx.descendants(self.module_graph, node_id))
+        for nid in list(self.lineage_graph.nodes) + list(self.module_graph.nodes):
+            if node_id in nid or Path(nid).name == node_id or Path(nid).stem == node_id:
+                graph = self.lineage_graph if nid in self.lineage_graph else self.module_graph
+                return list(nx.descendants(graph, nid))
+        return []
 
     def find_sources(self) -> list[str]:
         return [n for n, d in self.lineage_graph.in_degree() if d == 0]
@@ -96,8 +110,7 @@ class KnowledgeGraph:
     def to_lineage_graph_schema(self, target_repo: str = "") -> DataLineageGraph:
         edges = [
             Edge(
-                source=u,
-                target=v,
+                source=u, target=v,
                 edge_type=d.get("edge_type", EdgeType.PRODUCES),
                 weight=d.get("weight", 1.0),
             )
@@ -114,57 +127,72 @@ class KnowledgeGraph:
 
     def serialize(self, output_dir: Path, target_repo: str = "") -> None:
         output_dir.mkdir(parents=True, exist_ok=True)
-        module_graph = self.to_module_graph_schema(target_repo)
-        lineage_graph = self.to_lineage_graph_schema(target_repo)
-        (output_dir / "module_graph.json").write_text(module_graph.model_dump_json(indent=2), encoding="utf-8")
-        (output_dir / "lineage_graph.json").write_text(lineage_graph.model_dump_json(indent=2), encoding="utf-8")
+        mg = self.to_module_graph_schema(target_repo)
+        lg = self.to_lineage_graph_schema(target_repo)
+        (output_dir / "module_graph.json").write_text(mg.model_dump_json(indent=2), encoding="utf-8")
+        (output_dir / "lineage_graph.json").write_text(lg.model_dump_json(indent=2), encoding="utf-8")
 
     def visualize_module_graph(self, output_path: Path) -> None:
-        """
-        Preferred output: PNG drawn with NetworkX + matplotlib.
-        Fallback: HTML via pyvis.
-        """
-        if len(self.module_graph.nodes) == 0:
+        if not self.module_graph.nodes:
             return
 
-        try:
-            import matplotlib.pyplot as plt
-
-            fig_w = 14
-            fig_h = 10
-
-            pos = nx.spring_layout(self.module_graph, seed=42, k=1.2)
-            scores = nx.pagerank(self.module_graph, alpha=0.85) if self.module_graph.nodes else {}
-            node_sizes = [
-                500 + (scores.get(node, 0.0) * 12000)
-                for node in self.module_graph.nodes
-            ]
-            labels = {node: Path(node).name for node in self.module_graph.nodes}
-
-            plt.figure(figsize=(fig_w, fig_h))
-            nx.draw_networkx_nodes(self.module_graph, pos, node_size=node_sizes)
-            nx.draw_networkx_edges(self.module_graph, pos, arrows=True, alpha=0.5)
-            nx.draw_networkx_labels(self.module_graph, pos, labels=labels, font_size=8)
-
-            plt.title("Brownfield Cartographer - Module Import Graph")
-            plt.axis("off")
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-            plt.tight_layout()
-            plt.savefig(output_path, dpi=200, bbox_inches="tight")
-            plt.close()
-            return
-        except Exception:
-            pass
-
-        if output_path.suffix.lower() != ".html":
-            output_path = output_path.with_suffix(".html")
+        output_path = output_path.with_suffix(".html")
+        output_path.parent.mkdir(parents=True, exist_ok=True)
 
         from pyvis.network import Network
 
-        net = Network(height="750px", width="100%", directed=True)
-        for node, data in self.module_graph.nodes(data=True):
-            size = 10 + data.get("pagerank_score", 0) * 500
-            net.add_node(node, label=Path(node).name, title=node, size=size)
+        net = Network(height="800px", width="100%", directed=True, bgcolor="#0e1117", font_color="#e0e0e0")
+        net.set_options("""
+        {
+          "physics": {
+            "barnesHut": {
+              "gravitationalConstant": -8000,
+              "centralGravity": 0.3,
+              "springLength": 120,
+              "springConstant": 0.04,
+              "damping": 0.09
+            },
+            "minVelocity": 0.75
+          },
+          "nodes": {
+            "shape": "dot",
+            "font": { "size": 11, "color": "#e0e0e0" }
+          },
+          "edges": {
+            "arrows": { "to": { "enabled": true, "scaleFactor": 0.5 } },
+            "color": { "color": "rgba(140,150,170,0.3)" },
+            "smooth": { "type": "continuous" }
+          }
+        }
+        """)
+
+        scores = nx.pagerank(self.module_graph, alpha=0.85) if self.module_graph.nodes else {}
+
+        domain_colors = [
+            "#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f",
+            "#edc948", "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac",
+        ]
+        domain_cache: dict[str, str] = {}
+
+        for node_id, data in self.module_graph.nodes(data=True):
+            score = scores.get(node_id, 0.0)
+            size = max(8, min(50, 10 + score * 12000))
+            label = Path(node_id).name
+            domain = data.get("domain_cluster") or "unclassified"
+            if domain not in domain_cache:
+                domain_cache[domain] = domain_colors[len(domain_cache) % len(domain_colors)]
+            color = domain_cache[domain]
+            title = (
+                f"<b>{label}</b><br>"
+                f"Domain: {domain}<br>"
+                f"PageRank: {score:.6f}<br>"
+                f"Velocity 30d: {data.get('change_velocity_30d', 0)}<br>"
+                f"LOC: {data.get('loc', 0)}<br>"
+                f"Language: {data.get('language', '')}"
+            )
+            net.add_node(node_id, label=label, title=title, size=size, color=color)
+
         for u, v, data in self.module_graph.edges(data=True):
             net.add_edge(u, v, value=data.get("weight", 1))
+
         net.save_graph(str(output_path))

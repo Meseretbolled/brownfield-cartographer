@@ -1,61 +1,71 @@
 from __future__ import annotations
+
 import logging
+import re
 from pathlib import Path
+
 import sqlglot
 import sqlglot.expressions as exp
+
 from src.models import DatasetNode, StorageType, TransformationNode, TransformationType
 
 logger = logging.getLogger(__name__)
 
+SKIP_DIRS = {".git", "__pycache__", ".venv", "venv", "node_modules", "site-packages"}
+DBT_REF_RE = re.compile(r"""ref\s*\(\s*['"](\w+)['"]\s*\)""", re.IGNORECASE)
+DIALECTS = ["duckdb", "bigquery", "snowflake", "postgres"]
 
-def _extract_tables(sql: str, dialect: str = "duckdb") -> tuple[list[str], list[str]]:
-    try:
-        statements = sqlglot.parse(sql, dialect=dialect)
-    except Exception as e:
-        logger.warning(f"Failed to parse SQL: {e}")
-        return [], []
 
+def _should_skip(path: Path) -> bool:
+    return any(p.startswith(".") or p in SKIP_DIRS for p in path.parts)
+
+
+def _extract_tables(sql: str) -> tuple[list[str], list[str]]:
     sources: list[str] = []
     targets: list[str] = []
     cte_names: set[str] = set()
 
-    for stmt in statements:
-        if stmt is None:
+    for dialect in DIALECTS:
+        try:
+            statements = sqlglot.parse(sql, dialect=dialect)
+            if not statements:
+                continue
+            for stmt in statements:
+                if stmt is None:
+                    continue
+                for cte in stmt.find_all(exp.CTE):
+                    cte_names.add(cte.alias.lower())
+                for table in stmt.find_all(exp.Table):
+                    name = table.name.lower()
+                    if name and name not in cte_names:
+                        sources.append(name)
+                if isinstance(stmt, (exp.Create, exp.Insert)):
+                    tgt = stmt.find(exp.Table)
+                    if tgt:
+                        targets.append(tgt.name.lower())
+            break
+        except Exception:
             continue
-        for cte in stmt.find_all(exp.CTE):
-            cte_names.add(cte.alias.lower())
-        for table in stmt.find_all(exp.Table):
-            name = table.name.lower()
-            if name and name not in cte_names:
-                sources.append(name)
-        if isinstance(stmt, (exp.Create, exp.Insert)):
-            tgt = stmt.find(exp.Table)
-            if tgt:
-                targets.append(tgt.name.lower())
 
-    return list(set(sources) - set(targets)), targets
+    final_sources = list(set(sources) - set(targets))
+    return final_sources, targets
 
 
 def _is_dbt_model(path: Path) -> bool:
     return "models" in path.parts and path.suffix == ".sql"
 
 
-def _extract_dbt_ref_tables(sql: str) -> list[str]:
-    import re
-    return re.findall(r"ref\(['\"](\w+)['\"]\)", sql)
-
-
 def analyze_sql_file(path: Path) -> TransformationNode | None:
     try:
         sql = path.read_text(encoding="utf-8", errors="replace")
         is_dbt = _is_dbt_model(path)
+
         if is_dbt:
-            ref_tables = _extract_dbt_ref_tables(sql)
-            clean_sql = __import__("re").sub(r"ref\(['\"](\w+)['\"]\)", r"\1", sql)
+            ref_tables = DBT_REF_RE.findall(sql)
+            clean_sql = DBT_REF_RE.sub(lambda m: m.group(1), sql)
             sources, targets = _extract_tables(clean_sql)
             sources = list(set(sources + ref_tables))
-            target_name = path.stem.lower()
-            targets = [target_name]
+            targets = [path.stem.lower()]
         else:
             sources, targets = _extract_tables(sql)
 
@@ -81,18 +91,22 @@ def analyze_sql_directory(repo_path: Path) -> tuple[list[DatasetNode], list[Tran
     transformations: list[TransformationNode] = []
 
     for path in repo_path.rglob("*.sql"):
-        if any(p.startswith(".") for p in path.parts):
+        if _should_skip(path):
             continue
         node = analyze_sql_file(path)
         if not node:
             continue
         transformations.append(node)
         for name in node.source_datasets + node.target_datasets:
-            if name not in datasets:
+            if name and name not in datasets:
                 datasets[name] = DatasetNode(
                     name=name,
                     storage_type=StorageType.TABLE,
                     source_file=str(path),
                 )
 
+    logger.info(
+        f"[sql_lineage] {len(datasets)} datasets, "
+        f"{len(transformations)} transformations from SQL"
+    )
     return list(datasets.values()), transformations
