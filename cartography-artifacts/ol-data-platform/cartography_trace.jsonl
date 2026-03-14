@@ -1,3 +1,0 @@
-{"timestamp": "2026-03-13T18:26:02.143935+00:00", "agent": "archivist", "action": "generate_CODEBASE_md", "confidence": "high", "evidence_method": "static analysis + semantic synthesis", "evidence_counts": {"modules": 1106, "module_edges": 902, "datasets": 592, "transformations": 588}}
-{"timestamp": "2026-03-13T18:26:02.143962+00:00", "agent": "archivist", "action": "generate_onboarding_brief", "confidence": "medium", "evidence_method": "semantic synthesis"}
-{"timestamp": "2026-03-13T18:26:02.143969+00:00", "agent": "semanticist", "action": "budget_summary", "confidence": "high", "evidence_method": "llm call accounting", "details": {"calls": 223, "used_tokens_estimated": 200001, "budget_tokens": 200000, "remaining_tokens": 0}}

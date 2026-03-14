@@ -9,6 +9,9 @@ Responsibilities:
   - Merges all analyzers into DataLineageGraph
   - blast_radius(node): downstream dependents via BFS
   - find_sources() / find_sinks(): ingestion/egress nodes
+
+Dynamic references (f-strings, variables) are logged and added to the
+lineage graph as 'dynamic::' nodes rather than silently dropped.
 """
 from __future__ import annotations
 
@@ -30,39 +33,61 @@ from src.models import (
 
 logger = logging.getLogger(__name__)
 
+SKIP_PARTS = {"__pycache__", ".venv", "venv", "node_modules", "site-packages", ".git"}
+
+
+def _should_skip(path: Path) -> bool:
+    return any(p.startswith(".") or p in SKIP_PARTS for p in path.parts)
+
 
 # ---------------------------------------------------------------------------
-# Python dataflow analysis (tree-sitter-free fallback with regex for speed)
+# Patterns — string literals (resolved) and dynamic references (logged)
 # ---------------------------------------------------------------------------
 
-# Patterns that read data  →  (regex_pattern, TransformationType)
+# Resolved: match string-literal argument  →  (pattern, TransformationType, is_read)
 _READ_PATTERNS: list[tuple[re.Pattern, TransformationType]] = [
-    (re.compile(r'pd\.read_csv\s*\(\s*["\']([^"\']+)["\']'), TransformationType.PANDAS_READ),
-    (re.compile(r'pd\.read_parquet\s*\(\s*["\']([^"\']+)["\']'), TransformationType.PANDAS_READ),
-    (re.compile(r'pd\.read_sql\s*\(\s*["\']([^"\']+)["\']'), TransformationType.PANDAS_READ),
+    (re.compile(r'pd\.read_csv\s*\(\s*["\']([^"\']+)["\']'),        TransformationType.PANDAS_READ),
+    (re.compile(r'pd\.read_parquet\s*\(\s*["\']([^"\']+)["\']'),    TransformationType.PANDAS_READ),
+    (re.compile(r'pd\.read_excel\s*\(\s*["\']([^"\']+)["\']'),      TransformationType.PANDAS_READ),
+    (re.compile(r'pd\.read_sql\s*\(\s*["\']([^"\']+)["\']'),        TransformationType.PANDAS_READ),
+    (re.compile(r'pd\.read_json\s*\(\s*["\']([^"\']+)["\']'),       TransformationType.PANDAS_READ),
     (re.compile(r'spark\.read\.[a-z]+\s*\(\s*["\']([^"\']+)["\']'), TransformationType.PYSPARK_READ),
-    (re.compile(r'spark\.table\s*\(\s*["\']([^"\']+)["\']'), TransformationType.PYSPARK_READ),
-    (re.compile(r'session\.execute\s*\(\s*["\']([^"\']+)["\']'), TransformationType.SQLALCHEMY),
+    (re.compile(r'spark\.table\s*\(\s*["\']([^"\']+)["\']'),        TransformationType.PYSPARK_READ),
+    (re.compile(r'session\.execute\s*\(\s*["\']([^"\']+)["\']'),    TransformationType.SQLALCHEMY),
 ]
 
-# Patterns that write data
 _WRITE_PATTERNS: list[tuple[re.Pattern, TransformationType]] = [
-    (re.compile(r'\.to_csv\s*\(\s*["\']([^"\']+)["\']'), TransformationType.PANDAS_WRITE),
-    (re.compile(r'\.to_parquet\s*\(\s*["\']([^"\']+)["\']'), TransformationType.PANDAS_WRITE),
-    (re.compile(r'\.to_sql\s*\(\s*["\']([^"\']+)["\']'), TransformationType.PANDAS_WRITE),
+    (re.compile(r'\.to_csv\s*\(\s*["\']([^"\']+)["\']'),        TransformationType.PANDAS_WRITE),
+    (re.compile(r'\.to_parquet\s*\(\s*["\']([^"\']+)["\']'),    TransformationType.PANDAS_WRITE),
+    (re.compile(r'\.to_excel\s*\(\s*["\']([^"\']+)["\']'),      TransformationType.PANDAS_WRITE),
+    (re.compile(r'\.to_sql\s*\(\s*["\']([^"\']+)["\']'),        TransformationType.PANDAS_WRITE),
     (re.compile(r'\.write\.[a-z]+\s*\(\s*["\']([^"\']+)["\']'), TransformationType.PYSPARK_WRITE),
-    (re.compile(r'\.saveAsTable\s*\(\s*["\']([^"\']+)["\']'), TransformationType.PYSPARK_WRITE),
+    (re.compile(r'\.saveAsTable\s*\(\s*["\']([^"\']+)["\']'),   TransformationType.PYSPARK_WRITE),
 ]
 
+# Dynamic reference detectors — f-strings and variable paths we can't resolve
+_DYNAMIC_READ_PATTERNS: list[re.Pattern] = [
+    re.compile(r'pd\.read_(?:csv|parquet|sql|excel|json)\s*\(\s*(?:f["\']|[a-zA-Z_]\w*)'),
+    re.compile(r'spark\.read\.[a-z]+\s*\(\s*(?:f["\']|[a-zA-Z_]\w*)'),
+]
+_DYNAMIC_WRITE_PATTERNS: list[re.Pattern] = [
+    re.compile(r'\.to_(?:csv|parquet|sql|excel)\s*\(\s*(?:f["\']|[a-zA-Z_]\w*)'),
+    re.compile(r'\.write\.[a-z]+\s*\(\s*(?:f["\']|[a-zA-Z_]\w*)'),
+]
+
+
+# ---------------------------------------------------------------------------
+# Python dataflow analysis
+# ---------------------------------------------------------------------------
 
 def _analyze_python_dataflow(
     repo_path: Path,
 ) -> tuple[list[DatasetNode], list[TransformationNode]]:
-    datasets: dict[str, DatasetNode] = {}
-    transformations: list[TransformationNode] = []
+    datasets:        dict[str, DatasetNode]    = {}
+    transformations: list[TransformationNode]  = []
 
     for py_file in repo_path.rglob("*.py"):
-        if any(p.startswith(".") or p in {"__pycache__", ".venv", "venv"} for p in py_file.parts):
+        if _should_skip(py_file):
             continue
         try:
             source = py_file.read_text(encoding="utf-8", errors="replace")
@@ -73,6 +98,7 @@ def _analyze_python_dataflow(
         targets_found: list[str] = []
         t_type = TransformationType.UNKNOWN
 
+        # Resolved string-literal references
         for pattern, ptype in _READ_PATTERNS:
             for m in pattern.finditer(source):
                 name = m.group(1).strip().lower()
@@ -88,6 +114,20 @@ def _analyze_python_dataflow(
                     if t_type == TransformationType.UNKNOWN:
                         t_type = ptype
 
+        # Dynamic references — log as unresolved rather than dropping silently
+        dynamic_reads  = any(p.search(source) for p in _DYNAMIC_READ_PATTERNS)
+        dynamic_writes = any(p.search(source) for p in _DYNAMIC_WRITE_PATTERNS)
+
+        if dynamic_reads or dynamic_writes:
+            dyn_name = f"dynamic::{py_file.relative_to(repo_path)}"
+            logger.debug(f"[Hydrologist] Dynamic reference in {py_file} — added as '{dyn_name}'")
+            if dynamic_reads:
+                sources_found.append(dyn_name)
+                if t_type == TransformationType.UNKNOWN:
+                    t_type = TransformationType.PANDAS_READ
+            if dynamic_writes:
+                targets_found.append(dyn_name)
+
         if sources_found or targets_found:
             node_id = f"py::{py_file}"
             transformations.append(TransformationNode(
@@ -100,10 +140,12 @@ def _analyze_python_dataflow(
             ))
             for name in sources_found + targets_found:
                 if name not in datasets:
+                    storage = StorageType.UNKNOWN if name.startswith("dynamic::") else StorageType.FILE
                     datasets[name] = DatasetNode(
                         name=name,
-                        storage_type=StorageType.FILE,
+                        storage_type=storage,
                         source_file=str(py_file),
+                        description="Dynamic reference — path resolved at runtime" if name.startswith("dynamic::") else None,
                     )
 
     return list(datasets.values()), transformations
@@ -116,23 +158,26 @@ def _analyze_python_dataflow(
 def _analyze_notebooks(
     repo_path: Path,
 ) -> tuple[list[DatasetNode], list[TransformationNode]]:
-    datasets: dict[str, DatasetNode] = {}
+    datasets:        dict[str, DatasetNode]   = {}
     transformations: list[TransformationNode] = []
 
     for nb_file in repo_path.rglob("*.ipynb"):
-        if any(p.startswith(".") for p in nb_file.parts):
+        if _should_skip(nb_file):
             continue
         try:
             nb = json.loads(nb_file.read_text(encoding="utf-8", errors="replace"))
         except Exception:
             continue
 
-        all_source = []
+        cell_sources: list[str] = []
         for cell in nb.get("cells", []):
             if cell.get("cell_type") == "code":
-                all_source.extend(cell.get("source", []))
+                # Join with newline so multi-line patterns work correctly
+                cell_sources.append("\n".join(cell.get("source", [])))
 
-        combined = "".join(all_source)
+        # Join cells with newline — not empty string (fixes multi-line pattern matching)
+        combined = "\n".join(cell_sources)
+
         sources: list[str] = []
         targets: list[str] = []
 
@@ -141,11 +186,20 @@ def _analyze_notebooks(
                 name = m.group(1).strip().lower()
                 if name:
                     sources.append(name)
+
         for pattern, _ in _WRITE_PATTERNS:
             for m in pattern.finditer(combined):
                 name = m.group(1).strip().lower()
                 if name:
                     targets.append(name)
+
+        # Dynamic references in notebooks
+        dynamic_reads  = any(p.search(combined) for p in _DYNAMIC_READ_PATTERNS)
+        dynamic_writes = any(p.search(combined) for p in _DYNAMIC_WRITE_PATTERNS)
+        if dynamic_reads:
+            sources.append(f"dynamic::notebook::{nb_file.name}")
+        if dynamic_writes:
+            targets.append(f"dynamic::notebook::{nb_file.name}")
 
         if sources or targets:
             node_id = f"nb::{nb_file}"
@@ -155,13 +209,14 @@ def _analyze_notebooks(
                 target_datasets=list(set(targets)),
                 transformation_type=TransformationType.PANDAS_READ,
                 source_file=str(nb_file),
-                line_range=(1, 1),
+                line_range=(1, len(nb.get("cells", []))),
             ))
             for name in sources + targets:
                 if name not in datasets:
+                    storage = StorageType.UNKNOWN if name.startswith("dynamic::") else StorageType.FILE
                     datasets[name] = DatasetNode(
                         name=name,
-                        storage_type=StorageType.FILE,
+                        storage_type=storage,
                         source_file=str(nb_file),
                     )
 
@@ -176,16 +231,18 @@ class Hydrologist:
     """
     Builds the DataLineageGraph by merging Python dataflow analysis,
     SQL lineage (via sqlglot), YAML/DAG config parsing, and notebook parsing.
+    Dynamic references are included in the lineage graph as 'dynamic::' nodes
+    rather than being silently dropped.
     """
 
     def __init__(self, repo_path: Path, kg: KnowledgeGraph) -> None:
         self.repo_path = repo_path
-        self.kg = kg
+        self.kg        = kg
 
     def run(self) -> DataLineageGraph:
         logger.info(f"[Hydrologist] Building data lineage for {self.repo_path} ...")
 
-        all_datasets: dict[str, DatasetNode] = {}
+        all_datasets:       dict[str, DatasetNode]   = {}
         all_transformations: list[TransformationNode] = []
 
         # --- Python dataflow ---

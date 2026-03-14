@@ -4,6 +4,7 @@ import logging
 import os
 import subprocess
 import time
+from datetime import datetime, UTC
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -25,9 +26,9 @@ logging.basicConfig(
 )
 
 CARTOGRAPHY_DIR = ".cartography"
-LAST_RUN_FILE = "last_run_sha.txt"
-GIT_DAYS = int(os.getenv("CARTOGRAPHER_GIT_DAYS", "30"))
-TOKEN_BUDGET = int(os.getenv("CARTOGRAPHER_TOKEN_BUDGET", "200000"))
+LAST_RUN_FILE   = "last_run_sha.txt"
+GIT_DAYS        = int(os.getenv("CARTOGRAPHER_GIT_DAYS", "30"))
+TOKEN_BUDGET    = int(os.getenv("CARTOGRAPHER_TOKEN_BUDGET", "200000"))
 
 
 def _get_current_sha(repo_path: Path) -> str | None:
@@ -59,7 +60,7 @@ class Orchestrator:
         output_dir: Path | None = None,
         incremental: bool = False,
     ) -> None:
-        self.repo_path = repo_path.resolve()
+        self.repo_path  = repo_path.resolve()
         self.output_dir = (output_dir or (self.repo_path / CARTOGRAPHY_DIR)).resolve()
         self.incremental = incremental
         self.kg = KnowledgeGraph()
@@ -89,9 +90,12 @@ class Orchestrator:
         return False
 
     def run(self) -> CartographyResult:
-        start = time.time()
-        errors: list[str] = []
+        start    = time.time()
+        errors:   list[str] = []
         warnings: list[str] = []
+
+        # Accumulated trace records from all agents — passed to Archivist
+        agent_trace: list[dict] = []
 
         if self._should_skip_incremental():
             return self._load_cached_result()
@@ -99,28 +103,97 @@ class Orchestrator:
         logger.info(f"[Orchestrator] Starting analysis for {self.repo_path}")
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
-        module_graph = ModuleGraph(target_repo=str(self.repo_path))
-        lineage_graph = DataLineageGraph(target_repo=str(self.repo_path))
+        module_graph   = ModuleGraph(target_repo=str(self.repo_path))
+        lineage_graph  = DataLineageGraph(target_repo=str(self.repo_path))
         semanticist: Semanticist | None = None
 
+        # ------------------------------------------------------------------
+        # Surveyor
+        # ------------------------------------------------------------------
         try:
-            surveyor = Surveyor(repo_path=self.repo_path, kg=self.kg)
+            surveyor     = Surveyor(repo_path=self.repo_path, kg=self.kg)
             module_graph = surveyor.run(git_days=GIT_DAYS)
             surveyor.save(self.output_dir, module_graph)
+
+            agent_trace.append({
+                "timestamp":        datetime.now(UTC).isoformat(),
+                "agent":            "surveyor",
+                "action":           "static_analysis_complete",
+                "confidence":       "high",
+                "evidence_method":  "tree-sitter AST + git log",
+                "evidence_counts":  {
+                    "modules_parsed":         len(module_graph.nodes),
+                    "import_edges":           len(module_graph.edges),
+                    "circular_dependencies":  len(module_graph.circular_dependencies),
+                    "architectural_hubs":     len(module_graph.architectural_hubs),
+                    "high_velocity_files":    len(module_graph.high_velocity_files),
+                },
+            })
+            # One trace record per parsed module (evidence citations)
+            for path, node in list(module_graph.nodes.items())[:50]:  # cap at 50 to keep file readable
+                agent_trace.append({
+                    "timestamp":       datetime.now(UTC).isoformat(),
+                    "agent":           "surveyor",
+                    "action":          "module_parsed",
+                    "confidence":      "high",
+                    "evidence_method": "tree-sitter AST",
+                    "module_path":     path,
+                    "language":        str(node.language),
+                    "loc":             node.loc,
+                    "exports":         node.exported_functions[:5],
+                    "pagerank_score":  round(node.pagerank_score, 6),
+                    "velocity_30d":    node.change_velocity_30d,
+                    "is_dead_code_candidate": node.is_dead_code_candidate,
+                })
+
         except Exception as e:
             msg = f"Surveyor failed: {e}"
             logger.exception(msg)
             errors.append(msg)
 
+        # ------------------------------------------------------------------
+        # Hydrologist
+        # ------------------------------------------------------------------
         try:
-            hydrologist = Hydrologist(repo_path=self.repo_path, kg=self.kg)
+            hydrologist   = Hydrologist(repo_path=self.repo_path, kg=self.kg)
             lineage_graph = hydrologist.run()
             hydrologist.save(self.output_dir, lineage_graph)
+
+            agent_trace.append({
+                "timestamp":       datetime.now(UTC).isoformat(),
+                "agent":           "hydrologist",
+                "action":          "lineage_analysis_complete",
+                "confidence":      "high",
+                "evidence_method": "regex + sqlglot + YAML parsing",
+                "evidence_counts": {
+                    "datasets":        len(lineage_graph.dataset_nodes),
+                    "transformations": len(lineage_graph.transformation_nodes),
+                    "sources":         len(lineage_graph.sources),
+                    "sinks":           len(lineage_graph.sinks),
+                },
+            })
+            # Trace each transformation node
+            for node in list(lineage_graph.transformation_nodes.values())[:30]:
+                agent_trace.append({
+                    "timestamp":         datetime.now(UTC).isoformat(),
+                    "agent":             "hydrologist",
+                    "action":            "transformation_detected",
+                    "confidence":        "high",
+                    "evidence_method":   "static analysis",
+                    "source_file":       node.source_file,
+                    "transformation_type": str(node.transformation_type),
+                    "source_datasets":   node.source_datasets,
+                    "target_datasets":   node.target_datasets,
+                })
+
         except Exception as e:
             msg = f"Hydrologist failed: {e}"
             logger.exception(msg)
             errors.append(msg)
 
+        # ------------------------------------------------------------------
+        # Semanticist
+        # ------------------------------------------------------------------
         try:
             semanticist = Semanticist(
                 module_graph=module_graph,
@@ -130,6 +203,7 @@ class Orchestrator:
             )
             semanticist.run()
             semanticist.save_trace(self.output_dir)
+            # Re-save module_graph now that purpose statements + domains are populated
             (self.output_dir / "module_graph.json").write_text(
                 module_graph.model_dump_json(indent=2), encoding="utf-8"
             )
@@ -138,12 +212,16 @@ class Orchestrator:
             logger.exception(msg)
             errors.append(msg)
 
+        # ------------------------------------------------------------------
+        # Archivist — receives all upstream trace records
+        # ------------------------------------------------------------------
         try:
             archivist = Archivist(
                 repo_path=self.repo_path,
                 module_graph=module_graph,
                 lineage_graph=lineage_graph,
                 semanticist=semanticist,
+                agent_trace_records=agent_trace,
             )
             archivist.run(self.output_dir)
         except Exception as e:
@@ -151,6 +229,9 @@ class Orchestrator:
             logger.exception(msg)
             errors.append(msg)
 
+        # ------------------------------------------------------------------
+        # Visualization
+        # ------------------------------------------------------------------
         try:
             html_path = self.output_dir / "module_graph_networkx.html"
             self.kg.visualize_module_graph(html_path)

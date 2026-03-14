@@ -42,10 +42,10 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 def _clone_repo(url: str, target: Path) -> Path:
-    """Shallow-clone a GitHub URL into the target directory and return the path."""
+    """Clone a GitHub URL — depth=100 so git velocity data is available."""
     console.print(f"[cyan]Cloning[/cyan] {url} ...")
     result = subprocess.run(
-        ["git", "clone", "--depth=1", url, str(target)],
+        ["git", "clone", "--depth=100", url, str(target)],
         capture_output=True,
         text=True,
     )
@@ -56,12 +56,9 @@ def _clone_repo(url: str, target: Path) -> Path:
 
 
 def _resolve_repo(repo: str) -> tuple[Path, bool]:
-    """
-    Accept either a local filesystem path or a GitHub URL.
-    Returns (local_path, is_temp).
-    """
+    """Accept a local filesystem path or a GitHub URL. Returns (local_path, is_temp)."""
     if repo.startswith(("http://", "https://", "git@")):
-        tmp = Path(tempfile.mkdtemp(prefix="cartographer_"))
+        tmp        = Path(tempfile.mkdtemp(prefix="cartographer_"))
         clone_path = tmp / "repo"
         _clone_repo(repo, clone_path)
         return clone_path, True
@@ -98,19 +95,16 @@ def _rebuild_kg(
     lineage_graph: DataLineageGraph | None,
 ) -> KnowledgeGraph:
     kg = KnowledgeGraph()
-
     if module_graph:
         for node in module_graph.nodes.values():
             kg.add_module(node)
         for edge in module_graph.edges:
             kg.add_module_edge(edge.source, edge.target)
-
     if lineage_graph:
         for node in lineage_graph.dataset_nodes.values():
             kg.add_dataset(node)
         for node in lineage_graph.transformation_nodes.values():
             kg.add_transformation(node)
-
     return kg
 
 
@@ -130,10 +124,10 @@ def _print_analyze_summary(result, output_dir: Path) -> None:
     mg_table = Table(title="Module Graph", show_header=True, header_style="bold magenta")
     mg_table.add_column("Metric", style="cyan")
     mg_table.add_column("Value", justify="right")
-    mg_table.add_row("Modules parsed", str(len(mg.nodes)))
-    mg_table.add_row("Import edges", str(len(mg.edges)))
-    mg_table.add_row("Circular deps", str(len(mg.circular_dependencies)))
-    mg_table.add_row("Architectural hubs", str(len(mg.architectural_hubs)))
+    mg_table.add_row("Modules parsed",      str(len(mg.nodes)))
+    mg_table.add_row("Import edges",        str(len(mg.edges)))
+    mg_table.add_row("Circular deps",       str(len(mg.circular_dependencies)))
+    mg_table.add_row("Architectural hubs",  str(len(mg.architectural_hubs)))
     mg_table.add_row("High-velocity files", str(len(mg.high_velocity_files)))
     console.print(mg_table)
 
@@ -152,10 +146,10 @@ def _print_analyze_summary(result, output_dir: Path) -> None:
     lg_table = Table(title="Data Lineage Graph", show_header=True, header_style="bold magenta")
     lg_table.add_column("Metric", style="cyan")
     lg_table.add_column("Value", justify="right")
-    lg_table.add_row("Datasets", str(len(lg.dataset_nodes)))
+    lg_table.add_row("Datasets",        str(len(lg.dataset_nodes)))
     lg_table.add_row("Transformations", str(len(lg.transformation_nodes)))
-    lg_table.add_row("Sources", str(len(lg.sources)))
-    lg_table.add_row("Sinks", str(len(lg.sinks)))
+    lg_table.add_row("Sources",         str(len(lg.sources)))
+    lg_table.add_row("Sinks",           str(len(lg.sinks)))
     console.print(lg_table)
 
     if lg.sources:
@@ -164,12 +158,8 @@ def _print_analyze_summary(result, output_dir: Path) -> None:
         console.print(f"[blue]Data sinks:[/blue] {', '.join(sorted(lg.sinks)[:10])}")
 
     expected_files = [
-        "module_graph.json",
-        "lineage_graph.json",
-        "CODEBASE.md",
-        "onboarding_brief.md",
-        "cartography_trace.jsonl",
-        "analysis_summary.md",
+        "module_graph.json", "lineage_graph.json", "CODEBASE.md",
+        "onboarding_brief.md", "cartography_trace.jsonl", "analysis_summary.md",
     ]
     present = [name for name in expected_files if (output_dir / name).exists()]
     if present:
@@ -177,13 +167,13 @@ def _print_analyze_summary(result, output_dir: Path) -> None:
 
     if result.warnings:
         console.print(f"\n[yellow]Warnings ({len(result.warnings)}):[/yellow]")
-        for warning in result.warnings:
-            console.print(f"  • {warning}")
+        for w in result.warnings:
+            console.print(f"  • {w}")
 
     if result.errors:
         console.print(f"\n[red]Errors ({len(result.errors)}):[/red]")
-        for err in result.errors:
-            console.print(f"  • {err}")
+        for e in result.errors:
+            console.print(f"  • {e}")
 
 
 def _render_json(data: object, title: str = "Result") -> None:
@@ -191,7 +181,8 @@ def _render_json(data: object, title: str = "Result") -> None:
     console.print(Panel.fit(formatted, title=title))
 
 
-def _print_help() -> None:
+def _print_help(has_llm: bool = False) -> None:
+    llm_hint = " | [cyan]ask[/cyan] <question>" if has_llm else ""
     console.print(
         "[bold]Commands:[/bold] "
         "[cyan]find[/cyan] <concept> | "
@@ -201,9 +192,14 @@ def _print_help() -> None:
         "[cyan]sources[/cyan] | "
         "[cyan]sinks[/cyan] | "
         "[cyan]hubs[/cyan] | "
-        "[cyan]help[/cyan] | "
+        f"[cyan]help[/cyan]{llm_hint} | "
         "[cyan]quit[/cyan]"
     )
+    if has_llm:
+        console.print(
+            "[dim]  → Natural language questions are also accepted directly "
+            "(e.g. 'where is the revenue calculation?')[/dim]"
+        )
 
 
 # ---------------------------------------------------------------------------
@@ -214,15 +210,11 @@ def _print_help() -> None:
 def analyze(
     repo: str = typer.Argument(..., help="Local path or GitHub URL to analyse"),
     output: Optional[Path] = typer.Option(
-        None,
-        "--output",
-        "-o",
+        None, "--output", "-o",
         help="Output directory for .cartography artifacts (default: <repo>/.cartography/)",
     ),
     incremental: bool = typer.Option(
-        False,
-        "--incremental",
-        "-i",
+        False, "--incremental", "-i",
         help="Only re-analyse files changed since last run",
     ),
 ) -> None:
@@ -254,22 +246,20 @@ def analyze(
 def query(
     repo: str = typer.Argument(..., help="Local path to an already-analysed repo"),
     cartography_dir: Optional[Path] = typer.Option(
-        None,
-        "--cartography-dir",
-        "-c",
+        None, "--cartography-dir", "-c",
         help="Path to .cartography output (default: <repo>/.cartography/)",
     ),
 ) -> None:
     """Interactive query interface over the knowledge graph."""
     repo_path = Path(repo).expanduser().resolve()
-    cart_dir = cartography_dir or (repo_path / ".cartography")
+    cart_dir  = cartography_dir or (repo_path / ".cartography")
 
     if not cart_dir.exists():
         console.print(f"[red]No .cartography directory found at {cart_dir}[/red]")
         console.print("Run [bold]cartographer analyze[/bold] first.")
         raise typer.Exit(1)
 
-    module_graph = _load_module_graph(cart_dir / "module_graph.json")
+    module_graph  = _load_module_graph(cart_dir / "module_graph.json")
     lineage_graph = _load_lineage_graph(cart_dir / "lineage_graph.json")
 
     if module_graph is None and lineage_graph is None:
@@ -280,14 +270,25 @@ def query(
 
     navigator = Navigator(
         repo_path=repo_path,
-        module_graph=module_graph or ModuleGraph(target_repo=str(repo_path)),
+        module_graph=module_graph  or ModuleGraph(target_repo=str(repo_path)),
         lineage_graph=lineage_graph or DataLineageGraph(target_repo=str(repo_path)),
         kg=kg,
     )
 
+    has_llm = navigator.has_llm
+    if has_llm:
+        console.print("[green]✓ LangGraph agent active — natural language queries enabled[/green]")
+    else:
+        console.print("[yellow]⚠ No LLM API key found — structured commands only[/yellow]")
+
     console.rule("[bold cyan]Navigator — Interactive Query[/bold cyan]")
-    _print_help()
+    _print_help(has_llm)
     console.print()
+
+    STRUCTURED_COMMANDS = {
+        "quit", "exit", "q", "help", "find", "lineage",
+        "blast_radius", "module", "sources", "sinks", "hubs", "ask",
+    }
 
     while True:
         try:
@@ -300,13 +301,13 @@ def query(
             continue
 
         parts = raw.split()
-        cmd = parts[0].lower()
+        cmd   = parts[0].lower()
 
         if cmd in {"quit", "exit", "q"}:
             break
 
         if cmd == "help":
-            _print_help()
+            _print_help(has_llm)
             continue
 
         if cmd == "find":
@@ -322,10 +323,9 @@ def query(
             if len(parts) < 2:
                 console.print("[red]Usage: lineage <dataset> [upstream|downstream|both][/red]")
                 continue
-
-            dataset = parts[1]
+            dataset   = parts[1]
             direction = parts[2].lower() if len(parts) >= 3 else "upstream"
-            result = navigator.trace_lineage(dataset, direction)
+            result    = navigator.trace_lineage(dataset, direction)
             _render_json(result, title="trace_lineage")
             continue
 
@@ -348,16 +348,16 @@ def query(
             continue
 
         if cmd == "sources":
-            sources = sorted((lineage_graph.sources if lineage_graph else []))
-            tree = Tree(f"[bold]Sources ({len(sources)})[/bold]")
+            sources = sorted(lineage_graph.sources if lineage_graph else [])
+            tree    = Tree(f"[bold]Sources ({len(sources)})[/bold]")
             for item in sources:
                 tree.add(item)
             console.print(tree)
             continue
 
         if cmd == "sinks":
-            sinks = sorted((lineage_graph.sinks if lineage_graph else []))
-            tree = Tree(f"[bold]Sinks ({len(sinks)})[/bold]")
+            sinks = sorted(lineage_graph.sinks if lineage_graph else [])
+            tree  = Tree(f"[bold]Sinks ({len(sinks)})[/bold]")
             for item in sinks:
                 tree.add(item)
             console.print(tree)
@@ -376,8 +376,32 @@ def query(
             console.print(tree)
             continue
 
+        # "ask <question>" — explicit LangGraph natural language query
+        if cmd == "ask":
+            question = raw[len(parts[0]):].strip()
+            if not question:
+                console.print("[red]Usage: ask <natural language question>[/red]")
+                continue
+            if not has_llm:
+                console.print("[yellow]LangGraph agent not available — set OPENROUTER_API_KEY[/yellow]")
+                continue
+            console.print("[dim]Querying LangGraph agent …[/dim]")
+            answer = navigator.query(question)
+            console.print(Panel(answer, title="Navigator (LangGraph)", border_style="cyan"))
+            continue
+
+        # ----------------------------------------------------------------
+        # Natural language fallthrough — any unrecognised input goes to
+        # the LangGraph agent so the demo looks seamless
+        # ----------------------------------------------------------------
+        if has_llm and cmd not in STRUCTURED_COMMANDS:
+            console.print("[dim]→ Routing to LangGraph agent …[/dim]")
+            answer = navigator.query(raw)
+            console.print(Panel(answer, title="Navigator (LangGraph)", border_style="cyan"))
+            continue
+
         console.print(f"[red]Unknown command:[/red] {cmd}")
-        _print_help()
+        _print_help(has_llm)
 
 
 # ---------------------------------------------------------------------------
@@ -388,15 +412,13 @@ def query(
 def summary(
     repo: str = typer.Argument(..., help="Local path to an already-analysed repo"),
     cartography_dir: Optional[Path] = typer.Option(
-        None,
-        "--cartography-dir",
-        "-c",
+        None, "--cartography-dir", "-c",
         help="Path to .cartography output (default: <repo>/.cartography/)",
     ),
 ) -> None:
     """Print a quick summary of existing artifacts."""
     repo_path = Path(repo).expanduser().resolve()
-    cart_dir = cartography_dir or (repo_path / ".cartography")
+    cart_dir  = cartography_dir or (repo_path / ".cartography")
 
     if not cart_dir.exists():
         console.print(f"[red]No .cartography directory found at {cart_dir}[/red]")
@@ -407,7 +429,7 @@ def summary(
         console.print(summary_file.read_text(encoding="utf-8"))
         return
 
-    module_graph = _load_module_graph(cart_dir / "module_graph.json")
+    module_graph  = _load_module_graph(cart_dir / "module_graph.json")
     lineage_graph = _load_lineage_graph(cart_dir / "lineage_graph.json")
 
     if module_graph is None and lineage_graph is None:
@@ -419,16 +441,16 @@ def summary(
     table.add_column("Value", justify="right")
 
     if module_graph:
-        table.add_row("Modules", str(len(module_graph.nodes)))
-        table.add_row("Import edges", str(len(module_graph.edges)))
+        table.add_row("Modules",               str(len(module_graph.nodes)))
+        table.add_row("Import edges",          str(len(module_graph.edges)))
         table.add_row("Circular dependencies", str(len(module_graph.circular_dependencies)))
-        table.add_row("Architectural hubs", str(len(module_graph.architectural_hubs)))
+        table.add_row("Architectural hubs",    str(len(module_graph.architectural_hubs)))
 
     if lineage_graph:
-        table.add_row("Datasets", str(len(lineage_graph.dataset_nodes)))
+        table.add_row("Datasets",        str(len(lineage_graph.dataset_nodes)))
         table.add_row("Transformations", str(len(lineage_graph.transformation_nodes)))
-        table.add_row("Sources", str(len(lineage_graph.sources)))
-        table.add_row("Sinks", str(len(lineage_graph.sinks)))
+        table.add_row("Sources",         str(len(lineage_graph.sources)))
+        table.add_row("Sinks",           str(len(lineage_graph.sinks)))
 
     console.print(table)
 

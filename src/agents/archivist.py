@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import subprocess
 from datetime import datetime, UTC
 from pathlib import Path
 from typing import Any
@@ -21,6 +22,46 @@ def _safe_rel(path: str, repo_path: Path) -> str:
         return path
 
 
+def _detect_repo_name(repo_path: Path) -> str:
+    """Try git remote first, fall back to directory name."""
+    try:
+        r = subprocess.run(
+            ["git", "remote", "get-url", "origin"],
+            cwd=repo_path, capture_output=True, text=True, timeout=5,
+        )
+        if r.returncode == 0 and r.stdout.strip():
+            url  = r.stdout.strip().rstrip(".git")
+            name = url.split("/")[-1]
+            if name:
+                return name
+    except Exception:
+        pass
+    return repo_path.name
+
+
+def _detect_system_type(module_graph: ModuleGraph, lineage_graph: DataLineageGraph) -> str:
+    """Infer the kind of system from file extensions and domain clusters."""
+    paths      = " ".join(module_graph.nodes.keys()).lower()
+    domains    = " ".join(
+        n.domain_cluster or "" for n in module_graph.nodes.values()
+    ).lower()
+    datasets   = " ".join(lineage_graph.dataset_nodes.keys()).lower()
+
+    if "dbt_project" in paths or ".sql" in paths and "ref(" in datasets:
+        return "dbt data transformation project"
+    if "airflow" in paths or "dag" in paths:
+        return "Apache Airflow pipeline"
+    if "dagster" in paths or "asset" in domains:
+        return "Dagster data platform"
+    if "spark" in paths or "pyspark" in paths:
+        return "PySpark data processing system"
+    if any(k in paths for k in ("fastapi", "django", "flask")):
+        return "Python web / API service"
+    if "notebook" in paths or ".ipynb" in paths:
+        return "Jupyter notebook-based analytics project"
+    return "Python data engineering codebase"
+
+
 class Archivist:
     def __init__(
         self,
@@ -28,25 +69,34 @@ class Archivist:
         module_graph: ModuleGraph,
         lineage_graph: DataLineageGraph,
         semanticist: Any | None = None,
+        agent_trace_records: list[dict[str, Any]] | None = None,
     ) -> None:
-        self.repo_path = repo_path.resolve()
+        self.repo_path    = repo_path.resolve()
         self.module_graph = module_graph
         self.lineage_graph = lineage_graph
-        self.semanticist = semanticist
+        self.semanticist  = semanticist
+        # Pre-populated trace entries from Surveyor + Hydrologist passed in by orchestrator
+        self._upstream_trace: list[dict[str, Any]] = agent_trace_records or []
 
     def run(self, output_dir: Path) -> None:
         output_dir.mkdir(parents=True, exist_ok=True)
-        (output_dir / "CODEBASE.md").write_text(self.generate_CODEBASE_md(), encoding="utf-8")
+        (output_dir / "CODEBASE.md").write_text(self.generate_CODEBASE_md(),        encoding="utf-8")
         (output_dir / "onboarding_brief.md").write_text(self.generate_onboarding_brief_md(), encoding="utf-8")
         self.write_cartography_trace(output_dir / "cartography_trace.jsonl")
         logger.info("[Archivist] Wrote CODEBASE.md, onboarding_brief.md, cartography_trace.jsonl")
 
+    # ------------------------------------------------------------------
+    # CODEBASE.md
+    # ------------------------------------------------------------------
+
     def generate_CODEBASE_md(self) -> str:
-        hubs = self.module_graph.architectural_hubs[:5]
+        repo_name     = _detect_repo_name(self.repo_path)
+        system_type   = _detect_system_type(self.module_graph, self.lineage_graph)
+        hubs          = self.module_graph.architectural_hubs[:5]
         high_velocity = self.module_graph.high_velocity_files[:10]
-        sources = self.lineage_graph.sources[:15]
-        sinks = self.lineage_graph.sinks[:15]
-        cycles = self.module_graph.circular_dependencies[:10]
+        sources       = self.lineage_graph.sources[:15]
+        sinks         = self.lineage_graph.sinks[:15]
+        cycles        = self.module_graph.circular_dependencies[:10]
 
         drift_flags: dict[str, str] = {}
         if self.semanticist and hasattr(self.semanticist, "drift_flags"):
@@ -57,14 +107,18 @@ class Archivist:
             key=lambda n: (n.domain_cluster or "", -n.pagerank_score, n.path),
         )
 
+        # Build high-velocity set for badge rendering in purpose index
+        high_vel_set = set(self.module_graph.high_velocity_files[:20])
+
         lines: list[str] = [
-            "# CODEBASE.md",
+            f"# CODEBASE.md — `{repo_name}`",
             "",
             f"_Generated: {datetime.now(UTC).isoformat()}_",
+            f"_System type: {system_type}_",
             "",
             "## Architecture Overview",
             "",
-            self._architecture_overview_paragraph(),
+            self._architecture_overview_paragraph(repo_name, system_type),
             "",
             "## Critical Path",
             "",
@@ -79,8 +133,9 @@ class Archivist:
                 if node and node.purpose_statement:
                     lines.append(f"   - Purpose: {node.purpose_statement}")
                 if node:
-                    lines.append(f"   - PageRank: `{node.pagerank_score:.5f}`")
-                    lines.append(f"   - Change velocity: `{node.change_velocity_30d}` commits ({GIT_DAYS}d window)")
+                    lines.append(f"   - PageRank: `{node.pagerank_score:.5f}` | "
+                                 f"Domain: `{node.domain_cluster or 'unclassified'}` | "
+                                 f"Velocity: `{node.change_velocity_30d}` commits ({GIT_DAYS}d)")
         else:
             lines.append("- No architectural hubs detected.")
 
@@ -108,15 +163,15 @@ class Archivist:
             "",
             "## High-Velocity Files",
             "",
-            f"Files with most commits in the last {GIT_DAYS} days:",
+            f"Files with most commits in the last {GIT_DAYS} days (likely pain points):",
         ]
         if high_velocity:
-            for p in high_velocity:
+            for rank, p in enumerate(high_velocity, 1):
                 node = self.module_graph.nodes.get(p)
-                vel = node.change_velocity_30d if node else 0
-                lines.append(f"- `{_safe_rel(p, self.repo_path)}` — `{vel}` commits")
+                vel  = node.change_velocity_30d if node else 0
+                lines.append(f"{rank}. `{_safe_rel(p, self.repo_path)}` — `{vel}` commits")
         else:
-            lines.append("- No git velocity data available")
+            lines.append("- No git velocity data available (shallow clone or no git history)")
 
         lines += ["", "## Module Purpose Index", ""]
 
@@ -126,36 +181,57 @@ class Archivist:
             if domain != current_domain:
                 current_domain = domain
                 lines += [f"### {domain}", ""]
-            lines.append(f"- `{_safe_rel(node.path, self.repo_path)}`")
+
+            vel_badge = f" 🔥`{node.change_velocity_30d}`" if node.path in high_vel_set and node.change_velocity_30d > 0 else ""
+            dead_badge = " ⚠️dead-code-candidate" if node.is_dead_code_candidate else ""
+            lines.append(f"- `{_safe_rel(node.path, self.repo_path)}`{vel_badge}{dead_badge}")
             if node.purpose_statement:
                 lines.append(f"  - {node.purpose_statement}")
-            lines.append(f"  - LOC: `{node.loc}` | PageRank: `{node.pagerank_score:.5f}`")
+            lines.append(
+                f"  - LOC: `{node.loc}` | PageRank: `{node.pagerank_score:.5f}` | "
+                f"Complexity: `{node.complexity_score:.1f}`"
+            )
 
         return "\n".join(lines).strip() + "\n"
 
-    def _architecture_overview_paragraph(self) -> str:
+    def _architecture_overview_paragraph(self, repo_name: str, system_type: str) -> str:
         top_hubs = ", ".join(
             f"`{_safe_rel(h, self.repo_path)}`" for h in self.module_graph.architectural_hubs[:3]
-        ) or "no clear hubs"
+        ) or "no clear hubs identified"
+        n_modules     = len(self.module_graph.nodes)
+        n_edges       = len(self.module_graph.edges)
+        n_datasets    = len(self.lineage_graph.dataset_nodes)
+        n_transforms  = len(self.lineage_graph.transformation_nodes)
+        n_cycles      = len(self.module_graph.circular_dependencies)
+        dead_count    = sum(1 for n in self.module_graph.nodes.values() if n.is_dead_code_candidate)
+
         return (
-            f"This repository was analyzed as a mixed-codebase system with "
-            f"`{len(self.module_graph.nodes)}` modules, `{len(self.module_graph.edges)}` import dependencies, "
-            f"`{len(self.lineage_graph.dataset_nodes)}` datasets, and "
-            f"`{len(self.lineage_graph.transformation_nodes)}` lineage transformations. "
-            f"The structural center of gravity is around {top_hubs}. "
-            f"The data layer flows from discovered source nodes into downstream "
-            f"transformations and sink datasets captured in the lineage graph."
+            f"`{repo_name}` is a **{system_type}** comprising `{n_modules}` modules "
+            f"connected by `{n_edges}` import dependencies. "
+            f"The data layer contains `{n_datasets}` datasets across "
+            f"`{n_transforms}` tracked transformations. "
+            f"The structural centre of gravity is {top_hubs}. "
+            f"{'No circular dependencies detected. ' if n_cycles == 0 else f'⚠ {n_cycles} circular dependency group(s) detected. '}"
+            f"{'No dead-code candidates identified.' if dead_count == 0 else f'{dead_count} module(s) flagged as potential dead code.'}"
         )
+
+    # ------------------------------------------------------------------
+    # onboarding_brief.md
+    # ------------------------------------------------------------------
 
     def generate_onboarding_brief_md(self) -> str:
         answers = {}
         if self.semanticist and hasattr(self.semanticist, "day_one_answers"):
             answers = self.semanticist.day_one_answers or {}
 
+        repo_name   = _detect_repo_name(self.repo_path)
+        system_type = _detect_system_type(self.module_graph, self.lineage_graph)
+
         lines: list[str] = [
-            "# onboarding_brief.md",
+            f"# FDE Day-One Onboarding Brief — `{repo_name}`",
             "",
             f"_Generated: {datetime.now(UTC).isoformat()}_",
+            f"_System: {system_type}_",
             "",
             "## Five FDE Day-One Answers",
             "",
@@ -173,98 +249,154 @@ class Archivist:
         lines += [
             "## Evidence Summary",
             "",
+            f"- Repository: `{repo_name}`",
+            f"- System type: {system_type}",
             f"- Module graph nodes: `{len(self.module_graph.nodes)}`",
             f"- Module graph edges: `{len(self.module_graph.edges)}`",
             f"- Lineage datasets: `{len(self.lineage_graph.dataset_nodes)}`",
             f"- Lineage transformations: `{len(self.lineage_graph.transformation_nodes)}`",
             f"- Git analysis window: `{GIT_DAYS}` days",
+            f"- LLM-generated answers: `{'yes' if answers else 'no — static fallback used'}`",
             "",
             "## Immediate Next Actions",
             "",
-            "1. Verify the top architectural hubs in code.",
+            "1. Verify the top architectural hubs by navigating to their source files.",
             "2. Validate upstream lineage for the highest-value sink datasets.",
-            "3. Inspect high-velocity files first for likely instability or debt.",
-            "4. Review documentation drift flags before trusting comments/docstrings.",
+            "3. Inspect high-velocity files first — they're the most likely source of instability.",
+            "4. Review documentation drift flags before trusting any existing comments/docstrings.",
+            "5. Run `cartographer query <repo> --cartography-dir .cartography` to interactively explore.",
             "",
         ]
         return "\n".join(lines)
 
     def _static_day_one_answers(self) -> list[str]:
-        hubs = self.module_graph.architectural_hubs[:5]
-        sources = self.lineage_graph.sources[:5]
-        sinks = self.lineage_graph.sinks[:5]
+        hubs     = self.module_graph.architectural_hubs[:5]
+        sources  = self.lineage_graph.sources[:5]
+        sinks    = self.lineage_graph.sinks[:5]
         velocity = self.module_graph.high_velocity_files[:5]
+
+        def _fmt(items: list[str], rel: bool = False) -> str:
+            if not items:
+                return "none detected"
+            if rel:
+                return ", ".join(f"`{_safe_rel(p, self.repo_path)}`" for p in items)
+            return ", ".join(f"`{x}`" for x in items)
 
         return [
             "### Q1. What is the primary data ingestion path?",
             "",
-            f"Static analysis detected these likely entry points: {', '.join(f'`{s}`' for s in sources) or 'none detected'}.",
+            f"Static analysis detected these entry points (nodes with no upstream dependencies): {_fmt(sources)}.",
             "",
             "### Q2. What are the 3-5 most critical output datasets/endpoints?",
             "",
-            f"Likely critical sinks: {', '.join(f'`{s}`' for s in sinks) or 'none detected'}.",
+            f"Terminal sink datasets (no downstream dependents in lineage graph): {_fmt(sinks)}.",
             "",
             "### Q3. What is the blast radius if the most critical module fails?",
             "",
-            f"Highest-risk modules by structural centrality: {', '.join(f'`{_safe_rel(h, self.repo_path)}`' for h in hubs) or 'none detected'}.",
+            f"Highest-centrality modules by PageRank: {_fmt(hubs, rel=True)}. "
+            f"Changes to these propagate to the most downstream dependents.",
             "",
             "### Q4. Where is the business logic concentrated vs distributed?",
             "",
-            f"Business logic concentrated around top hubs: {', '.join(f'`{_safe_rel(h, self.repo_path)}`' for h in hubs[:3]) or 'unknown'}.",
+            f"Business logic is concentrated in the top-PageRank modules: {_fmt(hubs[:3], rel=True)}. "
+            f"These are the most-imported files and therefore define the core interfaces.",
             "",
             f"### Q5. What has changed most frequently in the last {GIT_DAYS} days?",
             "",
-            f"High-velocity files: {', '.join(f'`{_safe_rel(v, self.repo_path)}`' for v in velocity) or 'no git data available'}.",
+            f"Highest-velocity files: {_fmt(velocity, rel=True)}. "
+            f"These represent active pain points and likely sources of instability.",
             "",
         ]
+
+    # ------------------------------------------------------------------
+    # cartography_trace.jsonl — every agent action logged
+    # ------------------------------------------------------------------
 
     def write_cartography_trace(self, path: Path) -> None:
         records: list[dict[str, Any]] = []
 
+        # 1. Upstream records from Surveyor + Hydrologist (passed in by orchestrator)
+        records.extend(self._upstream_trace)
+
+        # 2. Per-module Semanticist records
+        if self.semanticist and hasattr(self.semanticist, "budget"):
+            for entry in self.semanticist.budget.call_log:
+                records.append({
+                    "timestamp":       datetime.now(UTC).isoformat(),
+                    "agent":           "semanticist",
+                    "action":          "llm_call",
+                    "confidence":      "medium",
+                    "evidence_method": "llm inference",
+                    "details":         entry,
+                })
+
+        # 3. Documentation drift flags
+        if self.semanticist and getattr(self.semanticist, "drift_flags", None):
+            for module_path, drift in self.semanticist.drift_flags.items():
+                records.append({
+                    "timestamp":       datetime.now(UTC).isoformat(),
+                    "agent":           "semanticist",
+                    "action":          "documentation_drift_flag",
+                    "confidence":      "medium",
+                    "evidence_method": "llm inference over code vs docstring",
+                    "module_path":     module_path,
+                    "detail":          drift,
+                })
+
+        # 4. Domain classification results
+        if self.semanticist and getattr(self.semanticist, "domain_map", None):
+            records.append({
+                "timestamp":       datetime.now(UTC).isoformat(),
+                "agent":           "semanticist",
+                "action":          "domain_classification",
+                "confidence":      "medium",
+                "evidence_method": "llm classification",
+                "domain_counts":   {
+                    d: sum(1 for v in self.semanticist.domain_map.values() if v == d)
+                    for d in set(self.semanticist.domain_map.values())
+                },
+            })
+
+        # 5. Budget summary
+        if self.semanticist and hasattr(self.semanticist, "budget"):
+            records.append({
+                "timestamp":       datetime.now(UTC).isoformat(),
+                "agent":           "semanticist",
+                "action":          "budget_summary",
+                "confidence":      "high",
+                "evidence_method": "llm call accounting",
+                "details":         self.semanticist.budget.summary(),
+            })
+
+        # 6. Archivist artifact generation records
         records.append({
-            "timestamp": datetime.now(UTC).isoformat(),
-            "agent": "archivist",
-            "action": "generate_CODEBASE_md",
-            "confidence": "high",
+            "timestamp":       datetime.now(UTC).isoformat(),
+            "agent":           "archivist",
+            "action":          "generate_CODEBASE_md",
+            "confidence":      "high",
             "evidence_method": "static analysis + semantic synthesis",
             "evidence_counts": {
-                "modules": len(self.module_graph.nodes),
-                "module_edges": len(self.module_graph.edges),
-                "datasets": len(self.lineage_graph.dataset_nodes),
+                "modules":         len(self.module_graph.nodes),
+                "module_edges":    len(self.module_graph.edges),
+                "datasets":        len(self.lineage_graph.dataset_nodes),
                 "transformations": len(self.lineage_graph.transformation_nodes),
+                "drift_flags":     len(self.semanticist.drift_flags) if self.semanticist else 0,
             },
         })
 
         records.append({
-            "timestamp": datetime.now(UTC).isoformat(),
-            "agent": "archivist",
-            "action": "generate_onboarding_brief",
-            "confidence": "medium",
+            "timestamp":       datetime.now(UTC).isoformat(),
+            "agent":           "archivist",
+            "action":          "generate_onboarding_brief",
+            "confidence":      "medium",
             "evidence_method": "semantic synthesis" if self.semanticist else "static fallback",
+            "llm_answers_used": bool(
+                self.semanticist and getattr(self.semanticist, "day_one_answers", None)
+            ),
         })
-
-        if self.semanticist and hasattr(self.semanticist, "budget"):
-            records.append({
-                "timestamp": datetime.now(UTC).isoformat(),
-                "agent": "semanticist",
-                "action": "budget_summary",
-                "confidence": "high",
-                "evidence_method": "llm call accounting",
-                "details": self.semanticist.budget.summary(),
-            })
-
-        if self.semanticist and getattr(self.semanticist, "drift_flags", None):
-            for module_path, drift in self.semanticist.drift_flags.items():
-                records.append({
-                    "timestamp": datetime.now(UTC).isoformat(),
-                    "agent": "semanticist",
-                    "action": "documentation_drift_flag",
-                    "confidence": "medium",
-                    "evidence_method": "llm inference over code vs docstring",
-                    "module_path": module_path,
-                    "detail": drift,
-                })
 
         with path.open("w", encoding="utf-8") as f:
             for record in records:
                 f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+        logger.info(f"[Archivist] cartography_trace.jsonl — {len(records)} records written")

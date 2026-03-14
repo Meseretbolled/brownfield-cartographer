@@ -34,6 +34,9 @@ dependencies = [
     "fastapi>=0.135.1",
     "uvicorn>=0.41.0",
     "python-multipart>=0.0.22",
+    "langchain-core>=0.2.0",
+    "langgraph>=0.1.0",
+    "langchain-openai>=0.1.0",
 ]
 
 [project.scripts]
