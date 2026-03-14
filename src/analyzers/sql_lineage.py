@@ -33,16 +33,26 @@ def _extract_tables(sql: str) -> tuple[list[str], list[str]]:
             for stmt in statements:
                 if stmt is None:
                     continue
+                # Extract CTE names — these are intermediate, not real sources
                 for cte in stmt.find_all(exp.CTE):
                     cte_names.add(cte.alias.lower())
+                # Extract all table references (SELECT/FROM/JOIN)
                 for table in stmt.find_all(exp.Table):
                     name = table.name.lower()
                     if name and name not in cte_names:
                         sources.append(name)
+                # Extract explicit write targets (CREATE TABLE / INSERT INTO)
                 if isinstance(stmt, (exp.Create, exp.Insert)):
                     tgt = stmt.find(exp.Table)
                     if tgt:
                         targets.append(tgt.name.lower())
+                # Also detect explicit JOIN targets as sources
+                for join in stmt.find_all(exp.Join):
+                    joined = join.find(exp.Table)
+                    if joined:
+                        name = joined.name.lower()
+                        if name and name not in cte_names:
+                            sources.append(name)
             break
         except Exception:
             continue

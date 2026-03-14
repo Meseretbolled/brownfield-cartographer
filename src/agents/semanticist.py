@@ -29,6 +29,8 @@ import time
 from pathlib import Path
 from typing import Any
 
+import numpy as np
+
 from src.models import DataLineageGraph, ModuleGraph, ModuleNode
 
 logger = logging.getLogger(__name__)
@@ -350,43 +352,180 @@ def generate_purpose_statements_batched(
 
 
 # ---------------------------------------------------------------------------
-# Domain clustering — LLM classification
+# Vector embedding helpers — TF-IDF cosine similarity
+# ---------------------------------------------------------------------------
+
+def _tfidf_vectorize(texts: list[str]) -> np.ndarray:
+    """
+    Build a simple TF-IDF matrix (documents × terms) using numpy only.
+    Each row is an L2-normalised vector representing one document.
+    """
+    # Tokenise
+    tokenised = [re.findall(r"[a-z]{2,}", t.lower()) for t in texts]
+    vocab: dict[str, int] = {}
+    for tokens in tokenised:
+        for tok in tokens:
+            if tok not in vocab:
+                vocab[tok] = len(vocab)
+
+    V = len(vocab)
+    N = len(texts)
+    if V == 0 or N == 0:
+        return np.zeros((N, 1))
+
+    # Term-frequency matrix
+    tf = np.zeros((N, V), dtype=np.float32)
+    for i, tokens in enumerate(tokenised):
+        for tok in tokens:
+            tf[i, vocab[tok]] += 1
+    # Normalise TF
+    row_sums = tf.sum(axis=1, keepdims=True)
+    row_sums[row_sums == 0] = 1
+    tf = tf / row_sums
+
+    # IDF
+    df = (tf > 0).sum(axis=0)
+    idf = np.log((N + 1) / (df + 1)) + 1  # smoothed
+
+    tfidf = tf * idf
+
+    # L2 normalise
+    norms = np.linalg.norm(tfidf, axis=1, keepdims=True)
+    norms[norms == 0] = 1
+    return tfidf / norms
+
+
+def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> np.ndarray:
+    """Return cosine similarity matrix (a_rows × b_rows). Both must be L2-normalised."""
+    return a @ b.T
+
+
+def _keyword_embed_domain_labels() -> np.ndarray:
+    """
+    Create a pseudo-embedding for each domain label using keyword expansion,
+    then TF-IDF vectorise them in the same vocabulary space as module texts.
+    """
+    label_descriptions = {
+        "ingestion":      "ingest extract load read source import input data file csv api fetch",
+        "transformation": "transform model dbt sql select join filter clean normalize compute calc",
+        "serving":        "serve api endpoint route handler request response output export deliver",
+        "monitoring":     "monitor alert log metric health check observe trace audit",
+        "orchestration":  "orchestrate schedule dag airflow pipeline workflow task trigger",
+        "configuration":  "config setting env environment parameter setup initialise credentials",
+        "testing":        "test spec fixture mock assert validate check verify unit integration",
+        "utilities":      "util helper common shared base abstract mixin tool library support",
+    }
+    return label_descriptions
+
+
+def _assign_domain_by_embedding(
+    node: ModuleNode,
+    all_texts: list[str],
+    all_vectors: np.ndarray,
+    node_idx: int,
+) -> str:
+    """
+    Assign a domain label to a module using cosine similarity between its
+    TF-IDF vector and the domain label pseudo-embeddings.
+    """
+    label_descriptions = _keyword_embed_domain_labels()
+    labels = list(label_descriptions.keys())
+    label_texts = list(label_descriptions.values())
+
+    # Build vectors for labels in same space
+    combined = all_texts + label_texts
+    combined_vecs = _tfidf_vectorize(combined)
+    module_vec = combined_vecs[node_idx:node_idx+1]
+    label_vecs = combined_vecs[len(all_texts):]
+
+    sims = _cosine_similarity(module_vec, label_vecs)[0]
+    best_idx = int(np.argmax(sims))
+    return labels[best_idx]
+
+
+# ---------------------------------------------------------------------------
+# Domain clustering — embedding-based + LLM verification
 # ---------------------------------------------------------------------------
 
 def cluster_into_domains(
     nodes: list[ModuleNode],
     budget: ContextWindowBudget,
 ) -> dict[str, str]:
+    """
+    Cluster modules into business domains using two-stage approach:
+    1. TF-IDF cosine similarity over purpose statements (vector embeddings)
+    2. LLM verification for uncertain assignments (low similarity score)
+    """
     if not nodes:
         return {}
 
     domain_map: dict[str, str] = {}
+
+    # Stage 1: Build TF-IDF embeddings over all purpose statements
+    texts = [
+        f"{n.purpose_statement or ''} {n.path} {' '.join(n.exported_functions[:5])}"
+        for n in nodes
+    ]
+    logger.info(f"[Semanticist] Building TF-IDF embeddings for {len(nodes)} modules...")
+    vectors = _tfidf_vectorize(texts)
+
+    label_descriptions = _keyword_embed_domain_labels()
+    labels = list(label_descriptions.keys())
+    label_texts = list(label_descriptions.values())
+
+    # Combine module texts + label texts for shared vocabulary
+    combined_vecs = _tfidf_vectorize(texts + label_texts)
+    module_vecs = combined_vecs[:len(nodes)]
+    label_vecs  = combined_vecs[len(nodes):]
+
+    # Cosine similarity: modules × domain_labels
+    sim_matrix = _cosine_similarity(module_vecs, label_vecs)  # (N, 8)
+    best_label_idx  = np.argmax(sim_matrix, axis=1)           # (N,)
+    best_label_sims = sim_matrix[np.arange(len(nodes)), best_label_idx]  # (N,)
+
+    # Assign embedding-based labels
+    UNCERTAIN_THRESHOLD = 0.15  # below this → send to LLM for verification
+    uncertain_nodes: list[tuple[int, ModuleNode]] = []
+
+    for i, node in enumerate(nodes):
+        sim_score = float(best_label_sims[i])
+        assigned  = labels[int(best_label_idx[i])]
+
+        if sim_score >= UNCERTAIN_THRESHOLD:
+            domain_map[node.path] = assigned
+        else:
+            uncertain_nodes.append((i, node))
+
+    logger.info(
+        f"[Semanticist] Embedding clustering: {len(domain_map)} assigned, "
+        f"{len(uncertain_nodes)} uncertain → sending to LLM"
+    )
+
+    # Stage 2: LLM verification for uncertain modules
     classify_batch = 10
-
-    for batch_start in range(0, len(nodes), classify_batch):
-        batch = nodes[batch_start : batch_start + classify_batch]
-
+    for batch_start in range(0, len(uncertain_nodes), classify_batch):
+        batch = uncertain_nodes[batch_start : batch_start + classify_batch]
         items = "\n".join(
-            f"{i+1}. File: {n.path}\n   Purpose: {n.purpose_statement or n.path}"
-            for i, n in enumerate(batch)
+            f"{j+1}. File: {n.path}\n   Purpose: {n.purpose_statement or n.path}"
+            for j, (_, n) in enumerate(batch)
         )
         prompt = (
             f"Classify each module into exactly one domain from this list:\n"
-            f"{', '.join(_DOMAIN_LABELS)}\n\n"
+            f"{', '.join(labels)}\n\n"
             f"Modules:\n{items}\n\n"
             f"Reply ONLY with a JSON array of domain strings, one per module, in order.\n"
             f"Example: [\"ingestion\", \"transformation\", \"utilities\"]\n"
             f"Use only labels from the list above."
         )
-
         raw    = _llm_call(prompt, model=FAST_MODEL, budget=budget, max_tokens=classify_batch * 20)
-        labels = _parse_batch_response(raw, len(batch)) if raw else [None] * len(batch)
+        llm_labels = _parse_batch_response(raw, len(batch)) if raw else [None] * len(batch)
 
-        for i, node in enumerate(batch):
-            label = labels[i]
-            if label and label.strip().lower() in _DOMAIN_LABELS:
-                domain_map[node.path] = label.strip().lower()
+        for j, (_, node) in enumerate(batch):
+            llm_label = llm_labels[j]
+            if llm_label and llm_label.strip().lower() in labels:
+                domain_map[node.path] = llm_label.strip().lower()
             else:
+                # Final fallback: keyword-based from path
                 path_l = node.path.lower()
                 if any(k in path_l for k in ("test", "spec", "fixture")):
                     domain_map[node.path] = "testing"
@@ -403,8 +542,12 @@ def cluster_into_domains(
                 else:
                     domain_map[node.path] = "utilities"
 
-        if batch_start + classify_batch < len(nodes):
+        if batch_start + classify_batch < len(uncertain_nodes):
             time.sleep(2)
+
+    # Store embedding vectors on nodes for Navigator semantic search
+    for i, node in enumerate(nodes):
+        node.embedding = module_vecs[i].tolist()  # stored for downstream use
 
     return domain_map
 

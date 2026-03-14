@@ -165,11 +165,23 @@ class Surveyor:
         self.repo_path = repo_path.resolve()
         self.kg = kg
 
-    def run(self, git_days: int = 30) -> ModuleGraph:
-        logger.info(f"[Surveyor] Analysing {self.repo_path} ...")
-
-        nodes = analyze_directory(self.repo_path)
-        logger.info(f"[Surveyor] Parsed {len(nodes)} module files")
+    def run(self, git_days: int = 30, changed_files: list[Path] | None = None) -> ModuleGraph:
+        if changed_files:
+            logger.info(
+                f"[Surveyor] Incremental mode — analysing {len(changed_files)} "
+                f"changed file(s) in {self.repo_path} ..."
+            )
+            from src.analyzers.tree_sitter_analyzer import analyze_module
+            nodes = []
+            for f in changed_files:
+                node = analyze_module(f)
+                if node:
+                    nodes.append(node)
+            logger.info(f"[Surveyor] Incremental: parsed {len(nodes)} changed module(s)")
+        else:
+            logger.info(f"[Surveyor] Analysing {self.repo_path} ...")
+            nodes = analyze_directory(self.repo_path)
+            logger.info(f"[Surveyor] Parsed {len(nodes)} module files")
 
         nodes = _annotate_git_velocity(nodes, self.repo_path, git_days)
 

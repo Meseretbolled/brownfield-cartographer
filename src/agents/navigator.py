@@ -15,11 +15,14 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 import os
+import re
 from pathlib import Path
 from typing import Any, Annotated
 
 import networkx as nx
+import numpy as np
 
 from src.graph.knowledge_graph import KnowledgeGraph
 from src.models import DataLineageGraph, ModuleGraph
@@ -43,6 +46,77 @@ def _as_json(obj: Any) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Vector index — TF-IDF cosine similarity for semantic search
+# ---------------------------------------------------------------------------
+
+def _tfidf_vectorize(texts: list[str]) -> np.ndarray:
+    """Build L2-normalised TF-IDF matrix using numpy only (no sklearn required)."""
+    tokenised = [re.findall(r"[a-z]{2,}", t.lower()) for t in texts]
+    vocab: dict[str, int] = {}
+    for tokens in tokenised:
+        for tok in tokens:
+            if tok not in vocab:
+                vocab[tok] = len(vocab)
+
+    V, N = len(vocab), len(texts)
+    if V == 0 or N == 0:
+        return np.zeros((N, max(V, 1)), dtype=np.float32)
+
+    tf = np.zeros((N, V), dtype=np.float32)
+    for i, tokens in enumerate(tokenised):
+        for tok in tokens:
+            tf[i, vocab[tok]] += 1
+    row_sums = tf.sum(axis=1, keepdims=True)
+    row_sums[row_sums == 0] = 1
+    tf /= row_sums
+
+    df  = (tf > 0).sum(axis=0)
+    idf = np.log((N + 1) / (df + 1)) + 1
+    mat = tf * idf
+
+    norms = np.linalg.norm(mat, axis=1, keepdims=True)
+    norms[norms == 0] = 1
+    return mat / norms
+
+
+class VectorIndex:
+    """
+    In-memory vector index over module purpose statements.
+    Supports cosine-similarity semantic search without external dependencies.
+    """
+
+    def __init__(self, module_graph: ModuleGraph) -> None:
+        self.paths: list[str] = list(module_graph.nodes.keys())
+        self.nodes = module_graph.nodes
+
+        # Build corpus: purpose + path + exports for each module
+        corpus = [
+            f"{node.purpose_statement or ''} {path} "
+            f"{' '.join(node.exported_functions[:10])} "
+            f"{' '.join(node.exported_classes[:5])} "
+            f"{node.domain_cluster or ''}"
+            for path, node in module_graph.nodes.items()
+        ]
+        self.vectors = _tfidf_vectorize(corpus)   # (N, V)
+        logger.info(
+            f"[Navigator] VectorIndex built — {len(self.paths)} modules, "
+            f"embedding dim={self.vectors.shape[1]}"
+        )
+
+    def search(self, query: str, limit: int = 10) -> list[tuple[float, str]]:
+        """Return [(cosine_score, path)] sorted descending."""
+        q_vec = _tfidf_vectorize([query] + [
+            # expand query with synonyms from domain labels
+            "ingest transform serve monitor orchestrate configure test utility"
+        ])[:1]  # take only the query vector
+
+        # cosine similarity: (1, V) × (V, N) → (1, N)
+        sims = (q_vec @ self.vectors.T)[0]
+        top_idx = np.argsort(sims)[::-1][:limit]
+        return [(float(sims[i]), self.paths[i]) for i in top_idx if sims[i] > 0]
+
+
+# ---------------------------------------------------------------------------
 # Pure graph-query functions (no LLM, always available)
 # ---------------------------------------------------------------------------
 
@@ -51,12 +125,24 @@ def _find_implementation(
     module_graph: ModuleGraph,
     repo_path: Path,
     limit: int = 10,
+    vector_index: VectorIndex | None = None,
 ) -> dict[str, Any]:
+    """
+    Two-stage semantic search:
+    1. Vector cosine similarity over TF-IDF embeddings of purpose statements
+    2. Keyword boost for exact token matches
+    Returns results with file:line citations and analysis_method label.
+    """
     concept_l = concept.lower().strip()
-    scored: list[tuple[float, str, dict[str, Any]]] = []
+    scores: dict[str, float] = {}
 
+    # Stage 1 — vector similarity
+    if vector_index is not None:
+        for sim_score, path in vector_index.search(concept, limit=limit * 2):
+            scores[path] = scores.get(path, 0.0) + sim_score * 10.0
+
+    # Stage 2 — keyword boost
     for path, node in module_graph.nodes.items():
-        score = 0.0
         text_parts = [
             path.lower(),
             (node.purpose_statement or "").lower(),
@@ -65,35 +151,41 @@ def _find_implementation(
             " ".join(node.exported_classes).lower(),
         ]
         blob = " ".join(text_parts)
-
         if concept_l in blob:
-            score += 5.0
+            scores[path] = scores.get(path, 0.0) + 5.0
         for token in concept_l.split():
-            if token and token in blob:
-                score += 1.0
+            if token and len(token) > 2 and token in blob:
+                scores[path] = scores.get(path, 0.0) + 1.0
 
-        if score > 0:
-            scored.append((
-                score,
-                path,
-                {
-                    "path": _rel(path, repo_path),
-                    "purpose_statement": node.purpose_statement,
-                    "domain_cluster": node.domain_cluster,
-                    "complexity_score": node.complexity_score,
-                    "pagerank_score": round(node.pagerank_score, 6),
-                    "analysis_method": "static metadata + semantic purpose matching",
-                    "evidence": {
-                        "exports": node.exported_functions[:8],
-                        "classes": node.exported_classes[:8],
-                    },
-                },
-            ))
+    # Build ranked results
+    ranked = sorted(scores.items(), key=lambda x: -x[1])[:limit]
+    matches = []
+    for path, score in ranked:
+        if path not in module_graph.nodes:
+            continue
+        node = module_graph.nodes[path]
+        matches.append({
+            "path": _rel(path, repo_path),
+            "file": _rel(path, repo_path),
+            "line_start": 1,
+            "line_end": node.loc,
+            "purpose_statement": node.purpose_statement,
+            "domain_cluster": node.domain_cluster,
+            "complexity_score": node.complexity_score,
+            "pagerank_score": round(node.pagerank_score, 6),
+            "similarity_score": round(score, 4),
+            "analysis_method": "vector cosine similarity (TF-IDF) + keyword boost",
+            "evidence": {
+                "exports": node.exported_functions[:8],
+                "classes": node.exported_classes[:8],
+                "loc": node.loc,
+            },
+        })
 
-    scored.sort(key=lambda x: (-x[0], x[1]))
     return {
         "query": concept,
-        "matches": [item[2] for item in scored[:limit]],
+        "search_method": "TF-IDF vector index + keyword scoring",
+        "matches": matches,
     }
 
 
@@ -242,6 +334,7 @@ def _build_langgraph_agent(
     lineage_graph: DataLineageGraph,
     kg: KnowledgeGraph,
     repo_path: Path,
+    vector_index: VectorIndex | None = None,
 ) -> Any | None:
     """
     Build a LangGraph ReAct agent with all four tools registered.
@@ -293,6 +386,9 @@ def _build_langgraph_agent(
         logger.info("[Navigator] No LLM available — using direct dispatch")
         return None
 
+    # Use provided vector index or build one
+    _vector_idx = vector_index or VectorIndex(module_graph)
+
     # ----------------------------------------------------------------
     # Register the four tools
     # ----------------------------------------------------------------
@@ -301,12 +397,12 @@ def _build_langgraph_agent(
     def find_implementation(concept: str) -> str:
         """
         Find which files implement a given concept, feature, or business function.
-        Searches purpose statements, exported symbols, domain clusters, and file paths.
-        Returns ranked matches with evidence citations.
+        Uses TF-IDF vector cosine similarity over purpose statement embeddings,
+        boosted by keyword matching. Returns file:line citations.
 
         Example: find_implementation("revenue calculation")
         """
-        result = _find_implementation(concept, module_graph, repo_path)
+        result = _find_implementation(concept, module_graph, repo_path, vector_index=_vector_idx)
         return _as_json(result)
 
     @tool
@@ -406,6 +502,8 @@ class Navigator:
         self.lineage_graph = lineage_graph
         self.semanticist = semanticist
         self.kg = kg or self._rebuild_kg()
+        # Build vector index over purpose statements for semantic search
+        self.vector_index = VectorIndex(module_graph)
         self._agent = _build_langgraph_agent(
             module_graph, lineage_graph, self.kg, self.repo_path
         )
@@ -462,9 +560,13 @@ class Navigator:
 
     def find_implementation(self, concept: str, limit: int = 10) -> dict[str, Any]:
         """
-        Semantic-ish lookup using purpose statements, domain names, exports, and paths.
+        Vector semantic search using TF-IDF cosine similarity over purpose statements,
+        boosted by keyword matching. Returns file:line citations.
         """
-        return _find_implementation(concept, self.module_graph, self.repo_path, limit)
+        return _find_implementation(
+            concept, self.module_graph, self.repo_path, limit,
+            vector_index=self.vector_index
+        )
 
     # ------------------------------------------------------------------
     # Tool 2 — trace_lineage

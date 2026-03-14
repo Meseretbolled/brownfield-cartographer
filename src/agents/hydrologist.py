@@ -292,6 +292,31 @@ class Hydrologist:
         """All nodes downstream of node_id (BFS over lineage graph)."""
         return self.kg.blast_radius(node_id)
 
+    def find_sources(self) -> list[str]:
+        """Return all dataset nodes with in-degree=0 — the ingestion entry points."""
+        return self.kg.find_sources()
+
+    def find_sinks(self) -> list[str]:
+        """Return all dataset nodes with out-degree=0 — the final output datasets."""
+        return self.kg.find_sinks()
+
+    def lineage_summary(self) -> dict:
+        """
+        Human-readable summary of the data lineage graph.
+        Includes sources, sinks, transformation count.
+        """
+        sources = self.find_sources()
+        sinks   = self.find_sinks()
+        return {
+            "sources":         sources,
+            "sinks":           sinks,
+            "source_count":    len(sources),
+            "sink_count":      len(sinks),
+            "datasets":        len(self.kg._dataset_nodes),
+            "transformations": len(self.kg._transformation_nodes),
+            "analysis_method": "sqlglot SQL parsing + Python dataflow + YAML/DAG config",
+        }
+
     def save(self, output_dir: Path, lineage_graph: DataLineageGraph) -> None:
         output_dir.mkdir(parents=True, exist_ok=True)
         (output_dir / "lineage_graph.json").write_text(

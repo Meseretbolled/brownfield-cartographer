@@ -89,6 +89,14 @@ class Orchestrator:
         logger.info(f"[Orchestrator] {len(changed)} changed file(s) since last run")
         return False
 
+    def _get_changed_files(self) -> list[Path]:
+        """Return list of changed file Paths since last run (for incremental mode)."""
+        last_sha = self._load_last_sha()
+        if not last_sha:
+            return []
+        changed_strs = _get_changed_files_since(self.repo_path, last_sha)
+        return [self.repo_path / f for f in changed_strs if (self.repo_path / f).exists()]
+
     def run(self) -> CartographyResult:
         start    = time.time()
         errors:   list[str] = []
@@ -99,6 +107,16 @@ class Orchestrator:
 
         if self._should_skip_incremental():
             return self._load_cached_result()
+
+        # Determine which files to analyse — all files or only changed ones
+        changed_files: list[Path] = []
+        if self.incremental:
+            changed_files = self._get_changed_files()
+            if changed_files:
+                logger.info(
+                    f"[Orchestrator] Incremental mode — re-analysing "
+                    f"{len(changed_files)} changed file(s) only"
+                )
 
         logger.info(f"[Orchestrator] Starting analysis for {self.repo_path}")
         self.output_dir.mkdir(parents=True, exist_ok=True)
@@ -112,7 +130,10 @@ class Orchestrator:
         # ------------------------------------------------------------------
         try:
             surveyor     = Surveyor(repo_path=self.repo_path, kg=self.kg)
-            module_graph = surveyor.run(git_days=GIT_DAYS)
+            module_graph = surveyor.run(
+                git_days=GIT_DAYS,
+                changed_files=changed_files if changed_files else None,
+            )
             surveyor.save(self.output_dir, module_graph)
 
             agent_trace.append({

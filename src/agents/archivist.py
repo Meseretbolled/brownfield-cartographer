@@ -204,18 +204,22 @@ class Archivist:
                 node = self.module_graph.nodes.get(hub)
                 lines.append(f"{i}. `{_safe_rel(hub, self.repo_path)}`")
                 if node and node.purpose_statement:
-                    lines.append(f"   - Purpose: {node.purpose_statement}")
+                    lines.append(f"   - **Purpose:** {node.purpose_statement}")
                 if node:
-                    lines.append(f"   - PageRank: `{node.pagerank_score:.5f}` | "
-                                 f"Domain: `{node.domain_cluster or 'unclassified'}` | "
-                                 f"Velocity: `{node.change_velocity_30d}` commits ({GIT_DAYS}d)")
+                    lines.append(
+                        f"   - **PageRank:** `{node.pagerank_score:.5f}` "
+                        f"| **Domain:** `{node.domain_cluster or 'unclassified'}` "
+                        f"| **Velocity:** `{node.change_velocity_30d}` commits ({GIT_DAYS}d) "
+                        f"| **LOC:** `{node.loc}` "
+                        f"| **Evidence:** static analysis (tree-sitter AST + PageRank)"
+                    )
         else:
             lines.append("- No architectural hubs detected.")
 
         lines += ["", "## Data Sources & Sinks", "", "### Sources"]
-        lines += [f"- `{s}`" for s in sources] if sources else ["- None detected"]
+        lines += [f"- `{_safe_rel(s, self.repo_path)}`" for s in sources] if sources else ["- None detected"]
         lines += ["", "### Sinks"]
-        lines += [f"- `{s}`" for s in sinks] if sinks else ["- None detected"]
+        lines += [f"- `{_safe_rel(s, self.repo_path)}`" for s in sinks] if sinks else ["- None detected"]
 
         lines += ["", "## Known Debt", "", "### Circular Dependencies"]
         if cycles:
@@ -268,25 +272,27 @@ class Archivist:
         return "\n".join(lines).strip() + "\n"
 
     def _architecture_overview_paragraph(self, repo_name: str, system_type: str) -> str:
-        top_hubs = ", ".join(
-            f"`{_safe_rel(h, self.repo_path)}`" for h in self.module_graph.architectural_hubs[:3]
-        ) or "no clear hubs identified"
-        n_modules     = len(self.module_graph.nodes)
-        n_edges       = len(self.module_graph.edges)
-        n_datasets    = len(self.lineage_graph.dataset_nodes)
-        n_transforms  = len(self.lineage_graph.transformation_nodes)
-        n_cycles      = len(self.module_graph.circular_dependencies)
-        dead_count    = sum(1 for n in self.module_graph.nodes.values() if n.is_dead_code_candidate)
+        top_hubs     = self.module_graph.architectural_hubs[:3]
+        n_modules    = len(self.module_graph.nodes)
+        n_edges      = len(self.module_graph.edges)
+        n_datasets   = len(self.lineage_graph.dataset_nodes)
+        n_transforms = len(self.lineage_graph.transformation_nodes)
+        n_cycles     = len(self.module_graph.circular_dependencies)
+        dead_count   = sum(1 for n in self.module_graph.nodes.values() if n.is_dead_code_candidate)
+        n_sources    = len(self.lineage_graph.sources)
+        n_sinks      = len(self.lineage_graph.sinks)
 
-        return (
-            f"`{repo_name}` is a **{system_type}** comprising `{n_modules}` modules "
-            f"connected by `{n_edges}` import dependencies. "
-            f"The data layer contains `{n_datasets}` datasets across "
-            f"`{n_transforms}` tracked transformations. "
-            f"The structural centre of gravity is {top_hubs}. "
-            f"{'No circular dependencies detected. ' if n_cycles == 0 else f'⚠ {n_cycles} circular dependency group(s) detected. '}"
-            f"{'No dead-code candidates identified.' if dead_count == 0 else f'{dead_count} module(s) flagged as potential dead code.'}"
-        )
+        hub_str = ", ".join(f"`{_safe_rel(h, self.repo_path)}`" for h in top_hubs) or "none detected"
+
+        lines = [
+            f"- **System:** {system_type}",
+            f"- **Modules:** `{n_modules}` files | `{n_edges}` import edges | `{dead_count}` dead-code candidates",
+            f"- **Data layer:** `{n_datasets}` datasets | `{n_transforms}` transformations | `{n_sources}` sources | `{n_sinks}` sinks",
+            f"- **Architectural hubs** _(PageRank, static analysis):_ {hub_str}",
+            f"- **Circular dependencies:** {'none' if n_cycles == 0 else f'⚠ {n_cycles} group(s) — see Known Debt'}",
+            f"- **Evidence method:** tree-sitter AST + git log + sqlglot SQL parsing",
+        ]
+        return "\n".join(lines)
 
     # ------------------------------------------------------------------
     # onboarding_brief.md
